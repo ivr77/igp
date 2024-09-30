@@ -1,0 +1,277 @@
+<style>
+    .page-number { border-radius: 13px; box-shadow: 2px 4px 4px 0px rgba(140, 141, 155, 0.05) inset, 0px 23px 7px 0px rgba(140, 141, 155, 0), 0px 15px 6px 0px rgba(140, 141, 155, 0.01), 0px 8px 5px 0px rgba(140, 141, 155, 0.05), 0px 4px 4px 0px rgba(140, 141, 155, 0.09), 0px 1px 2px 0px rgba(140, 141, 155, 0.1); background-color: #ef2e1f; color: #fff; width: 28px; height: 28px; padding: 0 12px; }
+    @media (max-width: 991px) { .page-number { white-space: initial; } }
+    .employee-engagement-section { background-color: #fff; display: flex; padding-top: 27px; flex-direction: column; overflow: hidden; }
+    .content-wrapper { align-self: center; width: 100%; max-width: 1384px; }
+    @media (max-width: 991px) { .content-wrapper { max-width: 100%; } }
+    .main-content { gap: 20px; display: flex; }
+    @media (max-width: 991px) { .main-content { flex-direction: column; align-items: stretch; gap: 0; } }
+    .sidebar { display: flex; flex-direction: column; line-height: normal; width: 25%; margin-left: 0; }
+    @media (max-width: 991px) { .sidebar { width: 100%; } }
+    .sidebar-content { border-radius: 20px; background-color: #000; display: flex; width: 100%; flex-direction: column; color: #fff; margin: 0 auto; padding: 31px 26px 333px; font: 700 20px/6px Montserrat, sans-serif; }
+    @media (max-width: 991px) { .sidebar-content { margin-top: 40px; padding: 0 0 100px 20px; } }
+    .logo-wrapper { align-self: start; display: flex; margin-left: 13px; gap: 25px; font-size: 32px; white-space: nowrap; line-height: 0.4; }
+    @media (max-width: 991px) { .logo-wrapper { margin-left: 10px; white-space: initial; } }
+    .logo { aspect-ratio: 0.99; object-fit: contain; object-position: center; width: 87px; }
+    .logo-text { flex-basis: auto; margin: auto 0; }
+    .dashboard-link { align-self: start; display: flex; gap: 13px; white-space: nowrap; line-height: 0; margin: 50px 0 0 26px; }
+    @media (max-width: 991px) { .dashboard-link { white-space: initial; margin: 40px 0 0 10px; } }
+    .dashboard-icon { aspect-ratio: 0.96; object-fit: contain; object-position: center; width: 50px; }
+    .dashboard-text { flex-basis: auto; margin: auto 0; }
+    .basic-knowledge-link { align-self: end; display: flex; margin-top: 29px; align-items: end; gap: 13px 9px; justify-content: start; flex-wrap: wrap; }
+    @media (max-width: 991px) { .basic-knowledge-link { margin-right: 3px; } }
+    .basic-knowledge-icon { aspect-ratio: 0.94; object-fit: contain; object-position: center; width: 50px; }
+    .basic-knowledge-text { width: 140px; }
+    .training-event-link { align-self: start; display: flex; gap: 9px; margin: 26px 0 0 26px; }
+    @media (max-width: 991px) { .training-event-link { margin-left: 10px; } }
+    .training-event-icon { aspect-ratio: 0.96; object-fit: contain; object-position: center; width: 50px; }
+    .training-event-text { align-self: start; margin-top: 12px; }
+    .company-event-link { border-radius: 30px; background-color: #ef2e1f; display: flex; margin-top: 30px; gap: 9px; padding: 10px 25px; }
+    @media (max-width: 991px) { .company-event-link { margin-right: 8px; padding: 0 20px; } }
+    .company-event-icon { aspect-ratio: 0.93; object-fit: contain; object-position: center; width: 50px; }
+    .company-event-text { margin-top: 12px; }
+    .employee-engagement-link { align-self: end; display: flex; margin-top: 17px; gap: 6px; white-space: nowrap; }
+    @media (max-width: 991px) { .employee-engagement-link { white-space: initial; } }
+    .engagement-indicator { background-color: #fff; border-radius: 50%; display: flex; width: 10px; height: 11px; margin: auto 0; }
+    .engagement-wrapper { border-radius: 30px; background-color: #8e8a8a; display: flex; gap: 9px; padding: 10px 17px; }
+    @media (max-width: 991px) { .engagement-wrapper { white-space: initial; } }
+    .engagement-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; }
+    .engagement-text { margin-top: 13px; }
+    .recognition-link { align-self: end; display: flex; margin-top: 27px; align-items: start; gap: 9px; }
+    .recognition-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; }
+    .recognition-text { margin-top: 13px; }
+    .ceremony-link { align-self: end; display: flex; gap: 9px; margin: 22px 23px 0 0; }
+    @media (max-width: 991px) { .ceremony-link { margin-right: 10px; } }
+    .ceremony-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; }
+    .ceremony-text { margin-top: 13px; }
+    .campaign-link { align-self: center; display: flex; width: 165px; max-width: 100%; gap: 9px; white-space: nowrap; line-height: 0; margin: 35px 0 0 22px; }
+    @media (max-width: 991px) { .campaign-link { white-space: initial; } }
+    .campaign-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; }
+    .campaign-text { align-self: end; margin-top: 21px; flex-grow: 1; width: 96px; }
+    .e-library-link { align-self: start; display: flex; gap: 9px; white-space: nowrap; line-height: 0; margin: 52px 0 0 26px; }
+    @media (max-width: 991px) { .e-library-link { white-space: initial; margin: 40px 0 0 10px; } }
+    .e-library-icon { aspect-ratio: 0.94; object-fit: contain; object-position: center; width: 50px; }
+    .e-library-text { align-self: end; margin-top: 23px; }
+    .my-team-link { align-self: start; display: flex; gap: 9px; line-height: 0; margin: 29px 0 0 26px; }
+    @media (max-width: 991px) { .my-team-link { margin-left: 10px; } }
+    .my-team-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; }
+    .my-team-text { margin: auto 0; }
+    .my-data-link { align-self: start; display: flex; gap: 9px; line-height: 0; margin: 29px 0 0 26px; }
+    @media (max-width: 991px) { .my-data-link { margin-left: 10px; } }
+    .my-data-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; }
+    .my-data-text { margin: auto 0; }
+    .main-column { display: flex; flex-direction: column; line-height: normal; width: 75%; margin-left: 20px; }
+    @media (max-width: 991px) { .main-column { width: 100%; } }
+    .header-section { display: flex; width: 100%; flex-direction: column; }
+    @media (max-width: 991px) { .header-section { max-width: 100%; margin-top: 40px; } }
+    .header-content { display: flex; width: 100%; gap: 40px 58px; flex-wrap: wrap; font: 20px/0 Montserrat, sans-serif; }
+    @media (max-width: 991px) { .header-content { max-width: 100%; margin-right: 7px; } }
+    .search-bar { border-radius: 20px; align-self: start; display: flex; gap: 18px; color: #d9d9d9; font-weight: 700; white-space: nowrap; flex-wrap: wrap; flex-grow: 1; flex-basis: auto; padding: 8px 18px; border: 2px solid #d9d9d9; }
+    @media (max-width: 991px) { .search-bar { white-space: initial; } }
+    .search-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 40px; }
+    .search-text { align-self: start; margin-top: 18px; flex-basis: auto; flex-grow: 1; }
+    @media (max-width: 991px) { .search-text { max-width: 100%; } }
+    .user-info { display: flex; gap: 24px; }
+    .user-avatar { aspect-ratio: 1; object-fit: contain; object-position: center; width: 72px; }
+    .user-details { display: flex; flex-direction: column; margin: auto 0; }
+    .user-name { color: #000; font-weight: 700; }
+    .user-id { color: #000; font-weight: 500; align-self: start; margin-top: 5px; }
+    .page-title-section { display: flex; margin-top: 35px; width: 100%; gap: 20px; font-family: Montserrat, sans-serif; font-weight: 700; flex-wrap: wrap; justify-content: space-between; }
+    @media (max-width: 991px) { .page-title-section { max-width: 100%; margin-right: 4px; } }
+    .page-title { color: #000; font-size: 32px; line-height: 0.4; }
+    .breadcrumb { align-self: start; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #1e1e1e; line-height: 0.2; justify-content: start; }
+    .home-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 25px; align-self: stretch; margin: auto 0; }
+    .breadcrumb-text { align-self: stretch; width: 233px; margin: auto 0; }
+    .event-card { border-radius: 13px; background-color: #000; margin-top: 25px; padding: 32px 42px; }
+    @media (max-width: 991px) { .event-card { max-width: 100%; padding: 0 20px; } }
+    .event-content { gap: 20px; display: flex; }
+    @media (max-width: 991px) { .event-content { flex-direction: column; align-items: stretch; gap: 0; } }
+    .event-image-column { display: flex; flex-direction: column; line-height: normal; width: 30%; margin-left: 0; }
+    @media (max-width: 991px) { .event-image-column { width: 100%; } }
+    .event-image { aspect-ratio: 1.37; object-fit: contain; object-position: center; width: 100%; border-radius: 20px; margin-top: 14px; flex-grow: 1; }
+    @media (max-width: 991px) { .event-image { margin-top: 40px; } }
+    .event-details-column { display: flex; flex-direction: column; line-height: normal; width: 70%; margin-left: 20px; }
+    @media (max-width: 991px) { .event-details-column { width: 100%; } }
+    .event-details { display: flex; width: 100%; flex-direction: column; font-family: Montserrat, sans-serif; color: #fff; font-weight: 700; line-height: 0.2; }
+    @media (max-width: 991px) { .event-details { max-width: 100%; margin-top: 40px; } }
+    .event-attendees { align-self: end; display: flex; gap: 7px; font-size: 14px; white-space: nowrap; }
+    @media (max-width: 991px) { .event-attendees { white-space: initial; } }
+    .attendees-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 20px; }
+    .event-title { font-size: 24px; line-height: 5px; align-self: start; margin-top: 12px; }
+    @media (max-width: 991px) { .event-title { max-width: 100%; } }
+    .event-description { font-size: 16px; line-height: 3px; margin-top: 25px; }
+    @media (max-width: 991px) { .event-description { max-width: 100%; margin-right: 10px; } }
+    .event-author { align-self: start; display: flex; margin-top: 25px; gap: 15px; }
+    @media (max-width: 991px) { .event-author { margin-left: 3px; } }
+    .author-avatar { aspect-ratio: 1; object-fit: contain; object-position: center; width: 49px; }
+    .author-details { align-self: start; display: flex; flex-direction: column; }
+    .author-name { font-size: 16px; align-self: start; }
+    .event-date { font-size: 14px; margin-top: 15px; }
+    .pagination { align-self: end; display: flex; margin-top: 19px; width: 359px; max-width: 100%; gap: 10px; color: #000; white-space: nowrap; font: 700 14px/0.2 Montserrat, sans-serif; }
+    @media (max-width: 991px) { .pagination { margin-right: 4px; white-space: initial; } }
+    .prev-button { border-radius: 13px; border: 1px solid #ef2e1f; box-shadow: 2px 4px 4px 0px rgba(140, 141, 155, 0.05) inset, 0px 23px 7px 0px rgba(140, 141, 155, 0), 0px 15px 6px 0px rgba(140, 141, 155, 0.01), 0px 8px 5px 0px rgba(140, 141, 155, 0.05), 0px 4px 4px 0px rgba(140, 141, 155, 0.09), 0px 1px 2px 0px rgba(140, 141, 155, 0.1); display: flex; align-items: flex-start; gap: 8px; padding: 4px 11px; }
+    @media (max-width: 991px) { .prev-button { white-space: initial; } }
+    .prev-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 20px; align-self: start; }
+    .prev-text { margin: auto 0; }
+    .next-button { border-radius: 13px; border: 1px solid #ef2e1f; box-shadow: 2px 4px 4px 0px rgba(140, 141, 155, 0.05) inset, 0px 23px 7px 0px rgba(140, 141, 155, 0), 0px 15px 6px 0px rgba(140, 141, 155, 0.01), 0px 8px 5px 0px rgba(140, 141, 155, 0.05), 0px 4px 4px 0px rgba(140, 141, 155, 0.09), 0px 1px 2px 0px rgba(140, 141, 155, 0.1); display: flex; align-items: flex-start; gap: 13px; padding: 4px 23px; }
+    @media (max-width: 991px) { .next-button { white-space: initial; padding: 0 20px; } }
+    .next-text { margin: auto 0; }
+    .next-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 20px; align-self: start; }
+    .footer { background: var(--Black-100, #e8e8e8); display: flex; margin-top: 397px; width: 100%; gap: 20px; color: #000; flex-wrap: wrap; justify-content: space-between; padding: 36px 80px; font: 700 16px Montserrat, sans-serif; }
+    @media (max-width: 991px) { .footer { max-width: 100%; margin-top: 40px; padding: 0 20px; } }
+    .copyright { }
+    @media (max-width: 991px) { .copyright { max-width: 100%; } }
+    </style>
+    
+    <section class="employee-engagement-section">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <aside class="sidebar">
+            <nav class="sidebar-content">
+              <div class="logo-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Logo" class="logo" />
+                <span class="logo-text">IKNOW</span>
+              </div>
+              <a href="#" class="dashboard-link">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/54ddb38055df0b433e87cab007b20dc1494b496451a30895e03026b19a93fbc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Dashboard" class="dashboard-icon" />
+                <span class="dashboard-text">Dashboard</span>
+              </a>
+              <a href="#" class="basic-knowledge-link">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e065952ce841e56e1271a3d03d2e8ae07923c1e6b4d42f8cf72e54b52279f42?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Basic Knowledge" class="basic-knowledge-icon" />
+                <span class="basic-knowledge-text">Basic Knowledge</span>
+              </a>
+              <a href="#" class="training-event-link">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/05a43e8908b0c6f0789c4abae94a94670f480070fe5ad4fac07264d92898f431?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Training Event" class="training-event-icon" />
+                <span class="training-event-text">Training Event</span>
+              </a>
+              <a href="#" class="company-event-link">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e0248ae6c0fcac0b9bf7bc2bd23ad05444d86cac8c496edab2bdeb8e7a67c9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Company Event" class="company-event-icon" />
+                <span class="company-event-text">Company Event</span>
+              </a>
+              <div class="employee-engagement-link">
+                <span class="engagement-indicator"></span>
+                <div class="engagement-wrapper">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Employee Engagement" class="engagement-icon" />
+                  <span class="engagement-text">Employee Engagement</span>
+                </div>
+              </div>
+              <a href="#" class="recognition-link">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Recognition & Appreciation" class="recognition-icon" />
+                <span class="recognition-text">Recognition & Appreciation</span>
+              </a>
+              <a href="#" class="ceremony-link">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Ceremony & Meeting" class="ceremony-icon" />
+                <span class="ceremony-text">Ceremony & Meeting</span>
+              </a>
+              <a href="#" class="campaign-link">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Campaign" class="campaign-icon" />
+                <span class="campaign-text">Campaign</span>
+              </a>
+              <a href="#" class="e-library-link">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e9982dc910b1b7e69f5322eba8e7cc0a3f338ee5bab8eccf5017de1a4c5721d5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="E-Library" class="e-library-icon" />
+                <span class="e-library-text">E-Library</span>
+              </a>
+              <a href="#" class="my-team-link">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9cdd511e873baf6da77b8493b6ca82ea2387e0e427a46182345cfac2bc851a2f?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Team" class="my-team-icon" />
+                <span class="my-team-text">My Team</span>
+              </a>
+              <a href="#" class="my-data-link">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/547010f45ea5466b2a546267db2a8d0de16dc93d5d6739f3e0f3745eff7fd13f?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Data" class="my-data-icon" />
+                <span class="my-data-text">My Data</span>
+              </a>
+            </nav>
+          </aside>
+          <main class="main-column">
+            <header class="header-section">
+              <div class="header-content">
+                <form class="search-bar" role="search">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Search" class="search-icon" />
+                  <label for="search-input" class="visually-hidden">Search</label>
+                  <input type="search" id="search-input" class="search-text" placeholder="Search" />
+                </form>
+                <div class="user-info">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc9fe485dfabcd7f0bd220092e173c32ffe14d07481510386a822c418e9ef3a7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="User Avatar" class="user-avatar" />
+                  <div class="user-details">
+                    <span class="user-name">Aula Wijaya</span>
+                    <span class="user-id">00359</span>
+                  </div>
+                </div>
+              </div>
+              <div class="page-title-section">
+                <h1 class="page-title">Employee Engagement</h1>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/02c82341b9c8dc21699bcd0905e6a58d6c0b419afad03d1e9453112dd8a4a32d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Home" class="home-icon" />
+                  <span class="breadcrumb-text">Home &gt; Employee Engagement</span>
+                </nav>
+              </div>
+            </header>
+            <article class="event-card">
+              <div class="event-content">
+                <div class="event-image-column">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b4876a8946f1e3fc5555eff29dca6f7957136bca49d30bc521d49a4eae404fb6?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Event Image" class="event-image" />
+                </div>
+                <div class="event-details-column">
+                  <div class="event-details">
+                    <div class="event-attendees">
+                      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/24afd9a9d48a0b8c17d33cc84dc25b3d2ea9c2104ecbd5c452cb1f6b0d02f63e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Attendees" class="attendees-icon" />
+                      <span>22</span>
+                    </div>
+                    <h2 class="event-title">ADVENTURE OFF-ROAD GOL IV UP PT IGP & PT GKD 2019</h2>
+                    <p class="event-description">ADVENTURE OFF-ROAD GOL IV UP PT IGP & PT GKD 2019 Pada hari Jum'at Sabtu, 06-07 Desember 2019 bertempat di Cikole Jayagiri Resort, Lembang, Bandung didakan agenda outing Adventure</p>
+                    <div class="event-author">
+                      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ac929279381e32586ae4c24692e45d95383c264616b68660135fab7976fb00e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Author Avatar" class="author-avatar" />
+                      <div class="author-details">
+                        <span class="author-name">Aula Wijaya</span>
+                        <time class="event-date" datetime="2024-12-29T16:59">29 Desember 2024 16:59</time>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="event-card">
+              <div class="event-content">
+                <div class="event-image-column">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b4876a8946f1e3fc5555eff29dca6f7957136bca49d30bc521d49a4eae404fb6?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Event Image" class="event-image" />
+                </div>
+                <div class="event-details-column">
+                  <div class="event-details">
+                    <div class="event-attendees">
+                      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/24afd9a9d48a0b8c17d33cc84dc25b3d2ea9c2104ecbd5c452cb1f6b0d02f63e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Attendees" class="attendees-icon" />
+                      <span>59</span>
+                    </div>
+                    <h2 class="event-title">FAMILY DAY 2019</h2>
+                    <p class="event-description">FAMILY DAY 2019 "Together to Excellence" merupakan tema Family Day PT IGP, GKD, AGI & AWI di tahun 2019. Bertempat di Ocean Dream Samudra Ancol, acara setiap 2 tahun sekali ini berlangsung</p>
+                    <div class="event-author">
+                      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ac929279381e32586ae4c24692e45d95383c264616b68660135fab7976fb00e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Author Avatar" class="author-avatar" />
+                      <div class="author-details">
+                        <span class="author-name">Aula Wijaya</span>
+                        <time class="event-date" datetime="2024-12-29T16:59">29 Desember 2024 16:59</time>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <nav class="pagination" aria-label="Pagination">
+              <button class="prev-button" aria-label="Previous page">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/20a8c794594f9ff0916a6e2ecc819e84179d366014f72b67019abf4f2d75f17b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Previous" class="prev-icon" />
+                <span class="prev-text">Previous</span>
+              </button>
+              <span class="page-number">1</span>
+              <span class="page-number">2</span>
+              <span class="page-number">3</span>
+              <span class="page-number">4</span>
+              <button class="next-button" aria-label="Next page">
+                <span class="next-text">Next</span>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/af4adb3bbdf57dc24050fac6eda2f2c1fe51603220ec519fdec8ce8d8e11034d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Next" class="next-icon" />
+              </button>
+            </nav>
+          </main>
+        </div>
+      </div>
+      <footer class="footer">
+        <p class="copyright">Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" target="_blank">igp-astra.co.id</a>. All rights reserved.</p>
+        <p>Version 1.0.0</p>
+      </footer>
+    </section>

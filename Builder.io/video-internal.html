@@ -1,0 +1,445 @@
+<style>
+    .video-internal-section {
+      background-color: #fff;
+      display: flex;
+      padding-top: 27px;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .content-wrapper {
+      align-self: center;
+      width: 100%;
+      max-width: 1377px;
+    }
+    
+    .main-content {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+    }
+    
+    .sidebar-menu {
+      border-radius: 20px;
+      background-color: #000;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      color: #fff;
+      margin: 0 auto;
+      padding: 31px 27px 336px;
+      font: 700 20px/1 Montserrat, sans-serif;
+    }
+    
+    .logo-container {
+      align-self: flex-start;
+      display: flex;
+      margin-left: 12px;
+      gap: 25px;
+      font-size: 32px;
+      white-space: nowrap;
+    }
+    
+    .logo {
+      aspect-ratio: 0.99;
+      object-fit: contain;
+      width: 87px;
+    }
+    
+    .menu-item {
+      align-self: flex-start;
+      display: flex;
+      gap: 11px;
+      white-space: nowrap;
+      margin: 50px 0 0 23px;
+    }
+    
+    .menu-icon {
+      aspect-ratio: 0.96;
+      object-fit: contain;
+      width: 50px;
+    }
+    
+    .menu-text {
+      margin: auto 0;
+    }
+    
+    .submenu-item {
+      align-self: flex-end;
+      display: flex;
+      margin-top: 29px;
+      align-items: flex-end;
+      gap: 13px 9px;
+      line-height: 1.2;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    
+    .active-menu-item {
+      border-radius: 30px;
+      background-color: #ef2e1f;
+      display: flex;
+      margin-top: 30px;
+      gap: 8px;
+      white-space: nowrap;
+      padding: 10px 25px;
+    }
+    
+    .main-content-area {
+      display: flex;
+      flex-direction: column;
+      width: 75%;
+    }
+    
+    .header {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      font: 20px/1 Montserrat, sans-serif;
+    }
+    
+    .search-bar {
+      border-radius: 20px;
+      display: flex;
+      gap: 18px;
+      color: #d9d9d9;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-grow: 1;
+      padding: 8px 18px;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 40px;
+    }
+    
+    .user-profile {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    
+    .profile-pic {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 72px;
+    }
+    
+    .user-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .page-title-container {
+      display: flex;
+      margin-top: 33px;
+      width: 100%;
+      gap: 20px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .page-title {
+      color: #000;
+      font-size: 32px;
+    }
+    
+    .breadcrumb {
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      color: #1e1e1e;
+      align-items: center;
+    }
+    
+    .video-container {
+      border-radius: 13px;
+      background-color: #000;
+      margin-top: 24px;
+      padding: 31px 39px;
+      display: flex;
+      gap: 20px;
+    }
+    
+    .video-thumbnail {
+      width: 31%;
+    }
+    
+    .video-thumbnail img {
+      aspect-ratio: 1.4;
+      object-fit: contain;
+      width: 100%;
+      border-radius: 20px;
+    }
+    
+    .video-details {
+      width: 69%;
+      color: #fff;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+    }
+    
+    .view-count {
+      display: flex;
+      gap: 7px;
+      font-size: 14px;
+      align-items: center;
+    }
+    
+    .video-title {
+      font-size: 24px;
+      margin-top: 8px;
+    }
+    
+    .video-description {
+      font-size: 16px;
+      margin-top: 23px;
+    }
+    
+    .author-info {
+      display: flex;
+      margin-top: 87px;
+      gap: 15px;
+      align-items: center;
+    }
+    
+    .author-pic {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 49px;
+    }
+    
+    .author-details {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .author-name {
+      font-size: 16px;
+    }
+    
+    .publish-date {
+      font-size: 14px;
+      margin-top: 14px;
+    }
+    
+    .footer {
+      background-color: #e8e8e8;
+      display: flex;
+      margin-top: 396px;
+      width: 100%;
+      gap: 20px;
+      color: #000;
+      justify-content: space-between;
+      padding: 36px 80px;
+      font: 700 16px Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .content-wrapper {
+        max-width: 100%;
+      }
+    
+      .main-content {
+        flex-direction: column;
+      }
+    
+      .sidebar,
+      .main-content-area {
+        width: 100%;
+      }
+    
+      .sidebar-menu {
+        margin-top: 40px;
+        padding: 0 0 100px 20px;
+      }
+    
+      .logo-container {
+        margin-left: 10px;
+        white-space: initial;
+      }
+    
+      .menu-item {
+        margin-left: 10px;
+      }
+    
+      .active-menu-item {
+        margin-right: 4px;
+        padding: 0 20px;
+      }
+    
+      .header {
+        margin-top: 40px;
+      }
+    
+      .search-bar {
+        max-width: 100%;
+      }
+    
+      .page-title-container {
+        max-width: 100%;
+        margin-right: 2px;
+      }
+    
+      .video-container {
+        max-width: 100%;
+        padding: 0 20px;
+        flex-direction: column;
+      }
+    
+      .video-thumbnail,
+      .video-details {
+        width: 100%;
+      }
+    
+      .video-thumbnail img {
+        margin-top: 40px;
+      }
+    
+      .video-details {
+        margin-top: 40px;
+      }
+    
+      .author-info {
+        margin: 40px 0 0 3px;
+      }
+    
+      .footer {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    </style>
+    
+    <section class="video-internal-section">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <aside class="sidebar">
+            <nav class="sidebar-menu">
+              <div class="logo-container">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="IKNOW Logo" class="logo">
+                <h1 class="menu-text">IKNOW</h1>
+              </div>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/54ddb38055df0b433e87cab007b20dc1494b496451a30895e03026b19a93fbc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">Dashboard</span>
+              </a>
+              <a href="#" class="submenu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e065952ce841e56e1271a3d03d2e8ae07923c1e6b4d42f8cf72e54b52279f42?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">Basic Knowledge</span>
+              </a>
+              <a href="#" class="submenu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/98db792af54e8ed7388abda5afe6be45eaa36cf19a05ecf5e35fcc489e03671c?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">Training Event</span>
+              </a>
+              <a href="#" class="submenu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5e772d165aa68781a0f3eb38158c0a7a7b6359cdfb51177ebcaf68f43f8f71bd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">Company Event</span>
+              </a>
+              <div class="active-menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4b33df20bd279a123148e348e32721f25f05df7778a23b20dd08379e038b1185?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">E-Library</span>
+              </div>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">Video</span>
+              </a>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">Article</span>
+              </a>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">Bulletin</span>
+              </a>
+              <div class="submenu-item">
+                <div></div>
+                <div class="active-menu-item">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                  <span class="menu-text">Video Internal</span>
+                </div>
+              </div>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/246ed86c32c6b8957e7243c8b77114ebf95fdf606042e8c220cd8f8a61735e79?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">My Team</span>
+              </a>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/10c3ab749fa717bcae414b8a51ad30a389ab9178d6b9c1c6488c92981ce3d8dd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">My Data</span>
+              </a>
+            </nav>
+          </aside>
+          <main class="main-content-area">
+            <header class="header">
+              <form class="search-bar">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="search-icon">
+                <label for="search-input" class="visually-hidden">Search</label>
+                <input type="text" id="search-input" placeholder="Search" class="menu-text">
+              </form>
+              <div class="user-profile">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc9fe485dfabcd7f0bd220092e173c32ffe14d07481510386a822c418e9ef3a7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="User profile picture" class="profile-pic">
+                <div class="user-info">
+                  <span class="user-name">Aula Wijaya</span>
+                  <span class="user-id">00359</span>
+                </div>
+              </div>
+            </header>
+            <div class="page-title-container">
+              <h2 class="page-title">Video Internal</h2>
+              <nav class="breadcrumb" aria-label="Breadcrumb">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/02c82341b9c8dc21699bcd0905e6a58d6c0b419afad03d1e9453112dd8a4a32d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span>Home &gt; Video Internal</span>
+              </nav>
+            </div>
+            <article class="video-container">
+              <div class="video-thumbnail">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ac958a36c2bc5c08c9160dad3355db6a1362fcd60954b9a3018eef31186e33ba?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Video thumbnail">
+              </div>
+              <div class="video-details">
+                <div class="view-count">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/24afd9a9d48a0b8c17d33cc84dc25b3d2ea9c2104ecbd5c452cb1f6b0d02f63e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                  <span>138</span>
+                </div>
+                <h3 class="video-title">IKNOW</h3>
+                <p class="video-description">Beragam pengetahuan dengan satu akses</p>
+                <div class="author-info">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ac929279381e32586ae4c24692e45d95383c264616b68660135fab7976fb00e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="author-pic">
+                  <div class="author-details">
+                    <span class="author-name">Aula Wijaya</span>
+                    <time class="publish-date" datetime="2024-01-26T14:44">26 Januari 2024 14:44</time>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </main>
+        </div>
+      </div>
+      <footer class="footer">
+        <p>Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" target="_blank">igp-astra.co.id</a>. All rights reserved.</p>
+        <p>Version 1.0.0</p>
+      </footer>
+    </section>

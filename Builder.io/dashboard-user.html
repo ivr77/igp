@@ -1,0 +1,817 @@
+<style>
+    .dashboard-user {
+      background-color: #fff;
+      display: flex;
+      padding: 27px 45px 0;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 26%;
+    }
+    
+    .sidebar-content {
+      border-radius: 20px;
+      background-color: #000;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: start;
+      color: #fff;
+      margin: 0 auto;
+      padding: 31px 31px 686px;
+      font: 700 20px/1 Montserrat, sans-serif;
+    }
+    
+    .logo-container {
+      display: flex;
+      gap: 25px;
+      font-size: 32px;
+      white-space: nowrap;
+    }
+    
+    .logo {
+      aspect-ratio: 0.99;
+      object-fit: contain;
+      object-position: center;
+      width: 87px;
+    }
+    
+    .logo-text {
+      margin: auto 0;
+    }
+    
+    .nav-item {
+      display: flex;
+      gap: 9px;
+      margin: 29px 0 0 21px;
+    }
+    
+    .nav-icon {
+      aspect-ratio: 0.94;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .nav-text {
+      margin: auto 0;
+    }
+    
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 74%;
+      margin-left: 20px;
+    }
+    
+    .header {
+      display: flex;
+      width: 100%;
+      gap: 40px 50px;
+      flex-wrap: wrap;
+    }
+    
+    .search-bar {
+      border-radius: 20px;
+      align-self: start;
+      display: flex;
+      gap: 18px;
+      color: #d9d9d9;
+      white-space: nowrap;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      padding: 8px 18px;
+      font: 700 20px/1 Montserrat, sans-serif;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 40px;
+    }
+    
+    .search-text {
+      align-self: start;
+      margin-top: 18px;
+      flex-basis: auto;
+      flex-grow: 1;
+    }
+    
+    .user-profile {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .user-avatar {
+      background-color: #1e1e1e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      padding: 0 5px;
+    }
+    
+    .user-avatar-img {
+      aspect-ratio: 1.03;
+      object-fit: contain;
+      object-position: center;
+      width: 62px;
+    }
+    
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+      font: 20px/1 Montserrat, sans-serif;
+    }
+    
+    .user-name {
+      color: #000;
+      font-weight: 700;
+    }
+    
+    .user-id {
+      color: #000;
+      font-weight: 500;
+      align-self: start;
+      margin-top: 5px;
+    }
+    
+    .dashboard-title {
+      display: flex;
+      margin-top: 30px;
+      width: 100%;
+      gap: 40px 100px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      flex-wrap: wrap;
+    }
+    
+    .title-text {
+      color: #000;
+      font-size: 32px;
+    }
+    
+    .breadcrumb {
+      align-self: start;
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      color: #1e1e1e;
+      flex: 1;
+    }
+    
+    .breadcrumb-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 25px;
+    }
+    
+    .breadcrumb-text {
+      margin: auto 0;
+    }
+    
+    .dashboard-stats {
+      margin-top: 39px;
+      display: flex;
+      gap: 20px;
+    }
+    
+    .stat-card {
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      color: #1e1e1e;
+      padding: 25px 29px 16px;
+      font: 700 20px/1 Montserrat, sans-serif;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .stat-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 100px;
+      align-self: center;
+      max-width: 100%;
+    }
+    
+    .stat-title {
+      margin: 23px 13px 0 0;
+    }
+    
+    .stat-value {
+      font-size: 32px;
+      line-height: 1.2;
+      align-self: center;
+      margin-top: 18px;
+    }
+    
+    .stat-total {
+      color: #1e1e1e;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 42px;
+    }
+    
+    .featured-content {
+      margin-top: 39px;
+      display: flex;
+      gap: 20px;
+    }
+    
+    .featured-card {
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-grow: 1;
+      padding-top: 35px;
+      flex-direction: column;
+      font-family: Montserrat, sans-serif;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .featured-header {
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      padding: 0 29px;
+    }
+    
+    .featured-title {
+      color: #1e1e1e;
+      font-size: 20px;
+      font-weight: 700;
+      align-self: start;
+    }
+    
+    .featured-image {
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+      position: relative;
+      aspect-ratio: 2.58;
+      margin-top: 20px;
+      padding-top: 128px;
+      align-items: start;
+      font-size: 16px;
+      color: #fff;
+      font-weight: 600;
+      white-space: nowrap;
+      line-height: 2.4;
+    }
+    
+    .featured-img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .featured-tag {
+      position: relative;
+      z-index: 10;
+      border-radius: 8px;
+      background-color: #ef2e1f;
+      padding: 0 17px;
+    }
+    
+    .featured-description {
+      border-radius: 0 0 20px 20px;
+      margin-top: -5px;
+      font-size: 16px;
+      color: #1e1e1e;
+      font-weight: 600;
+      line-height: 2.4;
+      padding: 14px 70px 30px;
+    }
+    
+    .section-header {
+      display: flex;
+      margin-top: 57px;
+      gap: 20px;
+      font-family: Montserrat, sans-serif;
+      line-height: 1;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .section-title {
+      color: #ef2e1f;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    
+    .see-more {
+      color: #f2554a;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    
+    .event-card {
+      border-radius: 20px;
+      box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.25);
+      margin-top: 29px;
+      padding: 29px 30px;
+      border: 2px solid #d9d9d9;
+      display: flex;
+      gap: 20px;
+    }
+    
+    .event-image {
+      width: 21%;
+    }
+    
+    .event-img {
+      aspect-ratio: 1.2;
+      object-fit: contain;
+      object-position: center;
+      width: 184px;
+      max-width: 100%;
+    }
+    
+    .event-content {
+      width: 79%;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      color: #1e1e1e;
+      font: 16px/2.4 Montserrat, sans-serif;
+    }
+    
+    .event-category {
+      color: #ef2e1f;
+      font-weight: 800;
+    }
+    
+    .event-title {
+      font-weight: 700;
+      margin-top: 24px;
+    }
+    
+    .event-description {
+      font-weight: 600;
+      line-height: 32px;
+      align-self: stretch;
+      margin-top: 19px;
+    }
+    
+    .video-section {
+      margin-top: 36px;
+      width: 100%;
+    }
+    
+    .video-container {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .video-card {
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-grow: 1;
+      padding-bottom: 29px;
+      flex-direction: column;
+      font: 16px Montserrat, sans-serif;
+      border: 2px solid #d9d9d9;
+      width: 33%;
+    }
+    
+    .video-thumbnail {
+      aspect-ratio: 1.6;
+      object-fit: contain;
+      object-position: center;
+      width: 100%;
+      border-radius: 20px 20px 0 0;
+    }
+    
+    .video-content {
+      display: flex;
+      margin-top: 18px;
+      width: 100%;
+      flex-direction: column;
+      padding: 0 25px;
+    }
+    
+    .video-title {
+      color: #1e1e1e;
+      font-weight: 700;
+      line-height: 38px;
+    }
+    
+    .play-button {
+      border-radius: 8px;
+      background-color: #ef2e1f;
+      align-self: start;
+      display: flex;
+      margin-top: 29px;
+      align-items: start;
+      color: #fff;
+      font-weight: 600;
+      line-height: 2.4;
+      padding: 0 4px;
+    }
+    
+    .play-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 30px;
+    }
+    
+    .training-section {
+      border-radius: 13px;
+      background-color: #1e1e1e;
+      display: flex;
+      margin-top: 22px;
+      width: 100%;
+      flex-direction: column;
+      padding: 49px 45px 115px;
+      border: 2px solid #feebf4;
+    }
+    
+    .training-header {
+      border-radius: 15px 15px 0 0;
+      background-color: #ef2e1f;
+      display: flex;
+      align-items: start;
+      gap: 40px 89px;
+      color: #fff;
+      padding: 0 33px 22px;
+      font: 800 16px/2.4 Montserrat, sans-serif;
+    }
+    
+    .training-item {
+      display: flex;
+      width: 100%;
+      gap: 40px 87px;
+      color: #fff;
+      flex-wrap: wrap;
+      margin: 13px 0 0 33px;
+      font: 700 16px Montserrat, sans-serif;
+    }
+    
+    .training-code {
+      line-height: 2.4;
+      align-self: start;
+    }
+    
+    .training-name {
+      line-height: 24px;
+      flex-basis: auto;
+      flex-grow: 1;
+    }
+    
+    .training-date {
+      align-self: start;
+    }
+    
+    .training-organizer {
+      line-height: 24px;
+    }
+    
+    .footer {
+      background-color: #e8e8e8;
+      display: flex;
+      margin-top: 83px;
+      width: 100%;
+      gap: 20px;
+      color: #000;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 36px 80px;
+      font: 700 16px Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .dashboard-user {
+        padding: 27px 20px 0;
+      }
+    
+      .sidebar,
+      .main-content {
+        width: 100%;
+      }
+    
+      .sidebar-content {
+        margin-top: 40px;
+        padding: 0 0 100px 20px;
+      }
+    
+      .logo-container {
+        margin-left: 8px;
+        white-space: initial;
+      }
+    
+      .nav-item {
+        margin-left: 10px;
+      }
+    
+      .main-content {
+        margin-top: 40px;
+      }
+    
+      .header,
+      .dashboard-title,
+      .dashboard-stats,
+      .featured-content,
+      .event-card,
+      .video-container {
+        flex-direction: column;
+      }
+    
+      .search-bar,
+      .breadcrumb,
+      .stat-card,
+      .featured-card,
+      .video-card {
+        max-width: 100%;
+        margin-top: 19px;
+      }
+    
+      .event-image,
+      .event-content {
+        width: 100%;
+      }
+    
+      .training-section {
+        padding: 0 20px 100px;
+      }
+    
+      .training-header,
+      .training-item {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    
+      .footer {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+    </style>
+    
+    <section class="dashboard-user">
+      <div class="sidebar">
+        <nav class="sidebar-content">
+          <div class="logo-container">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Logo" class="logo">
+            <span class="logo-text">IKNOW</span>
+          </div>
+          <a href="#" class="nav-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/54ddb38055df0b433e87cab007b20dc1494b496451a30895e03026b19a93fbc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Dashboard icon" class="nav-icon">
+            <span class="nav-text">Dashboard</span>
+          </a>
+          <a href="#" class="nav-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ee473168f03ac18b2fd8e7b901cdb49ffae1448ab080b86cdc71138464e6e167?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Basic Knowledge icon" class="nav-icon">
+            <span class="nav-text">Basic Knowledge</span>
+          </a>
+          <a href="#" class="nav-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/3cf3d4b29fc5a96440898e8243aadfe163986c9e7b1036a9e639610c532f3c6a?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Training Event icon" class="nav-icon">
+            <span class="nav-text">Training Event</span>
+          </a>
+          <a href="#" class="nav-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/66ac84667a2ab55910bfc3052d4587098503bd43cab620ff547bc7c4bf48e936?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Company Event icon" class="nav-icon">
+            <span class="nav-text">Company Event</span>
+          </a>
+          <a href="#" class="nav-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5c4f2b9472204dc8202f7849a6cb34436d9d7aa5857db24f859cc69f323cb765?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="E-Library icon" class="nav-icon">
+            <span class="nav-text">E-Library</span>
+          </a>
+          <a href="#" class="nav-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/246ed86c32c6b8957e7243c8b77114ebf95fdf606042e8c220cd8f8a61735e79?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Team icon" class="nav-icon">
+            <span class="nav-text">My Team</span>
+          </a>
+          <a href="#" class="nav-item">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/10c3ab749fa717bcae414b8a51ad30a389ab9178d6b9c1c6488c92981ce3d8dd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Data icon" class="nav-icon">
+            <span class="nav-text">My Data</span>
+          </a>
+        </nav>
+      </div>
+      <main class="main-content">
+        <header class="header">
+          <form class="search-bar" role="search">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Search icon" class="search-icon">
+            <label for="search-input" class="visually-hidden">Search</label>
+            <input type="search" id="search-input" class="search-text" placeholder="Search" aria-label="Search">
+          </form>
+          <div class="user-profile">
+            <div class="user-avatar">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/89dee585b2c9490464055fff7ca9a4f9a5d4f8551166d9090131d688725a4b62?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="User avatar" class="user-avatar-img">
+            </div>
+            <div class="user-info">
+              <span class="user-name">Aula Wijaya</span>
+              <span class="user-id">00359</span>
+            </div>
+          </div>
+        </header>
+        <div class="dashboard-title">
+          <h1 class="title-text">Dashboard</h1>
+          <div class="breadcrumb">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/02c82341b9c8dc21699bcd0905e6a58d6c0b419afad03d1e9453112dd8a4a32d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Home icon" class="breadcrumb-icon">
+            <span class="breadcrumb-text">Home &gt; Dashboard</span>
+          </div>
+        </div>
+        <section class="dashboard-stats">
+          <div class="stat-card">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/cb8f74ac8a2e71d177886165fc48f7073036b5deb7e5e1ee481ade807abd5a45?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="New Article icon" class="stat-icon">
+            <h2 class="stat-title">NEW ARTICLE</h2>
+            <p class="stat-value">0</p>
+            <p class="stat-total">Article Total : 26</p>
+          </div>
+          <div class="stat-card">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/318907c87d7555c94f075366067112c980b01580566cc8c4d8b6c11c4bad50e8?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="New Video icon" class="stat-icon">
+            <h2 class="stat-title">NEW VIDEO</h2>
+            <p class="stat-value">0</p>
+            <p class="stat-total">Video Total : 21</p>
+          </div>
+          <div class="stat-card">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d9beb9d6e464f2d983303a433324570082249e468ca7362cdc9309a82fc90c13?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="New Training icon" class="stat-icon">
+            <h2 class="stat-title">NEW TRAINING</h2>
+            <p class="stat-value">0</p>
+            <p class="stat-total">Video Total : 3699</p>
+          </div>
+          <div class="stat-card">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e4b7f228b2c912deece5558833ebcedbfeb94189b44c9f876ed1433763b46aa?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="New Bulletin icon" class="stat-icon">
+            <h2 class="stat-title">NEW BULLETIN</h2>
+            <p class="stat-value">0</p>
+            <p class="stat-total">Video Total : 11</p>
+          </div>
+        </section>
+        <section class="featured-content">
+          <article class="featured-card">
+            <header class="featured-header">
+              <h2 class="featured-title">PHILOSOPHY CATUR DHARMA</h2>
+            </header>
+            <div class="featured-image">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/877696e12182a7d319ffc5c98347be80b533608747cf2b170d5f7a083579bb53?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Philosophy Catur Dharma" class="featured-img">
+              <span class="featured-tag">ARTICLE</span>
+            </div>
+            <p class="featured-description">PHILOSOPHY CATUR DHARMA</p>
+          </article>
+          <article class="featured-card">
+            <header class="featured-header">
+              <h2 class="featured-title">IKNOW</h2>
+            </header>
+            <div class="featured-image">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e956cdf1dea103bf90c5a3f2cff1bb67af60084575ce747f1cd666e9ab35d85?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="IKNOW" class="featured-img">
+              <span class="featured-tag">VIDEO INTERNAL</span>
+            </div>
+            <p class="featured-description">Beragam pengetahuan dengan satu akses &</p>
+          </article>
+        </section>
+        <section class="featured-content">
+          <article class="featured-card">
+            <header class="featured-header">
+              <h2 class="featured-title">CORE VALUE</h2>
+            </header>
+            <div class="featured-image">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/697bf5cdba874d2df7f892f59bfd822937831779b693f1b5ccb6fe2fc8228cc3?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Core Value" class="featured-img">
+              <span class="featured-tag">ARTICLE</span>
+            </div>
+            <p class="featured-description">TATA NILAI KITA (Core Value)</p>
+          </article>
+          <article class="featured-card">
+            <header class="featured-header">
+              <h2 class="featured-title">TIME MANAGEMENT</h2>
+            </header>
+            <div class="featured-image">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4b3fe72a05e1c0cc5887b063f1f674981432a99ba09454249254ff5d031d53f5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Time Management" class="featured-img">
+              <span class="featured-tag">INTERNAL</span>
+            </div>
+            <p class="featured-description">TIME MANAGEMENT Berikut tips-tips</p>
+          </article>
+        </section>
+        <div class="section-header">
+          <h2 class="section-title">COMPANY EVENT</h2>
+          <a href="#" class="see-more">SEE MORE</a>
+        </div>
+        <article class="event-card">
+          <div class="event-image">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/16ea3707e5056432713340c550d6d5dac49f87d33a8df7d8829bb0cd7b8899bd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Recognition and Appreciation" class="event-img">
+          </div>
+          <div class="event-content">
+            <span class="event-category">RECOGNITION AND APPRECIATION</span>
+            <h3 class="event-title">PENGHARGAAN MASA KERJA TAHUN 2024</h3>
+            <p class="event-description">PENGHARGAAN MASA KERJA TAHUN 2024 Bulan : Februari NO NPK NAMA MASA KERJA 1 02062 FX. KIRYONO 30 TAHUN 2 08277 YOGI AFRIANTO 25 TAHUN 3 10372 BRETHEN FESTIAN RISQULILLAH 15 TAHUN 4 10468 DAVID KURNIAWAN 15...</p>
+          </div>
+        </article>
+        <article class="event-card">
+          <div class="event-content">
+            <span class="event-category">CEREMONY AND MEETING</span>
+            <h3 class="event-title">PLANNING CYCLE 2024</h3>
+          </div>
+          <div class="event-image">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/77a395c20e903f57a890c3ac50d41e49927e0fe83037a44e01f8ccb94379d5fe?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Planning Cycle 2024" class="event-img">
+          </div>
+        </article>
+        <article class="event-card">
+          <div class="event-image">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1de05cd9f4b50d78d9dbc3cc62e35c9a977a8a973b69bfc9a7ce55c09a4218a9?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Faktor-Faktor Kesuksesan" class="event-img">
+          </div>
+          <div class="event-content">
+            <span class="event-category">ARTIKEL</span>
+            <h3 class="event-title">FAKTOR-FAKTOR KESUKSESAN</h3>
+            <p class="event-description">Faktor-Faktor Kesuksesan Thomas J. Stanley, Ph.D, penulis buku Millionaire Mind. Pernah melakukan riset tentang 100 faktor yang menentukan kesuksesan seseorang. Riset dilakukan di Amerika dengan total 1001 responden, dimana 733...</p>
+          </div>
+        </article>
+        <div class="section-header">
+          <h2 class="section-title">VIDEO</h2>
+          <a href="#" class="see-more">SEE MORE</a>
+        </div>
+        <section class="video-section">
+          <div class="video-container">
+            <article class="video-card">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/3de76eb1dcbcdde28291e30e314b89e9a8010a341c1ee3437dc0d8af6e3e4e24?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="PT Inti Ganda Perdana dan PT Gemala Kempa Daya" class="video-thumbnail">
+              <div class="video-content">
+                <h3 class="video-title">PT Inti Ganda Perdana dan PT Gemala Kempa Daya (ASTRA Otoparts)</h3>
+                <button class="play-button">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9f3307a9ad1b3fe686efb1bf891ab6e4d0da3ede3cc2527a9a89f00cb9c177b1?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Play icon" class="play-icon">
+                  Play Video
+                </button>
+              </div>
+            </article>
+            <article class="video-card">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4f6c38c463f1ac2840c11336cfcea3a49443eba7a08ad0d3d0b841c5c3d1ad28?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="In Company Trainer" class="video-thumbnail">
+              <div class="video-content">
+                <h3 class="video-title">in Company Trainer</h3>
+                <button class="play-button">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9f3307a9ad1b3fe686efb1bf891ab6e4d0da3ede3cc2527a9a89f00cb9c177b1?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Play icon" class="play-icon">
+                  Play Video
+                </button>
+              </div>
+            </article>
+            <article class="video-card">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/aaf50bdc4fafa44574fdbbb8502da332f32f1455b78fc08c2fe22e8616c34314?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Industry 4.0 illustrated" class="video-thumbnail">
+              <div class="video-content">
+                <h3 class="video-title">Industry 4.0 illustrated - Resource Efficiency through Digitalization</h3>
+                <button class="play-button">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9f3307a9ad1b3fe686efb1bf891ab6e4d0da3ede3cc2527a9a89f00cb9c177b1?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Play icon" class="play-icon">
+                  Play Video
+                </button>
+              </div>
+            </article>
+          </div>
+        </section>
+        <h2 class="section-title">TRAINING</h2>
+        <section class="training-section">
+          <header class="training-header">
+            <span>KODE</span>
+            <span>NAMA TRAINING</span>
+            <span>TANGGAL</span>
+            <span>PENYELANGGARA</span>
+          </header>
+          <div class="training-item">
+            <span class="training-code">M4415</span>
+            <span class="training-name">DISRUPTIVE LEADERSHIP: MENJADI PEMIMPIN YANG BERJIWA INTRAPRENEUR</span>
+            <span class="training-date">15/06/2022</span>
+            <span class="training-organizer">PEMIMPIN.ID</span>
+          </div>
+          <div class="training-item">
+            <span class="training-code">B7271</span>
+            <span class="training-name">PENANGGUNG JAWAB OPERASIONAL INSTALASI PENGENDALIAN PENCEMARAN UDARA</span>
+            <span class="training-date">30/05/2022 - 01/06/2022</span>
+            <span class="training-organizer">PT. CIPTA PROGRESSA USAHA</span>
+          </div>
+          <div class="training-item">
+            <span class="training-code">B7229</span>
+            <span class="training-name">PEMADAM KEBAKARAN KELAS D</span>
+            <span class="training-date">30/05/2022 - 02/06/2022</span>
+            <span class="training-organizer">PT. KAYABA INDONESIA</span>
+          </div>
+          <div class="training-item">
+            <span class="training-code">B7171</span>
+            <span class="training-name">5R</span>
+            <span class="training-date">25/05/2022</span>
+            <span class="training-organizer">-</span>
+          </div>
+          <div class="training-item">
+            <span class="training-code">M4386</span>
+            <span class="training-name">CYBER SCURITY AWARENESS</span>
+            <span class="training-date">25/04/2022</span>
+            <span class="training-organizer">-</span>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <p>Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" target="_blank">igp-astra.co.id</a>. All rights reserved.</p>
+        <p>Version 1.0.0</p>
+      </footer>
+    </section>

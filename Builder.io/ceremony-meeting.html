@@ -1,0 +1,287 @@
+<style>
+    .page-number { border-radius: 13px; box-shadow: 2px 4px 4px 0px rgba(140, 141, 155, 0.05) inset, 0px 23px 7px 0px rgba(140, 141, 155, 0), 0px 15px 6px 0px rgba(140, 141, 155, 0.01), 0px 8px 5px 0px rgba(140, 141, 155, 0.05), 0px 4px 4px 0px rgba(140, 141, 155, 0.09), 0px 1px 2px 0px rgba(140, 141, 155, 0.1); background-color: #ef2e1f; color: #fff; width: 28px; height: 28px; padding: 0 12px; }
+    @media (max-width: 991px) { .page-number { white-space: initial; } }
+    .ceremony-meeting-container { background-color: #fff; display: flex; padding-top: 27px; flex-direction: column; overflow: hidden; }
+    .content-wrapper { align-self: center; width: 100%; max-width: 1374px; }
+    @media (max-width: 991px) { .content-wrapper { max-width: 100%; } }
+    .main-content { gap: 20px; display: flex; }
+    @media (max-width: 991px) { .main-content { flex-direction: column; align-items: stretch; gap: 0; } }
+    .sidebar { display: flex; flex-direction: column; line-height: normal; width: 25%; margin-left: 0; }
+    @media (max-width: 991px) { .sidebar { width: 100%; } }
+    .sidebar-content { border-radius: 20px; background-color: #000; display: flex; width: 100%; flex-direction: column; color: #fff; margin: 0 auto; padding: 31px 26px 333px; font: 700 20px/6px Montserrat, sans-serif; }
+    @media (max-width: 991px) { .sidebar-content { margin-top: 39px; padding: 0 0 100px 20px; } }
+    .logo-container { align-self: start; display: flex; margin-left: 13px; gap: 25px; font-size: 32px; white-space: nowrap; line-height: 0.4; }
+    @media (max-width: 991px) { .logo-container { margin-left: 10px; white-space: initial; } }
+    .logo { aspect-ratio: 0.99; object-fit: contain; object-position: center; width: 87px; }
+    .logo-text { flex-basis: auto; margin: auto 0; }
+    .dashboard-link { align-self: start; display: flex; gap: 13px; white-space: nowrap; line-height: 0; margin: 50px 0 0 26px; }
+    @media (max-width: 991px) { .dashboard-link { white-space: initial; margin: 40px 0 0 10px; } }
+    .dashboard-icon { aspect-ratio: 0.96; object-fit: contain; object-position: center; width: 50px; }
+    .dashboard-text { flex-basis: auto; margin: auto 0; }
+    .basic-knowledge-link { align-self: end; display: flex; margin-top: 29px; align-items: end; gap: 13px 9px; justify-content: start; flex-wrap: wrap; }
+    @media (max-width: 991px) { .basic-knowledge-link { margin-right: 3px; } }
+    .basic-knowledge-icon { aspect-ratio: 0.94; object-fit: contain; object-position: center; width: 50px; }
+    .basic-knowledge-text { width: 140px; }
+    .training-event-link { align-self: start; display: flex; gap: 9px; margin: 26px 0 0 26px; }
+    @media (max-width: 991px) { .training-event-link { margin-left: 10px; } }
+    .training-event-icon { aspect-ratio: 0.96; object-fit: contain; object-position: center; width: 50px; }
+    .training-event-text { align-self: start; margin-top: 12px; }
+    .company-event-link { border-radius: 30px; background-color: #ef2e1f; display: flex; margin-top: 30px; gap: 9px; padding: 10px 25px; }
+    @media (max-width: 991px) { .company-event-link { margin-right: 8px; padding: 0 20px; } }
+    .company-event-icon { aspect-ratio: 0.93; object-fit: contain; object-position: center; width: 50px; }
+    .company-event-text { margin-top: 12px; }
+    .employee-engagement-link { align-self: end; display: flex; margin-top: 27px; gap: 9px; white-space: nowrap; }
+    @media (max-width: 991px) { .employee-engagement-link { margin-right: 10px; white-space: initial; } }
+    .employee-engagement-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; }
+    .employee-engagement-text { margin-top: 13px; }
+    .recognition-appreciation-link { align-self: end; display: flex; margin-top: 36px; align-items: start; gap: 9px; }
+    .recognition-appreciation-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; }
+    .recognition-appreciation-text { margin-top: 13px; }
+    .ceremony-meeting-link { align-self: end; display: flex; margin-top: 13px; gap: 6px; }
+    .ceremony-meeting-indicator { background-color: #fff; border-radius: 50%; display: flex; width: 10px; height: 11px; margin: auto 0; }
+    .ceremony-meeting-wrapper { border-radius: 30px; background-color: #8e8a8a; display: flex; gap: 9px; padding: 10px 14px; }
+    .ceremony-meeting-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; }
+    .ceremony-meeting-text { margin-top: 13px; }
+    .campaign-link { align-self: center; display: flex; width: 165px; max-width: 100%; gap: 9px; white-space: nowrap; line-height: 0; margin: 25px 0 0 22px; }
+    @media (max-width: 991px) { .campaign-link { white-space: initial; } }
+    .campaign-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; }
+    .campaign-text { align-self: end; margin-top: 21px; flex-grow: 1; width: 96px; }
+    .e-library-link { align-self: start; display: flex; gap: 9px; white-space: nowrap; line-height: 0; margin: 52px 0 0 26px; }
+    @media (max-width: 991px) { .e-library-link { white-space: initial; margin: 40px 0 0 10px; } }
+    .e-library-icon { aspect-ratio: 0.94; object-fit: contain; object-position: center; width: 50px; }
+    .e-library-text { align-self: end; margin-top: 23px; }
+    .my-team-link { align-self: start; display: flex; gap: 9px; line-height: 0; margin: 29px 0 0 26px; }
+    @media (max-width: 991px) { .my-team-link { margin-left: 10px; } }
+    .my-team-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; }
+    .my-team-text { margin: auto 0; }
+    .my-data-link { align-self: start; display: flex; gap: 9px; line-height: 0; margin: 29px 0 0 26px; }
+    @media (max-width: 991px) { .my-data-link { margin-left: 10px; } }
+    .my-data-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 50px; }
+    .my-data-text { margin: auto 0; }
+    .main-section { display: flex; flex-direction: column; line-height: normal; width: 75%; margin-left: 20px; }
+    @media (max-width: 991px) { .main-section { width: 100%; } }
+    .header { display: flex; width: 100%; flex-direction: column; }
+    @media (max-width: 991px) { .header { max-width: 100%; margin-top: 39px; } }
+    .header-content { display: flex; width: 100%; gap: 40px 57px; flex-wrap: wrap; font: 20px/0 Montserrat, sans-serif; }
+    @media (max-width: 991px) { .header-content { max-width: 100%; margin-right: 3px; } }
+    .search-bar { border-radius: 20px; align-self: start; display: flex; gap: 18px; color: #d9d9d9; font-weight: 700; white-space: nowrap; flex-wrap: wrap; flex-grow: 1; flex-basis: auto; padding: 8px 18px; border: 2px solid #d9d9d9; }
+    @media (max-width: 991px) { .search-bar { white-space: initial; } }
+    .search-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 40px; }
+    .search-text { align-self: start; margin-top: 18px; flex-basis: auto; flex-grow: 1; }
+    @media (max-width: 991px) { .search-text { max-width: 100%; } }
+    .user-info { display: flex; gap: 24px; }
+    .user-avatar { aspect-ratio: 1; object-fit: contain; object-position: center; width: 72px; }
+    .user-details { display: flex; flex-direction: column; margin: auto 0; }
+    .user-name { color: #000; font-weight: 700; }
+    .user-id { color: #000; font-weight: 500; align-self: start; margin-top: 5px; }
+    .section-title { color: #000; align-self: start; margin-top: 40px; font: 700 32px/0.4 Montserrat, sans-serif; }
+    .event-card { border-radius: 13px; background-color: #000; display: flex; margin-top: 21px; width: 100%; align-items: start; gap: 40px 100px; flex-wrap: wrap; padding: 32px 41px; }
+    @media (max-width: 991px) { .event-card { max-width: 100%; padding: 0 20px; } }
+    .event-content { margin-top: 14px; flex-grow: 1; flex-basis: auto; }
+    @media (max-width: 991px) { .event-content { max-width: 100%; } }
+    .event-details { gap: 20px; display: flex; }
+    @media (max-width: 991px) { .event-details { flex-direction: column; align-items: stretch; gap: 0; } }
+    .event-image-column { display: flex; flex-direction: column; line-height: normal; width: 50%; margin-left: 0; }
+    @media (max-width: 991px) { .event-image-column { width: 100%; } }
+    .event-image { aspect-ratio: 1.39; object-fit: contain; object-position: center; width: 100%; border-radius: 20px; flex-grow: 1; }
+    @media (max-width: 991px) { .event-image { margin-top: 39px; } }
+    .event-info-column { display: flex; flex-direction: column; line-height: normal; width: 50%; margin-left: 20px; }
+    @media (max-width: 991px) { .event-info-column { width: 100%; } }
+    .event-info { display: flex; margin-top: 13px; width: 100%; flex-direction: column; font-family: Montserrat, sans-serif; color: #fff; font-weight: 700; line-height: 0.2; }
+    @media (max-width: 991px) { .event-info { margin-top: 40px; } }
+    .event-title { font-size: 24px; }
+    .event-author { align-self: start; display: flex; margin-top: 126px; gap: 15px; }
+    @media (max-width: 991px) { .event-author { margin-top: 40px; } }
+    .author-avatar { aspect-ratio: 1; object-fit: contain; object-position: center; width: 49px; }
+    .author-details { align-self: start; display: flex; flex-direction: column; }
+    .author-name { font-size: 16px; align-self: start; }
+    .event-date { font-size: 14px; margin-top: 14px; }
+    .event-stats { display: flex; gap: 7px; color: #fff; white-space: nowrap; font: 700 14px/0.2 Montserrat, sans-serif; }
+    @media (max-width: 991px) { .event-stats { white-space: initial; } }
+    .stats-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 20px; }
+    .stats-number { margin: auto 0; }
+    .event-card-secondary { border-radius: 13px; background-color: #000; margin-top: 37px; padding: 32px 43px; }
+    @media (max-width: 991px) { .event-card-secondary { max-width: 100%; padding: 0 20px; } }
+    .event-details-secondary { gap: 20px; display: flex; }
+    @media (max-width: 991px) { .event-details-secondary { flex-direction: column; align-items: stretch; gap: 0; } }
+    .event-image-column-secondary { display: flex; flex-direction: column; line-height: normal; width: 30%; margin-left: 0; }
+    @media (max-width: 991px) { .event-image-column-secondary { width: 100%; } }
+    .event-image-secondary { aspect-ratio: 1.38; object-fit: contain; object-position: center; width: 100%; border-radius: 20px; margin-top: 14px; flex-grow: 1; }
+    @media (max-width: 991px) { .event-image-secondary { margin-top: 40px; } }
+    .event-info-column-secondary { display: flex; flex-direction: column; line-height: normal; width: 70%; margin-left: 20px; }
+    @media (max-width: 991px) { .event-info-column-secondary { width: 100%; } }
+    .event-info-secondary { display: flex; width: 100%; flex-direction: column; align-items: start; font-family: Montserrat, sans-serif; color: #fff; font-weight: 700; line-height: 0.2; }
+    @media (max-width: 991px) { .event-info-secondary { max-width: 100%; margin-top: 40px; } }
+    .event-stats-secondary { align-self: end; display: flex; gap: 7px; font-size: 14px; white-space: nowrap; }
+    @media (max-width: 991px) { .event-stats-secondary { white-space: initial; } }
+    .stats-icon-secondary { aspect-ratio: 1; object-fit: contain; object-position: center; width: 100%; }
+    .event-title-secondary { font-size: 24px; margin-top: 7px; }
+    @media (max-width: 991px) { .event-title-secondary { max-width: 100%; } }
+    .event-description { font-size: 16px; line-height: 3px; margin-top: 25px; }
+    @media (max-width: 991px) { .event-description { max-width: 100%; } }
+    .event-author-secondary { display: flex; margin-top: 41px; gap: 15px; }
+    @media (max-width: 991px) { .event-author-secondary { margin: 40px 0 0 3px; } }
+    .author-avatar-secondary { aspect-ratio: 1; object-fit: contain; object-position: center; width: 49px; }
+    .author-details-secondary { align-self: start; display: flex; flex-direction: column; }
+    .author-name-secondary { font-size: 16px; align-self: start; }
+    .event-date-secondary { font-size: 14px; margin-top: 15px; }
+    .pagination { align-self: end; display: flex; margin-top: 21px; width: 359px; max-width: 100%; gap: 10px; color: #000; white-space: nowrap; font: 700 14px/0.2 Montserrat, sans-serif; }
+    @media (max-width: 991px) { .pagination { margin-right: 2px; white-space: initial; } }
+    .pagination-button { border-radius: 13px; border: 1px solid #ef2e1f; box-shadow: 2px 4px 4px 0px rgba(140, 141, 155, 0.05) inset, 0px 23px 7px 0px rgba(140, 141, 155, 0), 0px 15px 6px 0px rgba(140, 141, 155, 0.01), 0px 8px 5px 0px rgba(140, 141, 155, 0.05), 0px 4px 4px 0px rgba(140, 141, 155, 0.09), 0px 1px 2px 0px rgba(140, 141, 155, 0.1); display: flex; align-items: flex-start; gap: 8px; padding: 4px 11px; }
+    @media (max-width: 991px) { .pagination-button { white-space: initial; } }
+    .pagination-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 20px; align-self: start; }
+    .pagination-text { margin: auto 0; }
+    .footer { background: var(--Black-100, #e8e8e8); background-color: var(--Black-100, #e8e8e8); display: flex; margin-top: 397px; width: 100%; gap: 20px; color: #000; flex-wrap: wrap; justify-content: space-between; padding: 36px 80px; font: 700 16px Montserrat, sans-serif; }
+    @media (max-width: 991px) { .footer { max-width: 100%; margin-top: 40px; padding: 0 20px; } }
+    .footer-copyright { }
+    @media (max-width: 991px) { .footer-copyright { max-width: 100%; } }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    </style>
+    
+    <main class="ceremony-meeting-container">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <aside class="sidebar">
+            <nav class="sidebar-content">
+              <div class="logo-container">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="logo" alt="Company logo" />
+                <span class="logo-text">IKNOW</span>
+              </div>
+              <a href="#" class="dashboard-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/54ddb38055df0b433e87cab007b20dc1494b496451a30895e03026b19a93fbc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="dashboard-icon" alt="Dashboard icon" />
+                <span class="dashboard-text">Dashboard</span>
+              </a>
+              <a href="#" class="basic-knowledge-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e065952ce841e56e1271a3d03d2e8ae07923c1e6b4d42f8cf72e54b52279f42?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="basic-knowledge-icon" alt="Basic Knowledge icon" />
+                <span class="basic-knowledge-text">Basic Knowledge</span>
+              </a>
+              <a href="#" class="training-event-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/05a43e8908b0c6f0789c4abae94a94670f480070fe5ad4fac07264d92898f431?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="training-event-icon" alt="Training Event icon" />
+                <span class="training-event-text">Training Event</span>
+              </a>
+              <a href="#" class="company-event-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e0248ae6c0fcac0b9bf7bc2bd23ad05444d86cac8c496edab2bdeb8e7a67c9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="company-event-icon" alt="Company Event icon" />
+                <span class="company-event-text">Company Event</span>
+              </a>
+              <a href="#" class="employee-engagement-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="employee-engagement-icon" alt="Employee Engagement icon" />
+                <span class="employee-engagement-text">Employee Engagement</span>
+              </a>
+              <a href="#" class="recognition-appreciation-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="recognition-appreciation-icon" alt="Recognition & Appreciation icon" />
+                <span class="recognition-appreciation-text">Recognition & Appreciation</span>
+              </a>
+              <div class="ceremony-meeting-link">
+                <div class="ceremony-meeting-indicator"></div>
+                <div class="ceremony-meeting-wrapper">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="ceremony-meeting-icon" alt="Ceremony & Meeting icon" />
+                  <span class="ceremony-meeting-text">Ceremony & Meeting</span>
+                </div>
+              </div>
+              <a href="#" class="campaign-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="campaign-icon" alt="Campaign icon" />
+                <span class="campaign-text">Campaign</span>
+              </a>
+              <a href="#" class="e-library-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e9982dc910b1b7e69f5322eba8e7cc0a3f338ee5bab8eccf5017de1a4c5721d5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="e-library-icon" alt="E-Library icon" />
+                <span class="e-library-text">E-Library</span>
+              </a>
+              <a href="#" class="my-team-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9cdd511e873baf6da77b8493b6ca82ea2387e0e427a46182345cfac2bc851a2f?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="my-team-icon" alt="My Team icon" />
+                <span class="my-team-text">My Team</span>
+              </a>
+              <a href="#" class="my-data-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/547010f45ea5466b2a546267db2a8d0de16dc93d5d6739f3e0f3745eff7fd13f?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="my-data-icon" alt="My Data icon" />
+                <span class="my-data-text">My Data</span>
+              </a>
+            </nav>
+          </aside>
+          <section class="main-section">
+            <header class="header">
+              <div class="header-content">
+                <form class="search-bar" role="search">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="search-icon" alt="Search icon" />
+                  <label for="search-input" class="visually-hidden">Search</label>
+                  <input type="search" id="search-input" class="search-text" placeholder="Search" />
+                </form>
+                <div class="user-info">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc9fe485dfabcd7f0bd220092e173c32ffe14d07481510386a822c418e9ef3a7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="user-avatar" alt="User avatar" />
+                  <div class="user-details">
+                    <span class="user-name">Aula Wijaya</span>
+                    <span class="user-id">00359</span>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <h1 class="section-title">Ceremony & Meeting</h1>
+            <article class="event-card">
+              <div class="event-content">
+                <div class="event-details">
+                  <div class="event-image-column">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/28bc50ca317f9cefc7b85c03975794806cacc264bd6e3aa533f24c8820f4b431?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="event-image" alt="Event image" />
+                  </div>
+                  <div class="event-info-column">
+                    <div class="event-info">
+                      <h2 class="event-title">PLANNING CYCLE 2024</h2>
+                      <div class="event-author">
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ac929279381e32586ae4c24692e45d95383c264616b68660135fab7976fb00e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="author-avatar" alt="Author avatar" />
+                        <div class="author-details">
+                          <span class="author-name">Aula Wijaya</span>
+                          <time class="event-date" datetime="2024-01-31T09:18">31 Januari 2024 09:18</time>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="event-stats">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/24afd9a9d48a0b8c17d33cc84dc25b3d2ea9c2104ecbd5c452cb1f6b0d02f63e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="stats-icon" alt="Participants icon" />
+                  <span class="stats-number">50</span>
+                </div>
+              </div>
+            </article>
+            <article class="event-card-secondary">
+              <div class="event-details-secondary">
+                <div class="event-image-column-secondary">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/533595ce945e1482177f67433d089adfb5d14ecafecf5612e46560d5770f9a2a?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="event-image-secondary" alt="Event image" />
+                </div>
+                <div class="event-info-column-secondary">
+                  <div class="event-info-secondary">
+                    <div class="event-stats-secondary">
+                      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/24afd9a9d48a0b8c17d33cc84dc25b3d2ea9c2104ecbd5c452cb1f6b0d02f63e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="stats-icon-secondary" alt="Participants icon" />
+                      <span class="stats-number">12</span>
+                    </div>
+                    <h2 class="event-title-secondary">PIDATO HUT KEMERDEKAAN RI ke 78</h2>
+                    <p class="event-description">PIDATO HUT KEMERDEKAAN RI ke 78 Oleh : Heru Harsana Assalamu' alaikum Warahmatullahi Wabarakatuh. Salam sejahtera untuk kita semua. Yang saya hormati Rekan-rekan sekalian, Yang pertama, marilah kit</p>
+                    <div class="event-author-secondary">
+                      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ac929279381e32586ae4c24692e45d95383c264616b68660135fab7976fb00e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="author-avatar-secondary" alt="Author avatar" />
+                      <div class="author-details-secondary">
+                        <span class="author-name-secondary">Aula Wijaya</span>
+                        <time class="event-date-secondary" datetime="2024-08-21T15:07">21 Agustus 2024 15:07</time>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <nav class="pagination" aria-label="Pagination">
+              <a href="#" class="pagination-button" aria-label="Previous page">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/20a8c794594f9ff0916a6e2ecc819e84179d366014f72b67019abf4f2d75f17b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="pagination-icon" alt="Previous icon" />
+                <span class="pagination-text">Previous</span>
+              </a>
+              <a href="#" class="page-number" aria-current="page">1</a>
+              <a href="#" class="page-number">2</a>
+              <a href="#" class="page-number">3</a>
+              <a href="#" class="page-number">4</a>
+              <a href="#" class="pagination-button" aria-label="Next page">
+                <span class="pagination-text">Next</span>
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/af4adb3bbdf57dc24050fac6eda2f2c1fe51603220ec519fdec8ce8d8e11034d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="pagination-icon" alt="Next icon" />
+              </a>
+            </nav>
+          </section>
+        </div>
+      </div>
+      <footer class="footer">
+        <p class="footer-copyright">Copyright © 2024 <a href="http://iknow.igp-astra.co.id/" target="_blank">igp-astra.co.id</a>. All rights reserved.</p>
+        <p>Version 1.0.0</p>
+      </footer>
+    </main>

@@ -1,0 +1,441 @@
+<style>
+    .company-event-preview {
+      background-color: #fff;
+      display: flex;
+      padding-top: 27px;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .content-wrapper {
+      align-self: center;
+      width: 100%;
+      max-width: 1345px;
+    }
+    
+    .main-content {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 25%;
+      margin-left: 0;
+    }
+    
+    .sidebar-menu {
+      border-radius: 20px;
+      background-color: #000;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      color: #fff;
+      margin: 4px auto 0;
+      padding: 31px 26px 333px;
+      font: 700 20px/6px Montserrat, sans-serif;
+    }
+    
+    .logo-container {
+      align-self: flex-start;
+      display: flex;
+      margin-left: 13px;
+      gap: 25px;
+      font-size: 32px;
+      white-space: nowrap;
+      line-height: 0.4;
+    }
+    
+    .logo {
+      aspect-ratio: 0.99;
+      object-fit: contain;
+      object-position: center;
+      width: 87px;
+    }
+    
+    .logo-text {
+      flex-basis: auto;
+      margin: auto 0;
+    }
+    
+    .menu-item {
+      align-self: flex-start;
+      display: flex;
+      gap: 13px;
+      white-space: nowrap;
+      line-height: 0;
+      margin: 50px 0 0 26px;
+    }
+    
+    .menu-icon {
+      aspect-ratio: 0.96;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .menu-text {
+      flex-basis: auto;
+      margin: auto 0;
+    }
+    
+    .active-menu-item {
+      border-radius: 30px;
+      background-color: #ef2e1f;
+      display: flex;
+      margin-top: 30px;
+      gap: 9px;
+      padding: 10px 25px;
+    }
+    
+    .main-section {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 75%;
+      margin-left: 20px;
+    }
+    
+    .header {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      font-family: Montserrat, sans-serif;
+    }
+    
+    .top-bar {
+      display: flex;
+      gap: 20px;
+      font-size: 20px;
+      line-height: 0;
+      justify-content: space-between;
+    }
+    
+    .search-bar {
+      border-radius: 20px;
+      align-self: flex-start;
+      display: flex;
+      gap: 18px;
+      color: #d9d9d9;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-wrap: wrap;
+      padding: 8px 18px;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 40px;
+    }
+    
+    .search-text {
+      align-self: flex-start;
+      margin-top: 18px;
+      flex-basis: auto;
+      flex-grow: 1;
+    }
+    
+    .user-profile {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    .user-name {
+      color: #000;
+      font-weight: 700;
+    }
+    
+    .user-id {
+      color: #000;
+      font-weight: 500;
+      align-self: flex-start;
+      margin-top: 5px;
+    }
+    
+    .page-title {
+      color: #000;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 0.4;
+      align-self: flex-start;
+      margin-top: 40px;
+    }
+    
+    .event-card {
+      border-radius: 13px;
+      background-color: #000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      margin-top: 31px;
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      font-weight: 700;
+      padding: 27px 38px 66px;
+    }
+    
+    .event-header {
+      align-self: stretch;
+      display: flex;
+      width: 100%;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .event-title {
+      color: #fff;
+      font-size: 32px;
+      line-height: 0.4;
+    }
+    
+    .event-stats {
+      display: flex;
+      gap: 9px;
+      font-size: 16px;
+      color: #fff;
+      white-space: nowrap;
+      line-height: 0.2;
+    }
+    
+    .stats-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 25px;
+    }
+    
+    .event-author {
+      display: flex;
+      margin-top: 21px;
+      gap: 18px;
+      color: #fff;
+      line-height: 0.2;
+    }
+    
+    .author-avatar {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 60px;
+    }
+    
+    .author-info {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    .author-name {
+      font-size: 16px;
+      align-self: flex-start;
+    }
+    
+    .event-date {
+      font-size: 14px;
+      margin-top: 17px;
+    }
+    
+    .event-image {
+      aspect-ratio: 4.15;
+      object-fit: contain;
+      object-position: center;
+      width: 837px;
+      margin-top: 46px;
+      max-width: 100%;
+    }
+    
+    .footer {
+      background: var(--Black-100, #e8e8e8);
+      display: flex;
+      margin-top: 393px;
+      width: 100%;
+      gap: 20px;
+      color: #000;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 35px 80px;
+      font: 700 16px Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .content-wrapper {
+        max-width: 100%;
+      }
+    
+      .main-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    
+      .sidebar {
+        width: 100%;
+      }
+    
+      .sidebar-menu {
+        margin-top: 40px;
+        padding: 0 0 100px 20px;
+      }
+    
+      .logo-container {
+        margin-left: 10px;
+        white-space: initial;
+      }
+    
+      .menu-item {
+        white-space: initial;
+        margin: 40px 0 0 10px;
+      }
+    
+      .active-menu-item {
+        margin-right: 8px;
+        padding: 0 20px;
+      }
+    
+      .main-section {
+        width: 100%;
+      }
+    
+      .header {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    
+      .top-bar {
+        margin-right: 3px;
+      }
+    
+      .search-bar {
+        white-space: initial;
+      }
+    
+      .search-text {
+        max-width: 100%;
+      }
+    
+      .event-card {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    
+      .event-header {
+        max-width: 100%;
+      }
+    
+      .event-stats {
+        white-space: initial;
+      }
+    
+      .event-image {
+        margin-top: 40px;
+      }
+    
+      .footer {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+    </style>
+    
+    <section class="company-event-preview">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <aside class="sidebar">
+            <nav class="sidebar-menu">
+              <div class="logo-container">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="IKNOW Logo" class="logo" />
+                <h1 class="logo-text">IKNOW</h1>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/54ddb38055df0b433e87cab007b20dc1494b496451a30895e03026b19a93fbc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Dashboard Icon" class="menu-icon" />
+                <span class="menu-text">Dashboard</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e065952ce841e56e1271a3d03d2e8ae07923c1e6b4d42f8cf72e54b52279f42?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Basic Knowledge Icon" class="menu-icon" />
+                <span class="menu-text">Basic Knowledge</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/05a43e8908b0c6f0789c4abae94a94670f480070fe5ad4fac07264d92898f431?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Training Event Icon" class="menu-icon" />
+                <span class="menu-text">Training Event</span>
+              </div>
+              <div class="active-menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e0248ae6c0fcac0b9bf7bc2bd23ad05444d86cac8c496edab2bdeb8e7a67c9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Company Event Icon" class="menu-icon" />
+                <span class="menu-text">Company Event</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Employee Engagement Icon" class="menu-icon" />
+                <span class="menu-text">Employee Engagement</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Recognition & Appreciation Icon" class="menu-icon" />
+                <span class="menu-text">Recognition & Appreciation</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Ceremony & Meeting Icon" class="menu-icon" />
+                <span class="menu-text">Ceremony & Meeting</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Campaign Icon" class="menu-icon" />
+                <span class="menu-text">Campaign</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e9982dc910b1b7e69f5322eba8e7cc0a3f338ee5bab8eccf5017de1a4c5721d5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="E-Library Icon" class="menu-icon" />
+                <span class="menu-text">E-Library</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9cdd511e873baf6da77b8493b6ca82ea2387e0e427a46182345cfac2bc851a2f?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Team Icon" class="menu-icon" />
+                <span class="menu-text">My Team</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/547010f45ea5466b2a546267db2a8d0de16dc93d5d6739f3e0f3745eff7fd13f?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Data Icon" class="menu-icon" />
+                <span class="menu-text">My Data</span>
+              </div>
+            </nav>
+          </aside>
+          <main class="main-section">
+            <header class="header">
+              <div class="top-bar">
+                <div class="search-bar">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Search Icon" class="search-icon" />
+                  <span class="search-text">Search</span>
+                </div>
+                <div class="user-profile">
+                  <span class="user-name">Aula Wijaya</span>
+                  <span class="user-id">00359</span>
+                </div>
+              </div>
+              <h2 class="page-title">PLANNING CYCLE 2024</h2>
+            </header>
+            <article class="event-card">
+              <div class="event-header">
+                <h3 class="event-title">PLANNING CYCLE 2024</h3>
+                <div class="event-stats">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed5f7bb3b864ea3ed416876ae37b3fd2b4aa2c2334b87de2e392eb9993461286?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Participants Icon" class="stats-icon" />
+                  <span>64</span>
+                </div>
+              </div>
+              <div class="event-author">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5566776b0139400ba718faeabcdb488add488a25f9052c19a9d9d84e1250c15d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Author Avatar" class="author-avatar" />
+                <div class="author-info">
+                  <span class="author-name">Aula Wijaya</span>
+                  <time class="event-date">29 Desember 2021 16:59</time>
+                </div>
+              </div>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/05f54de4935ad13ec0559ad653937c78097cb1d2239ffee76e902078e60c56d7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Event Image" class="event-image" />
+            </article>
+          </main>
+        </div>
+      </div>
+      <footer class="footer">
+        <div>Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" target="_blank">igp-astra.co.id</a>. All rights reserved.</div>
+        <div>Version 1.0.0</div>
+      </footer>
+    </section>

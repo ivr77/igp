@@ -1,0 +1,878 @@
+<style>
+    .training-event-schedule {
+      background-color: #fff;
+      display: flex;
+      padding: 0px 30px;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 0px 30px;
+      padding-right: 100px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    
+    .content-wrapper {
+      min-height: calc(100vh - 100px); /* Ensures content pushes the footer down */
+      box-sizing: border-box;
+      margin-right: 0;
+      padding-right: 0;
+      padding-bottom: 100px; /* Add padding to the bottom for space between content and footer */
+    }
+    
+    @media (max-width: 991px) {
+      .content-wrapper {
+        max-width: 100%;
+      }
+    }
+    
+    .main-content {
+      display: flex;
+      gap: 40px;
+      margin-right: -70px;
+      padding-right: 0;
+    }
+    
+    .main-area {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: calc(100% - 60px); /* Mengurangi lebar secara keseluruhan */
+      margin-left: 30px; /* Margin kiri dan kanan yang sama */
+      margin-right: 30px;
+      box-sizing: border-box;  }
+
+    @media (max-width: 991px) {
+      .main-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    }
+    
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 26%; /* Adjust the sidebar width to 26% to match code 2 */
+      margin-right: -23px;
+      float: left;
+      box-sizing: border-box;
+    }
+    
+    @media (max-width: 991px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+    
+    .sidebar-content {
+      border-radius: 20px;
+      background-color: #000;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: start;
+      color: #fff;
+      padding: 31px 19.5px;
+      font: 700 20px/1.2 Montserrat, sans-serif; /* Update to match font size */
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    
+    .sidebar-content-wrapper {
+      display: flex;
+      gap: 40px;
+    }
+
+    @media (max-width: 991px) {
+      .sidebar-content {
+        margin-top: 40px;
+        padding: 0 0 100px 20px;
+      }
+    }
+    
+    .logo-container {
+      align-self: center;
+      display: flex;
+      width: 232px;
+      max-width: 100%;
+      gap: 25px;
+      color: #fff;
+      white-space: nowrap;
+      font: 700 32px/0.4 Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .logo-container {
+        margin-left: 6px;
+        white-space: initial;
+      }
+    }
+    
+    .logo-image {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 87px;
+    }
+    
+    .logo-text {
+      flex-grow: 1;
+      width: 103px;
+      margin: auto 0;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+    }
+    
+    .logo-wrapper {
+      display: flex;
+      gap: 25px;
+      font-size: 32px;
+      white-space: nowrap;
+    }
+
+    .logo {
+      aspect-ratio: 0.99;
+      object-fit: contain;
+      width: 87px;
+    }
+
+    .menu-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 50px;
+    }
+
+    .menu-text {
+      flex-grow: 1;
+      margin: auto 0;
+    }
+
+    .submenu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px; /* Add padding for a cleaner look */
+    color: #fff;
+    margin: 10px 0; /* Adjust space between submenu items */
+    font: 700 18px/1 Montserrat, sans-serif;
+    border-radius: 20px; /* Rounded corners for better styling */
+    background-color: #333; /* Set a default background color */
+    transition: background-color 0.3s;
+  }
+
+  /* Ensure submenu icons and text are aligned */
+  .submenu-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .submenu-text {
+    flex-grow: 1;
+    margin: auto 0;
+    font-size: 18px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    color: #fff; /* Ensure text is visible */
+  }
+
+  /* Hover effect for better interaction */
+  .submenu:hover {
+    background-color: #d6271c; /* Change background on hover */
+  }
+
+  /* Optional: Specific styles for active submenu */
+  .submenu.active {
+    background-color: #d6271c; /* Highlight active submenu */
+  }
+  
+    .dashboard-link {
+      display: flex;
+      align-items: center; /* Vertically center the icon and text */
+      gap: 13px; /* Adjust gap between icon and text */
+      padding: 15px;
+      color: #fff;
+      white-space: nowrap;
+      margin: 48px 0 0 23px;
+      font: 700 20px/1 Montserrat, sans-serif; /* Ensure font size matches the second code */
+      border-radius: 30px;
+      transition: background-color 0.3s;
+    }
+
+    .dashboard-link:hover, .basic-knowledge-link:hover, .training-event-link:hover, .company-event-link:hover, .e-library-link:hover, .my-team-link:hover, .my-data-link:hover {
+    background-color: #333; /* Darker hover background */
+    background-color: #d6271c;
+    }   
+
+    .dashboard-text, .basic-knowledge-text, .training-event-text, .company-event-text, .e-library-text, .my-team-text, .my-data-text {
+      flex-grow: 1; /* Ensure the text takes up the remaining space */
+      margin: auto 0; /* Center the text vertically */
+      font-size: 20px; /* Match font size to 2nd code */
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+    }
+    
+    @media (max-width: 991px) {
+      .dashboard-link {
+        white-space: initial;
+        margin: 40px 0 0 10px;
+      }
+    }
+    
+    .dashboard-icon {
+      width: 50px; /* Same size for all icons */
+      height: 50px; /* Ensure square aspect ratio */
+      object-fit: contain;
+      display: block;
+    }
+    
+    .dashboard-text {
+      flex-grow: 1;
+      margin: auto 0;
+      font-size: 20px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+    }
+    
+    .basic-knowledge-link {
+      display: flex;
+      align-items: center; /* Vertically center the icon and text */
+      gap: 13px; /* Adjust gap between icon and text */
+      padding: 15px;
+      color: #fff;
+      white-space: nowrap;
+      margin: 48px 0 0 23px;
+      font: 700 20px/1 Montserrat, sans-serif; /* Ensure font size matches the second code */
+      border-radius: 30px;
+      transition: background-color 0.3s;
+      }
+    
+    .basic-knowledge-icon {
+      width: 50px; /* Same size for all icons */
+      height: 50px; /* Ensure square aspect ratio */
+      object-fit: contain;
+      display: block;
+    }
+
+    .basic-knowledge-text {
+      flex-grow: 1;
+      margin: auto 0;
+      font-size: 20px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+    }
+    
+    .training-event-link {
+      display: flex;
+      align-items: center; /* Vertically center the icon and text */
+      gap: 13px; /* Adjust gap between icon and text */
+      padding: 15px;
+      color: #fff;
+      white-space: nowrap;
+      margin: 48px 0 0 23px;
+      font: 700 20px/1 Montserrat, sans-serif; /* Ensure font size matches the second code */
+      border-radius: 30px;
+      background-color: #ef2e1f; /* Red background */
+      transition: background-color 0.3s;
+      }
+    
+    @media (max-width: 991px) {
+      .training-event-link {
+        margin-right: 6px;
+        padding: 0 20px;
+      }
+    }
+    
+    .training-event-icon {
+      width: 50px; /* Same size for all icons */
+      height: 50px; /* Ensure square aspect ratio */
+      object-fit: contain;
+      display: block;
+    }
+
+    .training-event-text {
+      flex-grow: 1;
+      margin: auto 0;
+      font-size: 20px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+    }
+    
+    .schedule-container {
+      align-self: end;
+      display: flex;
+      margin-top: 13px;
+      width: 237px;
+      max-width: 100%;
+      gap: 7px;
+    }
+    
+    .schedule-indicator {
+      display: flex;
+      padding-bottom: 33px;
+      flex-direction: column;
+    }
+    
+    .indicator-line {
+      aspect-ratio: 0.03;
+      object-fit: contain;
+      object-position: center;
+      width: 5px;
+    }
+    
+    .indicator-dot {
+      background-color: #fff;
+      border-radius: 50%;
+      display: flex;
+      height: 11px;
+    }
+    
+    .schedule-links {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 30px;
+      gap: 10px;
+      width: 100%;
+      flex-direction: column;
+      color: #fff;
+      margin: auto 0;
+      font: 700 20px/6px Montserrat, sans-serif;
+    }
+    
+    .schedule-out-house {
+      align-self: start;
+      display: flex;
+      margin-left: 11px;
+      gap: 9px;
+    }
+    
+    @media (max-width: 991px) {
+      .schedule-out-house {
+        margin-left: 10px;
+      }
+    }
+    
+    .schedule-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .schedule-out-house-text {
+      margin-top: 10px;
+    }
+    
+    .schedule-in-house {
+      border-radius: 30px;
+      background-color: #8e8a8a;
+      display: flex;
+      margin-top: 23px;
+      gap: 9px;
+      padding: 10px 11px;
+    }
+    
+    .schedule-in-house-text {
+      margin-top: 10px;
+    }
+    
+    .company-event-link {
+      display: flex;
+      align-items: center; /* Vertically center the icon and text */
+      gap: 13px; /* Adjust gap between icon and text */
+      padding: 15px;
+      color: #fff;
+      white-space: nowrap;
+      margin: 48px 0 0 23px;
+      font: 700 20px/1 Montserrat, sans-serif; /* Ensure font size matches the second code */
+      border-radius: 30px;
+      transition: background-color 0.3s;
+    }
+
+    @media (max-width: 991px) {
+      .company-event-link {
+        margin: 40px 0 0 10px;
+      }
+    }
+    
+    .company-event-icon {
+      width: 50px; /* Same size for all icons */
+      height: 50px; /* Ensure square aspect ratio */
+      object-fit: contain;
+      display: block;
+    }
+
+    .company-event-text {
+      flex-grow: 1;
+      margin: auto 0;
+      font-size: 20px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+    }
+    
+    .e-library-link {
+      display: flex;
+      align-items: center; /* Vertically center the icon and text */
+      gap: 13px; /* Adjust gap between icon and text */
+      padding: 15px;
+      color: #fff;
+      white-space: nowrap;
+      margin: 48px 0 0 23px;
+      font: 700 20px/1 Montserrat, sans-serif; /* Ensure font size matches the second code */
+      border-radius: 30px;
+      transition: background-color 0.3s;
+      }
+    
+    @media (max-width: 991px) {
+      .e-library-link {
+        margin-left: 10px;
+        white-space: initial;
+      }
+    }
+    
+    .e-library-icon {
+      width: 50px; /* Same size for all icons */
+      height: 50px; /* Ensure square aspect ratio */
+      object-fit: contain;
+      display: block;
+    }
+
+    .e-library-text {
+      flex-grow: 1;
+      margin: auto 0;
+      font-size: 20px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+    }
+    
+    .my-team-link {
+      display: flex;
+      align-items: center; /* Vertically center the icon and text */
+      gap: 13px; /* Adjust gap between icon and text */
+      padding: 15px;
+      color: #fff;
+      white-space: nowrap;
+      margin: 48px 0 0 23px;
+      font: 700 20px/1 Montserrat, sans-serif; /* Ensure font size matches the second code */
+      border-radius: 30px;
+      transition: background-color 0.3s;
+    }
+
+    @media (max-width: 991px) {
+      .my-team-link {
+        margin-left: 10px;
+      }
+    }
+    
+    .my-team-icon {
+      width: 50px; /* Same size for all icons */
+      height: 50px; /* Ensure square aspect ratio */
+      object-fit: contain;
+      display: block;
+    }
+    
+    .my-team-text {
+      flex-grow: 1;
+      margin: auto 0;
+      font-size: 20px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+    }
+    
+    .my-data-link {
+      display: flex;
+      align-items: center; /* Vertically center the icon and text */
+      gap: 13px; /* Adjust gap between icon and text */
+      padding: 15px;
+      color: #fff;
+      white-space: nowrap;
+      margin: 48px 0 0 23px;
+      font: 700 20px/1 Montserrat, sans-serif; /* Ensure font size matches the second code */
+      border-radius: 30px;
+      transition: background-color 0.3s;
+      }
+    
+    @media (max-width: 991px) {
+      .my-data-link {
+        margin-left: 10px;
+      }
+    }
+    
+    .my-data-icon {
+      width: 50px; /* Same size for all icons */
+      height: 50px; /* Ensure square aspect ratio */
+      object-fit: contain;
+      display: block;
+    }
+
+    .my-data-text {
+      flex-grow: 1;
+      margin: auto 0;
+      font-size: 20px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+    }
+    
+    .main-section {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 75%;
+      width: calc(100% - 26%); 
+      margin-left: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .main-section {
+        width: 100%;
+      }
+    }
+    
+    .main-content-wrapper {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+    }
+    
+    @media (max-width: 991px) {
+      .main-content-wrapper {
+        max-width: 100%;
+        margin-top: 40px;
+        gap: 30px;
+      }
+    }
+    
+    .header {
+      display: flex;
+      width: 100%;
+      gap: 40px 50px;
+      flex-wrap: wrap;
+      padding-bottom: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .header {
+        max-width: 100%;
+        margin-right: 6px;
+      }
+    }
+    
+    .search-bar {
+      border-radius: 20px;
+      display: flex;
+      gap: 18px;
+      color: #d9d9d9;
+      flex-grow: 1;
+      padding: 8px 18px;
+      border: 2px solid #d9d9d9;
+      margin-top: 20px;
+      margin-left: 30px;
+      margin-right: -25px;
+    }
+    
+    @media (max-width: 991px) {
+      .search-bar {
+        white-space: initial;
+      }
+    }
+    
+    .search-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 40px;
+    }
+    
+    .search-text {
+      align-self: start;
+      flex-grow: 1;
+    }
+    
+    @media (max-width: 991px) {
+      .search-text {
+        max-width: 100%;
+      }
+    }
+    
+    .user-profile {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .profile-picture {
+      background-color: #1e1e1e;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 65px;
+      height: 65px;
+      padding: 0 1px;
+      margin-top: 18px;
+    }
+    
+    .profile-image {
+      aspect-ratio: 1.03;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+      font: 20px/1 Montserrat, sans-serif;
+    }
+    
+    .user-name {
+      color: #000;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+    
+    .user-id {
+      color: #000;
+      font-weight: 500;
+      align-self: start;
+      margin-top: 5px;
+    }
+    
+    .page-title-container {
+      display: flex;
+      margin-top: -35px;
+      width: 100%;
+      gap: 40px 100px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      flex-wrap: wrap;
+      align-items: center; /* Ensures vertical alignment of title and breadcrumb */
+      justify-content: space-between;
+      margin-left: 30px;
+      margin-bottom: -25px;
+    }
+    
+    @media (max-width: 991px) {
+      .page-title-container {
+        max-width: 100%;
+        margin-right: 5px;
+      }
+    }
+    
+    .page-title {
+      color: #000;
+      font-size: 32px;
+      line-height: 1.2;
+    }
+    
+    .breadcrumb {
+      align-self: center;
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      color: #1e1e1e;
+      line-height: 0.2;
+      flex: 1;
+      margin-left: 140px;
+    }
+    
+    .home-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 25px;
+      height: 25px;
+    }
+    
+    .breadcrumb-text {
+      flex-basis: auto;
+      flex-grow: 1;
+      margin: auto 0;
+    }
+    
+    .content-box {
+      border-radius: 13px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      margin-top: 30px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 33px 80px;
+      border: 2px solid #d9d9d9;
+      width: auto;
+      margin-left: 30px;
+    }
+    
+    @media (max-width: 991px) {
+      .content-box {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    }
+    
+    .content-image {
+      aspect-ratio: 0.91;
+      object-fit: contain;
+      object-position: center;
+      width: 631px;
+      max-width: 100%;
+    }
+    
+    .footer {
+      background-color: #e8e8e8;
+      display: flex;
+      margin-top: 83px;
+      width: 100%;
+      justify-content: space-between;
+      padding: 20px 50px;
+      font: 700 16px Montserrat, sans-serif;
+      color: #000;
+      box-sizing: border-box;
+      align-items: center;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .footer a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline; /* Add underline on hover */
+    }
+
+    .footer p {
+      margin: 0;
+    }
+        
+    @media (max-width: 991px) {
+      .footer {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 36px 20px;
+    }
+
+    .footer p {
+      margin-bottom: 10px;
+    }
+      }
+    
+    .copyright {
+      max-width: 100%;
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    </style>
+    
+    <section class="training-event-schedule">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <aside class="sidebar">
+            <nav class="sidebar-content">
+              <div class="logo-container">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/52aecabcaef9a0a1304a4bd11b1d6cd1302c89f021a28c18971297f189f52d09?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="IKNOW Logo" class="logo-image" />
+                <span class="logo-text">IKNOW</span>
+              </div>
+              <a href="#" class="dashboard-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/14fdc17f10b5e17a8930dc81646ed2639a023da19eaac53e997f1db40d42cae4?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Dashboard Icon" class="dashboard-icon" />
+                <span class="dashboard-text">Dashboard</span>
+              </a>
+              <a href="#" class="basic-knowledge-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/14b8b2729a058f7af7b8a4c9f75a55feee98a07ac9fa5f9bf5fc6bf7ba9ef300?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Basic Knowledge Icon" class="basic-knowledge-icon" />
+                <span class="basic-knowledge-text">Basic Knowledge</span>
+              </a>
+              <a href="#" class="training-event-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e0248ae6c0fcac0b9bf7bc2bd23ad05444d86cac8c496edab2bdeb8e7a67c9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Training Event Icon" class="training-event-icon" />
+                <span class="training-event-text">Training Event</span>
+              </a>
+              <div class="schedule-container">
+                <div class="schedule-indicator">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/30dd08197afc83eb0a0fc9a584db94d95605488a94fd2a4d537a1dddbc190db0?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Schedule Indicator" class="indicator-line" />
+                  <div class="indicator-dot"></div>
+                </div>
+                <div class="schedule-links">
+                  <a href="#" class="schedule-out-house">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Schedule Out House Icon" class="schedule-icon" />
+                    <span class="schedule-out-house-text">Schedule Out House</span>
+                  </a>
+                  <a href="#" class="schedule-in-house">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Schedule In House Icon" class="schedule-icon" />
+                    <span class="schedule-in-house-text">Schedule In House</span>
+                  </a>
+                </div>
+              </div>
+              <a href="#" class="company-event-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/66ac84667a2ab55910bfc3052d4587098503bd43cab620ff547bc7c4bf48e936?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Company Event Icon" class="company-event-icon" />
+                <span class="company-event-text">Company Event</span>
+              </a>
+              <a href="#" class="e-library-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/5c4f2b9472204dc8202f7849a6cb34436d9d7aa5857db24f859cc69f323cb765?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="E-Library Icon" class="e-library-icon" />
+                <span class="e-library-text">E-Library</span>
+              </a>
+              <a href="#" class="my-team-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/246ed86c32c6b8957e7243c8b77114ebf95fdf606042e8c220cd8f8a61735e79?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Team Icon" class="my-team-icon" />
+                <span class="my-team-text">My Team</span>
+              </a>
+              <a href="#" class="my-data-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/10c3ab749fa717bcae414b8a51ad30a389ab9178d6b9c1c6488c92981ce3d8dd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Data Icon" class="my-data-icon" />
+                <span class="my-data-text">My Data</span>
+              </a>
+            </nav>
+          </aside>
+          <main class="main-section">
+            <div class="main-content-wrapper">
+              <header class="header">
+                <form class="search-bar" role="search">
+                  <label for="search-input" class="visually-hidden">Search</label>
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Search Icon" class="search-icon" />
+                  <input type="search" id="search-input" class="search-text" placeholder="Search" aria-label="Search" />
+                </form>
+                <div class="user-profile">
+                  <div class="profile-picture">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/89dee585b2c9490464055fff7ca9a4f9a5d4f8551166d9090131d688725a4b62?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="User Profile Picture" class="profile-image" />
+                  </div>
+                  <div class="user-info">
+                    <div class="user-name">Aula Wijaya</div>
+                    <div class="user-id">00359</div>
+                  </div>
+                </div>
+              </header>
+              <div class="page-title-container">
+                <h1 class="page-title">Schedule In House</h1>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/02c82341b9c8dc21699bcd0905e6a58d6c0b419afad03d1e9453112dd8a4a32d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Home Icon" class="home-icon" />
+                  <span class="breadcrumb-text">Home &gt; Article &gt; Schedule In House</span>
+                </nav>
+              </div>              
+              <section class="content-box">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/258c3fea2e1f64738d11fc82df5bf0ab42959f0c6da5710d314759ddbd46628f?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Schedule In House Content" class="content-image" />
+              </section>
+            </div>
+          </main>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="copyright">
+          Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" target="_blank" rel="noopener noreferrer">igp-astra.co.id</a>. All rights reserved.
+        </div>
+        <div>Version 1.0.0</div>
+      </footer>
+    </section>

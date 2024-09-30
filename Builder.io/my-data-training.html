@@ -1,0 +1,373 @@
+<style>
+    .container { background-color: #fff; display: flex; flex-direction: column; overflow: hidden; padding: 27px 18px 0 0; }
+    .content-wrapper { align-self: center; width: 100%; max-width: 1434px; }
+    @media (max-width: 991px) { .content-wrapper { max-width: 100%; } }
+    .main-content { gap: 20px; display: flex; }
+    @media (max-width: 991px) { .main-content { flex-direction: column; align-items: stretch; gap: 0; } }
+    .sidebar { display: flex; flex-direction: column; line-height: normal; width: 24%; margin-left: 0; }
+    @media (max-width: 991px) { .sidebar { width: 100%; } }
+    .sidebar-nav { border-radius: 20px; background-color: #000; display: flex; width: 100%; flex-direction: column; align-items: start; color: #fff; margin: 0 auto; padding: 31px 31px 690px; font: 700 20px/1 Montserrat, sans-serif; }
+    @media (max-width: 991px) { .sidebar-nav { margin-top: 40px; padding: 0 0 100px 20px; } }
+    .logo-wrapper { display: flex; gap: 25px; font-size: 32px; white-space: nowrap; line-height: 0.4; }
+    @media (max-width: 991px) { .logo-wrapper { margin-left: 8px; white-space: initial; } }
+    .logo { aspect-ratio: 0.99; object-fit: contain; object-position: center; width: 87px; }
+    .brand-name { flex-basis: auto; margin: auto 0; }
+    .nav-item { display: flex; gap: 13px; white-space: nowrap; margin: 50px 0 0 21px; }
+    @media (max-width: 991px) { .nav-item { white-space: initial; margin: 40px 0 0 10px; } }
+    .nav-icon { aspect-ratio: 0.96; object-fit: contain; object-position: center; width: 50px; }
+    .nav-text { flex-basis: auto; margin: auto 0; }
+    .nav-item-basic { align-self: end; display: flex; margin-top: 28px; align-items: end; gap: 13px 9px; line-height: 6px; justify-content: start; flex-wrap: wrap; }
+    .nav-item-active { border-radius: 30px; background-color: #ef2e1f; align-self: stretch; display: flex; margin-top: 16px; gap: 9px; padding: 11px 21px; }
+    @media (max-width: 991px) { .nav-item-active { padding: 0 20px; } }
+    .main-section { display: flex; flex-direction: column; line-height: normal; width: 76%; margin-left: 20px; }
+    @media (max-width: 991px) { .main-section { width: 100%; } }
+    .header { display: flex; width: 100%; flex-direction: column; }
+    @media (max-width: 991px) { .header { max-width: 100%; margin-top: 40px; } }
+    .header-content { display: flex; gap: 20px; justify-content: space-between; font: 20px/1 Montserrat, sans-serif; }
+    @media (max-width: 991px) { .header-content { margin-right: 5px; } }
+    .search-bar { border-radius: 20px; align-self: start; display: flex; gap: 18px; color: #d9d9d9; font-weight: 700; white-space: nowrap; flex-wrap: wrap; padding: 8px 18px; border: 2px solid #d9d9d9; }
+    @media (max-width: 991px) { .search-bar { white-space: initial; } }
+    .search-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 40px; }
+    .search-text { align-self: start; margin-top: 18px; flex-basis: auto; flex-grow: 1; }
+    @media (max-width: 991px) { .search-text { max-width: 100%; } }
+    .user-profile { aspect-ratio: 1; object-fit: contain; object-position: center; width: 72px; }
+    .user-info { display: flex; flex-direction: column; margin: auto 0; }
+    .user-name { color: #000; font-weight: 700; }
+    .user-id { color: #000; font-weight: 500; align-self: start; margin-top: 5px; }
+    .main-content-area { margin-top: 40px; }
+    @media (max-width: 991px) { .main-content-area { max-width: 100%; } }
+    .content-grid { gap: 20px; display: flex; }
+    @media (max-width: 991px) { .content-grid { flex-direction: column; align-items: stretch; gap: 0; } }
+    .profile-column { display: flex; flex-direction: column; line-height: normal; width: 31%; margin-left: 0; }
+    @media (max-width: 991px) { .profile-column { width: 100%; } }
+    .profile-section { display: flex; flex-grow: 1; flex-direction: column; font-family: Montserrat, sans-serif; font-weight: 700; }
+    @media (max-width: 991px) { .profile-section { margin-top: 28px; } }
+    .section-title { color: #000; font-size: 32px; line-height: 0.4; align-self: start; }
+    .profile-card { border-radius: 13px; background-color: #000; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); display: flex; margin-top: 20px; flex-direction: column; font-size: 16px; color: #fff; line-height: 0.2; padding: 34px 30px; }
+    @media (max-width: 991px) { .profile-card { padding: 0 20px; } }
+    .profile-name { font-size: 24px; align-self: center; }
+    .profile-role { font-size: 20px; font-weight: 400; align-self: center; margin-top: 11px; }
+    .profile-image { aspect-ratio: 1; object-fit: contain; object-position: center; width: 139px; align-self: center; margin-top: 19px; max-width: 100%; }
+    .profile-detail { align-self: start; margin-top: 40px; }
+    .data-column { display: flex; flex-direction: column; line-height: normal; width: 69%; margin-left: 20px; }
+    @media (max-width: 991px) { .data-column { width: 100%; } }
+    .data-section { display: flex; width: 100%; flex-direction: column; }
+    @media (max-width: 991px) { .data-section { max-width: 100%; margin-top: 29px; } }
+    .data-title { color: #1e1e1e; align-self: end; font: 700 14px/0.2 Montserrat, sans-serif; }
+    @media (max-width: 991px) { .data-title { margin-right: 7px; } }
+    .data-grid { margin-top: 35px; }
+    @media (max-width: 991px) { .data-grid { max-width: 100%; } }
+    .data-row { gap: 20px; display: flex; }
+    @media (max-width: 991px) { .data-row { flex-direction: column; align-items: stretch; gap: 0; } }
+    .data-card { border-radius: 13px; background-color: #000; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); display: flex; flex-grow: 1; flex-direction: column; align-items: start; font-family: Montserrat, sans-serif; font-weight: 700; width: 100%; padding: 13px 44px 63px 20px; }
+    @media (max-width: 991px) { .data-card { margin-top: 28px; padding-right: 20px; } }
+    .card-title { color: #ef2e1f; font-size: 20px; line-height: 0.2; }
+    .card-content { color: #fff; font-size: 11px; line-height: 3px; margin-top: 36px; }
+    .activity-card { border-radius: 13px; background-color: #000; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); display: flex; flex-grow: 1; gap: 12px; font-family: Montserrat, sans-serif; font-weight: 700; width: 100%; padding: 16px 21px; }
+    @media (max-width: 991px) { .activity-card { margin-top: 29px; padding-left: 20px; } }
+    .activity-content { display: flex; flex-direction: column; }
+    .activity-title { color: #ef2e1f; font-size: 20px; line-height: 0.2; align-self: start; }
+    .activity-list { color: #fff; font-size: 11px; line-height: 3px; margin-top: 29px; }
+    .activity-stats { align-self: end; display: flex; margin-top: 45px; flex-direction: column; align-items: start; font-size: 8px; color: #fff; white-space: nowrap; line-height: 1; }
+    @media (max-width: 991px) { .activity-stats { margin-top: 40px; white-space: initial; } }
+    .stat-item { align-self: stretch; display: flex; gap: 3px; }
+    @media (max-width: 991px) { .stat-item { white-space: initial; } }
+    .stat-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 10px; }
+    .training-section { border-radius: 13px; background-color: #1e1e1e; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); display: flex; margin-top: 34px; width: 100%; flex-direction: column; padding: 21px 19px 42px; font: 14px/0.2 Montserrat, sans-serif; }
+    @media (max-width: 991px) { .training-section { max-width: 100%; padding-right: 20px; } }
+    .training-tabs { align-self: start; display: flex; gap: 15px; color: #fff; font-weight: 700; line-height: 1; }
+    .tab-active { border-radius: 13px; box-shadow: 2px 4px 4px 0 rgba(140, 141, 155, 0.05) inset, 0 23px 7px 0 rgba(140, 141, 155, 0), 0 15px 6px 0 rgba(140, 141, 155, 0.01), 0 8px 5px 0 rgba(140, 141, 155, 0.05), 0 4px 4px 0 rgba(140, 141, 155, 0.09), 0 1px 2px 0 rgba(140, 141, 155, 0.1); background-color: #ef2e1f; white-space: nowrap; padding: 12px 16px 6px; }
+    @media (max-width: 991px) { .tab-active { white-space: initial; } }
+    .tab { border-radius: 13px; border: 1px solid #ef2e1f; box-shadow: 2px 4px 4px 0 rgba(140, 141, 155, 0.05) inset, 0 23px 7px 0 rgba(140, 141, 155, 0), 0 15px 6px 0 rgba(140, 141, 155, 0.01), 0 8px 5px 0 rgba(140, 141, 155, 0.05), 0 4px 4px 0 rgba(140, 141, 155, 0.09), 0 1px 2px 0 rgba(140, 141, 155, 0.1); white-space: nowrap; padding: 12px 15px 6px; }
+    @media (max-width: 991px) { .tab { white-space: initial; } }
+    .training-controls { display: flex; margin-top: 18px; width: 100%; align-items: start; gap: 20px; flex-wrap: wrap; justify-content: space-between; }
+    @media (max-width: 991px) { .training-controls { max-width: 100%; margin-right: 3px; } }
+    .records-control { display: flex; margin-top: 4px; gap: 9px; }
+    .records-dropdown { border-radius: 13px; background: #ef2e1f; box-shadow: 2px 4px 4px 0 rgba(140, 141, 155, 0.05) inset, 0 23px 7px 0 rgba(140, 141, 155, 0), 0 15px 6px 0 rgba(140, 141, 155, 0.01), 0 8px 5px 0 rgba(140, 141, 155, 0.05), 0 4px 4px 0 rgba(140, 141, 155, 0.09), 0 1px 2px 0 rgba(140, 141, 155, 0.1); display: flex; gap: 3px; color: #fff; font-weight: 500; white-space: nowrap; padding: 9px 7px; }
+    @media (max-width: 991px) { .records-dropdown { white-space: initial; } }
+    .dropdown-icon { aspect-ratio: 0.6; object-fit: contain; object-position: center; width: 6px; }
+    .records-label { color: #fff; font-weight: 700; flex-basis: auto; margin: auto 0; }
+    .search-button { border-radius: 40px; background: #ef2e1f; display: flex; gap: 7px; color: #fff; font-weight: 700; white-space: nowrap; padding: 4px 12px; }
+    @media (max-width: 991px) { .search-button { white-space: initial; } }
+    .search-button-icon { aspect-ratio: 1.05; object-fit: contain; object-position: center; width: 21px; }
+    .search-button-text { margin: auto 0; }
+    .training-table-header { border-radius: 15px 15px 0 0; background-color: #ef2e1f; display: flex; margin-top: 23px; width: 100%; gap: 40px 92px; color: #fff; font-weight: 900; white-space: nowrap; flex-wrap: wrap; padding: 11px 20px; }
+    @media (max-width: 991px) { .training-table-header { max-width: 100%; white-space: initial; } }
+    .header-group { display: flex; align-items: start; gap: 40px 43px; flex-grow: 1; flex-basis: auto; }
+    @media (max-width: 991px) { .header-group { white-space: initial; } }
+    .header-item { display: flex; gap: 8px; }
+    @media (max-width: 991px) { .header-item { white-space: initial; } }
+    .header-text { margin: auto 0; }
+    .sort-icon { aspect-ratio: 0.6; object-fit: contain; object-position: center; width: 12px; }
+    .no-data-message { color: #fff; font-weight: 700; align-self: start; margin: 20px 0 0 19px; }
+    @media (max-width: 991px) { .no-data-message { margin-left: 10px; } }
+    .table-footer { display: flex; margin-top: 31px; width: 100%; gap: 20px; color: #fff; font-weight: 700; flex-wrap: wrap; justify-content: space-between; }
+    @media (max-width: 991px) { .table-footer { max-width: 100%; } }
+    .entries-info { margin: auto 0; }
+    .pagination { display: flex; gap: 10px; white-space: nowrap; }
+    @media (max-width: 991px) { .pagination { white-space: initial; } }
+    .pagination-button { border-radius: 13px; border: 1px solid #ef2e1f; box-shadow: 2px 4px 4px 0 rgba(140, 141, 155, 0.05) inset, 0 23px 7px 0 rgba(140, 141, 155, 0), 0 15px 6px 0 rgba(140, 141, 155, 0.01), 0 8px 5px 0 rgba(140, 141, 155, 0.05), 0 4px 4px 0 rgba(140, 141, 155, 0.09), 0 1px 2px 0 rgba(140, 141, 155, 0.1); display: flex; gap: 10px; padding: 4px 10px; }
+    @media (max-width: 991px) { .pagination-button { white-space: initial; } }
+    .pagination-icon { aspect-ratio: 1.05; object-fit: contain; object-position: center; width: 21px; }
+    .pagination-text { margin: auto 0; }
+    .page-number { border-radius: 13px; box-shadow: 2px 4px 4px 0 rgba(140, 141, 155, 0.05) inset, 0 23px 7px 0 rgba(140, 141, 155, 0), 0 15px 6px 0 rgba(140, 141, 155, 0.01), 0 8px 5px 0 rgba(140, 141, 155, 0.05), 0 4px 4px 0 rgba(140, 141, 155, 0.09), 0 1px 2px 0 rgba(140, 141, 155, 0.1); background-color: #ef2e1f; width: 29px; height: 29px; padding: 0 12px; }
+    @media (max-width: 991px) { .page-number { white-space: initial; } }
+    .footer { background: #e8e8e8; display: flex; margin-top: 397px; gap: 20px; color: #000; flex-wrap: wrap; justify-content: space-between; padding: 36px 80px; font: 700 16px Montserrat, sans-serif; }
+    @media (max-width: 991px) { .footer { max-width: 100%; margin-top: 40px; padding: 0 20px; } }
+    .copyright { }
+    @media (max-width: 991px) { .copyright { max-width: 100%; } }
+    .version { }
+    </style>
+    
+    <section class="container">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <aside class="sidebar">
+            <nav class="sidebar-nav">
+              <div class="logo-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Logo" class="logo" />
+                <span class="brand-name">IKNOW</span>
+              </div>
+              <div class="nav-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/54ddb38055df0b433e87cab007b20dc1494b496451a30895e03026b19a93fbc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Dashboard icon" class="nav-icon" />
+                <span class="nav-text">Dashboard</span>
+              </div>
+              <div class="nav-item-basic">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ee473168f03ac18b2fd8e7b901cdb49ffae1448ab080b86cdc71138464e6e167?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Basic Knowledge icon" class="nav-icon" />
+                <span class="nav-text">Basic Knowledge</span>
+              </div>
+              <div class="nav-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/3cf3d4b29fc5a96440898e8243aadfe163986c9e7b1036a9e639610c532f3c6a?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Training Event icon" class="nav-icon" />
+                <span class="nav-text">Training Event</span>
+              </div>
+              <div class="nav-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/66ac84667a2ab55910bfc3052d4587098503bd43cab620ff547bc7c4bf48e936?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Company Event icon" class="nav-icon" />
+                <span class="nav-text">Company Event</span>
+              </div>
+              <div class="nav-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5c4f2b9472204dc8202f7849a6cb34436d9d7aa5857db24f859cc69f323cb765?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="E-Library icon" class="nav-icon" />
+                <span class="nav-text">E-Library</span>
+              </div>
+              <div class="nav-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/246ed86c32c6b8957e7243c8b77114ebf95fdf606042e8c220cd8f8a61735e79?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Team icon" class="nav-icon" />
+                <span class="nav-text">My Team</span>
+              </div>
+              <div class="nav-item-active">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/10c3ab749fa717bcae414b8a51ad30a389ab9178d6b9c1c6488c92981ce3d8dd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Data icon" class="nav-icon" />
+                <span class="nav-text">My Data</span>
+              </div>
+            </nav>
+          </aside>
+          <main class="main-section">
+            <header class="header">
+              <div class="header-content">
+                <div class="search-bar">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Search icon" class="search-icon" />
+                  <span class="search-text">Search</span>
+                </div>
+                <div class="user-info">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc9fe485dfabcd7f0bd220092e173c32ffe14d07481510386a822c418e9ef3a7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="User profile" class="user-profile" />
+                  <span class="user-name">Aula Wijaya</span>
+                  <span class="user-id">00359</span>
+                </div>
+              </div>
+            </header>
+            <div class="main-content-area">
+              <div class="content-grid">
+                <div class="profile-column">
+                  <section class="profile-section">
+                    <h2 class="section-title">My Data</h2>
+                    <div class="profile-card">
+                      <h3 class="profile-name">Aula Wijaya</h3>
+                      <span class="profile-role">Admin</span>
+                      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/0ef0138543132ce33f6ecc30005fbe163353cdbfdac6892639f7cf4cc1b19e78?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Profile picture" class="profile-image" />
+                      <p class="profile-detail">NPK :</p>
+                      <p class="profile-detail">Jabatan :</p>
+                      <p class="profile-detail">Divisi : HR & GA</p>
+                      <p class="profile-detail">Department : HR GA & IT</p>
+                    </div>
+                  </section>
+                </div>
+                <div class="data-column">
+                  <section class="data-section">
+                    <h2 class="data-title">My Data</h2>
+                    <div class="data-grid">
+                      <div class="data-row">
+                        <div class="data-card">
+                          <h3 class="card-title">Leadership</h3>
+                          <ul class="card-content">
+                            <li>Astra Leadership Competency</li>
+                            <li>Industry 4.0</li>
+                            <li>Project Management</li>
+                            <li>Leader Handbook</li>
+                          </ul>
+                        </div>
+                        <div class="data-card">
+                          <h3 class="card-title">Basic Knowledge</h3>
+                          <ul class="card-content">
+                            <li>Function Knowledge</li>
+                            <li>Problem Solving</li>
+                          </ul>
+                        </div>
+                        <div class="data-card">
+                          <h3 class="card-title">Training Event</h3>
+                          <ul class="card-content">
+                            <li>Materi & Silabus Training</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="data-row">
+                        <div class="data-card">
+                          <h3 class="card-title">Company Event</h3>
+                          <ul class="card-content">
+                            <li>Employee Engagement</li>
+                            <li>Campaign</li>
+                          </ul>
+                          <span class="stat-item">8</span>
+                        </div>
+                        <div class="data-card">
+                          <h3 class="card-title">E-Library</h3>
+                          <ul class="card-content">
+                            <li>Video</li>
+                          </ul>
+                          <div class="stat-item">
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/daa38e65016bba9a956da2e3ada407cb956513beefc8fe80fa2c9eee6fc143f7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Stat icon" class="stat-icon" />
+                            <span>11</span>
+                          </div>
+                        </div>
+                        <div class="activity-card">
+                          <div class="activity-content">
+                            <h3 class="activity-title">Activity</h3>
+                            <ul class="activity-list">
+                              <li>Artikel</li>
+                              <li>Buletin</li>
+                              <li>Ceremony and Meeting</li>
+                              <li>E-Book</li>
+                              <li>Employee Engagement</li>
+                              <li>Internal</li>
+                              <li>Recognition and Appreciation</li>
+                              <li>Video</li>
+                              <li>Video Internal</li>
+                            </ul>
+                          </div>
+                          <div class="activity-stats">
+                            <div class="stat-item">
+                              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/daa38e65016bba9a956da2e3ada407cb956513beefc8fe80fa2c9eee6fc143f7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Stat icon" class="stat-icon" />
+                              <span>48</span>
+                            </div>
+                            <div class="stat-item">
+                              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/daa38e65016bba9a956da2e3ada407cb956513beefc8fe80fa2c9eee6fc143f7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Stat icon" class="stat-icon" />
+                              <span>11</span>
+                            </div>
+                            <div class="stat-item">
+                              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/daa38e65016bba9a956da2e3ada407cb956513beefc8fe80fa2c9eee6fc143f7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Stat icon" class="stat-icon" />
+                              <span>4</span>
+                            </div>
+                            <div class="stat-item">
+                              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/daa38e65016bba9a956da2e3ada407cb956513beefc8fe80fa2c9eee6fc143f7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Stat icon" class="stat-icon" />
+                              <span>2</span>
+                            </div>
+                            <div class="stat-item">
+                              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/daa38e65016bba9a956da2e3ada407cb956513beefc8fe80fa2c9eee6fc143f7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Stat icon" class="stat-icon" />
+                              <span>8</span>
+                            </div>
+                            <div class="stat-item">
+                              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/daa38e65016bba9a956da2e3ada407cb956513beefc8fe80fa2c9eee6fc143f7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Stat icon" class="stat-icon" />
+                              <span>2</span>
+                            </div>
+                            <div class="stat-item">
+                              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/daa38e65016bba9a956da2e3ada407cb956513beefc8fe80fa2c9eee6fc143f7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Stat icon" class="stat-icon" />
+                              <span>14</span>
+                            </div>
+                            <div class="stat-item">
+                              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/daa38e65016bba9a956da2e3ada407cb956513beefc8fe80fa2c9eee6fc143f7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Stat icon" class="stat-icon" />
+                              <span>5</span>
+                            </div>
+                            <div class="stat-item">
+                              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/daa38e65016bba9a956da2e3ada407cb956513beefc8fe80fa2c9eee6fc143f7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Stat icon" class="stat-icon" />
+                              <span>6</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <section class="training-section">
+              <div class="training-tabs">
+                <button class="tab-active">TRAINING</button>
+                <button class="tab">KOMPETENSI</button>
+                <button class="tab">DATA PRIBADI</button>
+              </div>
+              <div class="training-controls">
+                <div class="records-control">
+                  <div class="records-dropdown">
+                    <span>7</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/dd3cef4a3b7c5078c99691ce9c0d9a5e566d45212eaa9e89c8ffbdb8e44daa56?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Dropdown icon" class="dropdown-icon" />
+                  </div>
+                  <span class="records-label">Records per page</span>
+                </div>
+                <button class="search-button">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/012aae4dc2ca9beb209d4bf1a8c75751d16a9620c05160a345f268a045c61d29?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Search icon" class="search-button-icon" />
+                  <span class="search-button-text">SEARCH</span>
+                </button>
+              </div>
+              <div class="training-table-header">
+                <div class="header-group">
+                  <div class="header-item">
+                    <span class="header-text">KODE</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7329cd4b081350020b1028fe70c06b819102a32653589ac67354dfe9c6c24a51?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Sort icon" class="sort-icon" />
+                  </div>
+                  <div class="header-item">
+                    <span class="header-text">TITLE</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1556e68a5475242267b1b45176f4b988131b859978bf87bc2121d099f1ad6146?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Sort icon" class="sort-icon" />
+                  </div>
+                  <div class="header-item">
+                    <span class="header-text">MULAI</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/24fa67abbe57d1c2e97dcdaa21ef4514f29d67be5bf7ade25a073d898af37340?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Sort icon" class="sort-icon" />
+                  </div>
+                </div>
+                <div class="header-group">
+                  <div class="header-item">
+                    <span class="header-text">SAMPAI</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1556e68a5475242267b1b45176f4b988131b859978bf87bc2121d099f1ad6146?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Sort icon" class="sort-icon" />
+                  </div>
+                  <span class="header-text">LOKASI</span>
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e553825f2521313ad233d10272eb9048d3f14f279269185c97273453cc94fc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Sort icon" class="sort-icon" />
+                  <span class="header-text">PENYELENGGARA</span>
+                  <div class="header-item">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ff22a201f8f58b25a43edbd74fde928f074a6d3572bf14ffdf5ee5312f2aab32?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Sort icon" class="sort-icon" />
+                    <span class="header-text">SERTIFIKAT</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/06614d1ce3c8e21c31d4b2229723b8ec8e1c87cb3430d6f0e54c4e9be01d03d6?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Sort icon" class="sort-icon" />
+                  </div>
+                </div>
+              </div>
+              <p class="no-data-message">No data available in table</p>
+              <div class="table-footer">
+                <span class="entries-info">Showing 0 to 0 of 0 entries</span>
+                <div class="pagination">
+                  <button class="pagination-button">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/74023805a25a10c0d0d99b88e568ce5c249a0d5f5a0a4841e022806e587dd9da?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Previous icon" class="pagination-icon" />
+                    <span class="pagination-text">Previous</span>
+                  </button>
+                  <span class="page-number">1</span>
+                  <span class="page-number">2</span>
+                  <span class="page-number">3</span>
+                  <span class="page-number">4</span>
+                  <button class="pagination-button">
+                    <span class="pagination-text">Next</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8ad4d3709f97e23c283df9f60f74d85aa17c820fe9f5f4b7c0d4606827be493d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Next icon" class="pagination-icon" />
+                  </button>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
+      <footer class="footer">
+        <p class="copyright">Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" target="_blank">igp-astra.co.id</a>. All rights reserved.</p>
+        <span class="version">Version 1.0.0</span>
+      </footer>
+    </section>

@@ -1,0 +1,502 @@
+<style>
+    .profile-edit-container {
+      background-color: #fff;
+      display: flex;
+      padding-top: 27px;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .content-wrapper {
+      align-self: center;
+      width: 100%;
+      max-width: 1382px;
+    }
+    
+    .main-content {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 25%;
+      margin-left: 0;
+    }
+    
+    .sidebar-menu {
+      border-radius: 20px;
+      background-color: #000;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: start;
+      color: #fff;
+      margin: 6px auto 0;
+      padding: 31px 18px 699px 39px;
+      font: 700 20px/1 Montserrat, sans-serif;
+    }
+    
+    .logo-container {
+      display: flex;
+      gap: 25px;
+      font-size: 32px;
+      white-space: nowrap;
+      line-height: 0.4;
+    }
+    
+    .logo {
+      aspect-ratio: 0.99;
+      object-fit: contain;
+      object-position: center;
+      width: 87px;
+    }
+    
+    .logo-text {
+      margin: auto 0;
+    }
+    
+    .menu-item {
+      display: flex;
+      gap: 9px;
+      margin: 25px 0 0 13px;
+    }
+    
+    .menu-icon {
+      aspect-ratio: 0.94;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .menu-text {
+      align-self: start;
+      margin-top: 13px;
+    }
+    
+    .main-section {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 75%;
+      margin-left: 20px;
+    }
+    
+    .header {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      font-family: Montserrat, sans-serif;
+    }
+    
+    .search-user-container {
+      display: flex;
+      width: 100%;
+      gap: 40px 62px;
+      font-size: 20px;
+      line-height: 1;
+      flex-wrap: wrap;
+    }
+    
+    .search-bar {
+      border-radius: 20px;
+      align-self: start;
+      display: flex;
+      gap: 18px;
+      color: #d9d9d9;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      flex-basis: auto;
+      padding: 8px 18px;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 40px;
+    }
+    
+    .search-text {
+      align-self: start;
+      margin-top: 18px;
+      flex-basis: auto;
+      flex-grow: 1;
+    }
+    
+    .user-info {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .user-avatar {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 72px;
+    }
+    
+    .user-details {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    .user-name {
+      color: #000;
+      font-weight: 700;
+    }
+    
+    .user-id {
+      color: #000;
+      font-weight: 500;
+      align-self: start;
+      margin-top: 5px;
+    }
+    
+    .profile-header {
+      display: flex;
+      margin-top: 33px;
+      width: 100%;
+      align-items: start;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .profile-title {
+      display: flex;
+      margin-top: 6px;
+      gap: 16px;
+    }
+    
+    .profile-heading {
+      color: #000;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 0.4;
+      flex-grow: 1;
+    }
+    
+    .profile-subheading {
+      color: #000;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1;
+    }
+    
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 14px;
+      color: #1e1e1e;
+      font-weight: 700;
+      line-height: 0.2;
+      justify-content: start;
+    }
+    
+    .breadcrumb-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 25px;
+    }
+    
+    .profile-form {
+      border-radius: 13px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      margin-top: 23px;
+      width: 100%;
+      flex-direction: column;
+      font-weight: 700;
+      line-height: 1;
+      padding: 32px 41px;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .form-row {
+      display: flex;
+      width: 100%;
+      gap: 20px;
+      white-space: nowrap;
+      line-height: 0.2;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .form-label {
+      color: #000;
+      font-size: 20px;
+    }
+    
+    .form-input {
+      border-radius: 20px;
+      margin-top: 15px;
+      font-size: 20px;
+      color: #000;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 19px 23px 10px;
+      border: 1px solid #d9d9d9;
+    }
+    
+    .avatar-upload {
+      border-radius: 20px;
+      display: flex;
+      margin-top: 16px;
+      flex-direction: column;
+      align-items: center;
+      font-size: 15px;
+      color: #cac7c7;
+      font-weight: 500;
+      justify-content: center;
+      padding: 63px 80px;
+      border: 1px solid #d9d9d9;
+    }
+    
+    .upload-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 44px;
+      align-self: center;
+    }
+    
+    .form-actions {
+      display: flex;
+      margin-top: 21px;
+      gap: 20px;
+      font-size: 14px;
+      color: #fff;
+      white-space: nowrap;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .btn {
+      border-radius: 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      padding: 13px 30px 7px;
+    }
+    
+    .btn-back {
+      background-color: #f0ca45;
+    }
+    
+    .btn-save {
+      background-color: #23af00;
+    }
+    
+    .footer {
+      background-color: #e8e8e8;
+      display: flex;
+      margin-top: 391px;
+      width: 100%;
+      gap: 20px;
+      color: #000;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 36px 80px;
+      font: 700 16px Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .content-wrapper {
+        max-width: 100%;
+      }
+    
+      .main-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    
+      .sidebar {
+        width: 100%;
+      }
+    
+      .sidebar-menu {
+        margin-top: 40px;
+        padding: 0 0 100px 20px;
+      }
+    
+      .logo-container {
+        white-space: initial;
+      }
+    
+      .menu-item {
+        margin-left: 10px;
+      }
+    
+      .main-section {
+        width: 100%;
+      }
+    
+      .header {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    
+      .search-user-container {
+        max-width: 100%;
+        margin-right: 10px;
+      }
+    
+      .search-bar {
+        white-space: initial;
+      }
+    
+      .search-text {
+        max-width: 100%;
+      }
+    
+      .profile-header {
+        max-width: 100%;
+      }
+    
+      .profile-form {
+        max-width: 100%;
+        margin-right: 6px;
+        padding: 0 20px;
+      }
+    
+      .form-row {
+        max-width: 100%;
+        margin-right: 5px;
+        white-space: initial;
+      }
+    
+      .form-input {
+        max-width: 100%;
+        white-space: initial;
+        padding: 0 20px;
+      }
+    
+      .avatar-upload {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    
+      .form-actions {
+        max-width: 100%;
+        white-space: initial;
+      }
+    
+      .btn {
+        white-space: initial;
+        padding: 0 20px;
+      }
+    
+      .footer {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+    </style>
+    
+    <section class="profile-edit-container">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <aside class="sidebar">
+            <nav class="sidebar-menu">
+              <div class="logo-container">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="IKNOW Logo" class="logo">
+                <span class="logo-text">IKNOW</span>
+              </div>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/54ddb38055df0b433e87cab007b20dc1494b496451a30895e03026b19a93fbc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">Dashboard</span>
+              </a>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ee473168f03ac18b2fd8e7b901cdb49ffae1448ab080b86cdc71138464e6e167?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">Basic Knowledge</span>
+              </a>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/3cf3d4b29fc5a96440898e8243aadfe163986c9e7b1036a9e639610c532f3c6a?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">Training Event</span>
+              </a>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/66ac84667a2ab55910bfc3052d4587098503bd43cab620ff547bc7c4bf48e936?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">Company Event</span>
+              </a>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5c4f2b9472204dc8202f7849a6cb34436d9d7aa5857db24f859cc69f323cb765?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">E-Library</span>
+              </a>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/246ed86c32c6b8957e7243c8b77114ebf95fdf606042e8c220cd8f8a61735e79?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">My Team</span>
+              </a>
+              <a href="#" class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/10c3ab749fa717bcae414b8a51ad30a389ab9178d6b9c1c6488c92981ce3d8dd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon">
+                <span class="menu-text">My Data</span>
+              </a>
+            </nav>
+          </aside>
+          <main class="main-section">
+            <header class="header">
+              <div class="search-user-container">
+                <div class="search-bar">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="search-icon">
+                  <span class="search-text">Search</span>
+                </div>
+                <div class="user-info">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc9fe485dfabcd7f0bd220092e173c32ffe14d07481510386a822c418e9ef3a7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="User Avatar" class="user-avatar">
+                  <div class="user-details">
+                    <span class="user-name">Aula Wijaya</span>
+                    <span class="user-id">00359</span>
+                  </div>
+                </div>
+              </div>
+              <div class="profile-header">
+                <div class="profile-title">
+                  <h1 class="profile-heading">Profile</h1>
+                  <h2 class="profile-subheading">My Profile</h2>
+                </div>
+                <div class="breadcrumb">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5942379ba05e342f511434e1629c9da11ea9f9b3bf79a0c68a2fb921551638da?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="breadcrumb-icon">
+                  <span>Profile &gt; My Profile</span>
+                </div>
+              </div>
+            </header>
+            <form class="profile-form">
+              <div class="form-row">
+                <label for="username" class="form-label">Username</label>
+                <div class="user-id">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b68c25bc8053b1bc03925ba8eb7736f5438ff084bf7544be58a3d74e78efaf37?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="breadcrumb-icon">
+                  <span>138</span>
+                </div>
+              </div>
+              <input type="text" id="username" class="form-input" value="aula">
+              <label for="firstname" class="form-label">First Name</label>
+              <input type="text" id="firstname" class="form-input" value="Aula">
+              <label for="lastname" class="form-label">Last Name</label>
+              <input type="text" id="lastname" class="form-input" value="Wijaya">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" class="form-input" value="aula@localhost.com">
+              <label for="avatar" class="form-label">Avatar</label>
+              <div class="avatar-upload">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ebf3bf3a52bc7e1602017e4e74cc4c7728a4c0d8525fc1494dae7020d90fb077?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="upload-icon">
+                <span>Drag or drop to choose picture</span>
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn btn-back">BACK</button>
+                <button type="submit" class="btn btn-save">SAVE</button>
+              </div>
+            </form>
+          </main>
+        </div>
+      </div>
+      <footer class="footer">
+        <div>Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" target="_blank">igp-astra.co.id</a>. All rights reserved.</div>
+        <div>Version 1.0.0</div>
+      </footer>
+    </section>

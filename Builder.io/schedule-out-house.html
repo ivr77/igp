@@ -1,0 +1,602 @@
+<style>
+    .training-event-schedule {
+      background-color: #fff;
+      display: flex;
+      padding: 27px 0 0;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .content-wrapper {
+      align-self: center;
+      width: 100%;
+      max-width: 1378px;
+    }
+    
+    .main-content {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 25%;
+    }
+    
+    .sidebar-content {
+      border-radius: 20px;
+      background-color: #000;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: start;
+      margin: 0 auto;
+      padding: 34px 21px 499px;
+    }
+    
+    .logo-container {
+      display: flex;
+      margin-left: 13px;
+      gap: 25px;
+      color: #fff;
+      white-space: nowrap;
+      font: 700 32px/0.4 Montserrat, sans-serif;
+    }
+    
+    .logo {
+      aspect-ratio: 0.99;
+      object-fit: contain;
+      object-position: center;
+      width: 87px;
+    }
+    
+    .logo-text {
+      flex-basis: auto;
+      margin: auto 0;
+    }
+    
+    .dashboard-link {
+      display: flex;
+      gap: 12px;
+      color: #fff;
+      white-space: nowrap;
+      margin: 50px 0 0 23px;
+      font: 700 20px/1 Montserrat, sans-serif;
+    }
+    
+    .dashboard-icon {
+      aspect-ratio: 0.94;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .basic-knowledge {
+      align-self: end;
+      display: flex;
+      margin-top: 29px;
+      height: 53px;
+      align-items: end;
+      gap: 13px 9px;
+      color: #fff;
+      justify-content: start;
+      flex-wrap: wrap;
+      font: 700 20px/1.2 Montserrat, sans-serif;
+    }
+    
+    .basic-knowledge-icon {
+      aspect-ratio: 0.94;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+      margin-left: -3px;
+    }
+    
+    .basic-knowledge-text {
+      width: 140px;
+      margin-left: -1px;
+    }
+    
+    .training-event {
+      border-radius: 30px;
+      background-color: #ef2e1f;
+      align-self: stretch;
+      display: flex;
+      margin-top: 25px;
+      gap: 9px;
+      color: #fff;
+      padding: 10px 25px;
+      font: 700 20px/1.2 Montserrat, sans-serif;
+    }
+    
+    .training-event-icon {
+      aspect-ratio: 0.93;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .training-event-text {
+      margin-top: 12px;
+    }
+    
+    .schedule-container {
+      align-self: end;
+      display: flex;
+      margin-top: 9px;
+      align-items: start;
+      gap: 6px;
+    }
+    
+    .schedule-indicator {
+      display: flex;
+      margin-top: 4px;
+      padding: 0 1px;
+    }
+    
+    .indicator-dot {
+      background-color: #fff;
+      border-radius: 50%;
+      align-self: end;
+      z-index: 10;
+      display: flex;
+      margin-top: 28px;
+      height: 11px;
+      width: 11px;
+    }
+    
+    .indicator-line {
+      aspect-ratio: 0.03;
+      object-fit: contain;
+      object-position: center;
+      width: 5px;
+    }
+    
+    .schedule-options {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      color: #fff;
+      font: 700 20px/1.2 Montserrat, sans-serif;
+    }
+    
+    .schedule-out-house {
+      border-radius: 30px;
+      background-color: #8e8a8a;
+      display: flex;
+      gap: 9px;
+      padding: 10px 12px;
+    }
+    
+    .schedule-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .schedule-text {
+      margin-top: 10px;
+    }
+    
+    .schedule-in-house {
+      align-self: start;
+      display: flex;
+      gap: 9px;
+      margin: 26px 0 0 12px;
+    }
+    
+    .company-event {
+      display: flex;
+      gap: 9px;
+      color: #fff;
+      margin: 37px 0 0 26px;
+      font: 700 20px/1.2 Montserrat, sans-serif;
+    }
+    
+    .company-event-icon {
+      aspect-ratio: 0.94;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .company-event-text {
+      align-self: start;
+      margin-top: 13px;
+    }
+    
+    .e-library {
+      display: flex;
+      gap: 9px;
+      color: #fff;
+      white-space: nowrap;
+      margin: 29px 0 0 26px;
+      font: 700 20px/1 Montserrat, sans-serif;
+    }
+    
+    .e-library-icon {
+      aspect-ratio: 0.94;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .e-library-text {
+      align-self: end;
+      margin-top: 23px;
+    }
+    
+    .my-team {
+      display: flex;
+      gap: 9px;
+      color: #fff;
+      margin: 29px 0 0 26px;
+      font: 700 20px/1 Montserrat, sans-serif;
+    }
+    
+    .my-team-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .my-data {
+      display: flex;
+      gap: 9px;
+      color: #fff;
+      margin: 29px 0 0 26px;
+      font: 700 20px/1 Montserrat, sans-serif;
+    }
+    
+    .my-data-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .main-section {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 75%;
+      margin-left: 20px;
+    }
+    
+    .header {
+      display: flex;
+      width: 100%;
+      gap: 40px 58px;
+      flex-wrap: wrap;
+    }
+    
+    .search-bar {
+      border-radius: 20px;
+      align-self: start;
+      display: flex;
+      gap: 18px;
+      color: #d9d9d9;
+      white-space: nowrap;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      flex-basis: auto;
+      padding: 8px 18px;
+      font: 700 20px/1 Montserrat, sans-serif;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 40px;
+    }
+    
+    .search-text {
+      align-self: start;
+      margin-top: 18px;
+      flex-basis: auto;
+      flex-grow: 1;
+    }
+    
+    .user-profile {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .profile-picture {
+      background-color: #1e1e1e;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      padding: 0 5px;
+    }
+    
+    .profile-image {
+      aspect-ratio: 1.03;
+      object-fit: contain;
+      object-position: center;
+      width: 62px;
+    }
+    
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+      font: 20px/1 Montserrat, sans-serif;
+    }
+    
+    .user-name {
+      color: #000;
+      font-weight: 700;
+    }
+    
+    .user-id {
+      color: #000;
+      font-weight: 500;
+      align-self: start;
+      margin-top: 5px;
+    }
+    
+    .page-title {
+      display: flex;
+      margin-top: 36px;
+      width: 100%;
+      gap: 20px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .title-text {
+      color: #000;
+      font-size: 32px;
+      line-height: 1.2;
+    }
+    
+    .breadcrumb {
+      align-self: start;
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      color: #1e1e1e;
+      line-height: 1.2;
+    }
+    
+    .home-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 25px;
+    }
+    
+    .breadcrumb-text {
+      flex-basis: auto;
+      flex-grow: 1;
+      margin: auto 0;
+    }
+    
+    .content-box {
+      border-radius: 13px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      margin-top: 30px;
+      flex-direction: column;
+      padding: 18px 43px 1px;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .content-image {
+      aspect-ratio: 1.28;
+      object-fit: contain;
+      object-position: center;
+      width: 100%;
+    }
+    
+    .footer {
+      background: #e8e8e8;
+      display: flex;
+      margin-top: 305px;
+      width: 100%;
+      gap: 20px;
+      color: #000;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 36px 80px;
+      font: 700 16px Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .content-wrapper {
+        max-width: 100%;
+      }
+    
+      .main-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+      }
+    
+      .sidebar {
+        width: 100%;
+      }
+    
+      .sidebar-content {
+        margin-top: 40px;
+        padding: 0 20px 100px;
+      }
+    
+      .logo-container {
+        margin-left: 10px;
+        white-space: initial;
+      }
+    
+      .dashboard-link {
+        white-space: initial;
+        margin: 40px 0 0 10px;
+      }
+    
+      .training-event {
+        margin-right: 5px;
+        padding: 0 20px;
+      }
+    
+      .indicator-dot {
+        margin-right: -10px;
+      }
+    
+      .schedule-in-house,
+      .company-event,
+      .e-library,
+      .my-team,
+      .my-data {
+        margin-left: 10px;
+      }
+    
+      .e-library {
+        white-space: initial;
+      }
+    
+      .main-section {
+        width: 100%;
+      }
+    
+      .header {
+        max-width: 100%;
+        margin-top: 40px;
+        margin-right: 6px;
+      }
+    
+      .search-bar {
+        white-space: initial;
+      }
+    
+      .search-text {
+        max-width: 100%;
+      }
+    
+      .page-title {
+        max-width: 100%;
+        margin-right: 2px;
+      }
+    
+      .content-box {
+        max-width: 100%;
+        padding-left: 20px;
+      }
+    
+      .content-image {
+        max-width: 100%;
+      }
+    
+      .footer {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+    </style>
+    
+    <section class="training-event-schedule">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <aside class="sidebar">
+            <nav class="sidebar-content">
+              <div class="logo-container">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="IKNOW Logo" class="logo">
+                <div class="logo-text">IKNOW</div>
+              </div>
+              <a href="#" class="dashboard-link">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/14fdc17f10b5e17a8930dc81646ed2639a023da19eaac53e997f1db40d42cae4?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Dashboard Icon" class="dashboard-icon">
+                <div class="dashboard-text">Dashboard</div>
+              </a>
+              <div class="basic-knowledge">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/14b8b2729a058f7af7b8a4c9f75a55feee98a07ac9fa5f9bf5fc6bf7ba9ef300?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Basic Knowledge Icon" class="basic-knowledge-icon">
+                <div class="basic-knowledge-text">Basic Knowledge</div>
+              </div>
+              <div class="training-event">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e0248ae6c0fcac0b9bf7bc2bd23ad05444d86cac8c496edab2bdeb8e7a67c9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Training Event Icon" class="training-event-icon">
+                <div class="training-event-text">Training Event</div>
+              </div>
+              <div class="schedule-container">
+                <div class="schedule-indicator">
+                  <div class="indicator-dot"></div>
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/30dd08197afc83eb0a0fc9a584db94d95605488a94fd2a4d537a1dddbc190db0?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Schedule Indicator" class="indicator-line">
+                </div>
+                <div class="schedule-options">
+                  <div class="schedule-out-house">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Schedule Out House Icon" class="schedule-icon">
+                    <div class="schedule-text">Schedule Out House</div>
+                  </div>
+                  <div class="schedule-in-house">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Schedule In House Icon" class="schedule-icon">
+                    <div class="schedule-text">Schedule In House</div>
+                  </div>
+                </div>
+              </div>
+              <div class="company-event">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/66ac84667a2ab55910bfc3052d4587098503bd43cab620ff547bc7c4bf48e936?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Company Event Icon" class="company-event-icon">
+                <div class="company-event-text">Company Event</div>
+              </div>
+              <div class="e-library">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5c4f2b9472204dc8202f7849a6cb34436d9d7aa5857db24f859cc69f323cb765?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="E-Library Icon" class="e-library-icon">
+                <div class="e-library-text">E-Library</div>
+              </div>
+              <div class="my-team">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/246ed86c32c6b8957e7243c8b77114ebf95fdf606042e8c220cd8f8a61735e79?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Team Icon" class="my-team-icon">
+                <div class="my-team-text">My Team</div>
+              </div>
+              <div class="my-data">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/10c3ab749fa717bcae414b8a51ad30a389ab9178d6b9c1c6488c92981ce3d8dd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Data Icon" class="my-data-icon">
+                <div class="my-data-text">My Data</div>
+              </div>
+            </nav>
+          </aside>
+          <main class="main-section">
+            <header class="header">
+              <form class="search-bar" role="search">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Search Icon" class="search-icon">
+                <label for="search-input" class="visually-hidden">Search</label>
+                <input type="search" id="search-input" class="search-text" placeholder="Search" aria-label="Search">
+              </form>
+              <div class="user-profile">
+                <div class="profile-picture">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/89dee585b2c9490464055fff7ca9a4f9a5d4f8551166d9090131d688725a4b62?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="User Profile Picture" class="profile-image">
+                </div>
+                <div class="user-info">
+                  <div class="user-name">Aula Wijaya</div>
+                  <div class="user-id">00359</div>
+                </div>
+              </div>
+            </header>
+            <div class="page-title">
+              <h1 class="title-text">Schedule Out House</h1>
+              <nav class="breadcrumb" aria-label="Breadcrumb">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/02c82341b9c8dc21699bcd0905e6a58d6c0b419afad03d1e9453112dd8a4a32d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Home Icon" class="home-icon">
+                <ol class="breadcrumb-text">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Article</a></li>
+                  <li aria-current="page">Schedule Out House</li>
+                </ol>
+              </nav>
+            </div>
+            <section class="content-box">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d38fa4f8253fcb74164fa7f04ed41fa5e530507df9061c626d8e209697198aab?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Schedule Out House Content" class="content-image">
+            </section>
+          </main>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="copyright">Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" target="_blank">igp-astra.co.id</a>. All rights reserved.</div>
+        <div class="version">Version 1.0.0</div>
+      </footer>
+    </section>

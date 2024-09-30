@@ -1,0 +1,910 @@
+<style>
+    .e-library-video-preview {
+      background-color: #fff;
+      display: flex;
+      padding-top: 27px;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .content-wrapper {
+      align-self: center;
+      width: 100%;
+      max-width: 1900px;
+    }
+    
+    @media (max-width: 991px) {
+      .content-wrapper {
+        max-width: 100%;
+      }
+    }
+    
+    .main-content {
+      display: flex;
+      gap: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .main-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    }
+    
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 18%;
+      margin-left: 0;
+    }
+    
+    @media (max-width: 991px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+    
+    .sidebar-content {
+      border-radius: 20px;
+      background-color: #000;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      color: #fff;
+      margin: 4px auto 0;
+      padding: 31px 27px 336px;
+      font: 700 20px/1 Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .sidebar-content {
+        margin-top: 32px;
+        padding: 0 0 100px 20px;
+      }
+    }
+    
+    .logo-container {
+      align-self: start;
+      display: flex;
+      margin-left: 12px;
+      gap: 25px;
+      font-size: 32px;
+      white-space: nowrap;
+      line-height: 0.4;
+    }
+    
+    @media (max-width: 991px) {
+      .logo-container {
+        margin-left: 10px;
+        white-space: initial;
+      }
+    }
+    
+    .logo {
+      aspect-ratio: 0.99;
+      object-fit: contain;
+      object-position: center;
+      width: 87px;
+    }
+    
+    .brand-name {
+      flex-basis: auto;
+      margin: auto 0;
+    }
+    
+    .menu-container {
+      align-self: end;
+      display: flex;
+      margin-top: 50px;
+      align-items: end;
+      gap: 29px 9px;
+      line-height: 6px;
+      justify-content: start;
+      flex-wrap: wrap;
+    }
+    
+    @media (max-width: 991px) {
+      .menu-container {
+        margin-top: 40px;
+      }
+    }
+    
+    .menu-group {
+      display: flex;
+      min-width: 240px;
+      width: 250px;
+      align-items: end;
+      gap: 29px 9px;
+      justify-content: start;
+      flex-wrap: wrap;
+      flex-grow: 1;
+    }
+    
+    .menu-item {
+      display: flex;
+      gap: 11px;
+      white-space: nowrap;
+      line-height: 1;
+      flex-grow: 1;
+      width: 173px;
+    }
+    
+    @media (max-width: 991px) {
+      .menu-item {
+        white-space: initial;
+      }
+    }
+    
+    .menu-icon {
+      aspect-ratio: 0.96;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .menu-text {
+      flex-basis: auto;
+      margin: auto 0;
+    }
+    
+    .submenu-group {
+      display: flex;
+      min-width: 240px;
+      align-items: end;
+      gap: 13px 9px;
+      justify-content: start;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      width: 250px;
+    }
+    
+    .submenu-icon {
+      aspect-ratio: 0.94;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .submenu-text {
+      flex-grow: 1;
+      width: 130px;
+    }
+    
+    .active-menu {
+      border-radius: 30px;
+      background-color: #ef2e1f;
+      display: flex;
+      margin-top: 30px;
+      gap: 10px;
+      white-space: nowrap;
+      padding: 10px 25px;
+    }
+    
+    @media (max-width: 991px) {
+      .active-menu {
+        margin-right: 4px;
+        white-space: initial;
+        padding: 0 20px;
+      }
+    }
+    
+    .active-menu-icon {
+      aspect-ratio: 0.93;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .active-menu-text {
+      flex-grow: 1;
+      width: 161px;
+      margin: auto 0;
+    }
+    
+    .submenu-active {
+      align-self: end;
+      display: flex;
+      margin-top: 15px;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 991px) {
+      .submenu-active {
+        margin-right: 4px;
+        white-space: initial;
+      }
+    }
+    
+    .submenu-active-indicator {
+      background-color: #fff;
+      border-radius: 50%;
+      display: flex;
+      width: 10px;
+      height: 11px;
+      margin: auto 0;
+    }
+    
+    .submenu-active-item {
+      border-radius: 30px;
+      background-color: #8e8a8a;
+      display: flex;
+      gap: 9px;
+      padding: 10px 17px;
+    }
+    
+    @media (max-width: 991px) {
+      .submenu-active-item {
+        white-space: initial;
+      }
+    }
+    
+    .submenu-active-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .submenu-active-text {
+      flex-basis: auto;
+      margin: auto 0;
+    }
+    
+    .submenu-item {
+      align-self: center;
+      display: flex;
+      margin-top: 26px;
+      width: 128px;
+      max-width: 100%;
+      gap: 9px;
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 991px) {
+      .submenu-item {
+        white-space: initial;
+      }
+    }
+    
+    .submenu-item-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .submenu-item-text {
+      margin: auto 0;
+    }
+    
+    .submenu-item-multi {
+      align-self: center;
+      display: flex;
+      margin-top: 35px;
+      width: 140px;
+      max-width: 100%;
+      gap: 9px;
+      white-space: nowrap;
+      line-height: 6px;
+    }
+    
+    @media (max-width: 991px) {
+      .submenu-item-multi {
+        white-space: initial;
+      }
+    }
+    
+    .submenu-item-multi-text {
+      align-self: start;
+      margin-top: 13px;
+    }
+    
+    .bottom-menu-item {
+      align-self: start;
+      display: flex;
+      gap: 9px;
+      margin: 48px 0 0 25px;
+    }
+    
+    @media (max-width: 991px) {
+      .bottom-menu-item {
+        margin: 40px 0 0 10px;
+      }
+    }
+    
+    .bottom-menu-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .bottom-menu-text {
+      margin: auto 0;
+    }
+    
+    .main-section {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 82%;
+      margin-left: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .main-section {
+        width: 100%;
+      }
+    }
+    
+    .header {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+    }
+    
+    @media (max-width: 991px) {
+      .header {
+        max-width: 100%;
+        margin-top: 28px;
+      }
+    }
+    
+    .header-content {
+      display: flex;
+      margin-left: 15px;
+      gap: 20px;
+      justify-content: space-between;
+      font: 20px/1 Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .header-content {
+        margin-right: 5px;
+      }
+    }
+    
+    .search-bar {
+      border-radius: 20px;
+      align-self: start;
+      display: flex;
+      gap: 18px;
+      color: #d9d9d9;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-wrap: wrap;
+      padding: 8px 18px;
+      border: 2px solid #d9d9d9;
+    }
+    
+    @media (max-width: 991px) {
+      .search-bar {
+        white-space: initial;
+      }
+    }
+    
+    .search-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 40px;
+    }
+    
+    .search-text {
+      align-self: start;
+      margin-top: 18px;
+      flex-basis: auto;
+      flex-grow: 1;
+    }
+    
+    @media (max-width: 991px) {
+      .search-text {
+        max-width: 100%;
+      }
+    }
+    
+    .user-profile {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 72px;
+    }
+    
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    .user-name {
+      color: #000;
+      font-weight: 700;
+    }
+    
+    .user-id {
+      color: #000;
+      font-weight: 500;
+      align-self: start;
+      margin-top: 5px;
+    }
+    
+    .page-title {
+      display: flex;
+      width: 100%;
+      gap: 20px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 40px 0 0 12px;
+    }
+    
+    @media (max-width: 991px) {
+      .page-title {
+        max-width: 100%;
+      }
+    }
+    
+    .title-text {
+      color: #1e1e1e;
+      font-size: 32px;
+      line-height: 13px;
+    }
+    
+    @media (max-width: 991px) {
+      .title-text {
+        max-width: 100%;
+      }
+    }
+    
+    .breadcrumb {
+      align-self: start;
+      display: flex;
+      margin-top: 4px;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #1e1e1e;
+      line-height: 3px;
+      justify-content: start;
+    }
+    
+    .breadcrumb-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 25px;
+      align-self: stretch;
+      margin: auto 0;
+    }
+    
+    .breadcrumb-text {
+      align-self: stretch;
+      width: 405px;
+      margin: auto 0;
+    }
+    
+    .content-area {
+      margin-top: 13px;
+    }
+    
+    @media (max-width: 991px) {
+      .content-area {
+        max-width: 100%;
+        margin-right: 10px;
+      }
+    }
+    
+    .content-columns {
+      gap: 20px;
+      display: flex;
+    }
+    
+    @media (max-width: 991px) {
+      .content-columns {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    }
+    
+    .main-content-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 61%;
+      margin-left: 0;
+    }
+    
+    @media (max-width: 991px) {
+      .main-content-column {
+        width: 100%;
+      }
+    }
+    
+    .main-content-wrapper {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+    }
+    
+    @media (max-width: 991px) {
+      .main-content-wrapper {
+        max-width: 100%;
+        margin-top: 31px;
+      }
+    }
+    
+    .video-container {
+      border-radius: 13px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      margin-left: 12px;
+      flex-direction: column;
+      justify-content: center;
+      padding: 32px 47px;
+      border: 2px solid #cac7c7;
+    }
+    
+    @media (max-width: 991px) {
+      .video-container {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    }
+    
+    .video-content {
+      aspect-ratio: 1.62;
+      object-fit: contain;
+      object-position: center;
+      width: 100%;
+    }
+    
+    @media (max-width: 991px) {
+      .video-content {
+        max-width: 100%;
+      }
+    }
+    
+    .video-description {
+      border-radius: 13px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      margin-top: 17px;
+      flex-direction: column;
+      font-family: Montserrat, sans-serif;
+      padding: 6px 41px 13px;
+      border: 2px solid #cac7c7;
+    }
+    
+    @media (max-width: 991px) {
+      .video-description {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    }
+    
+    .description-title {
+      color: #000;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 4px;
+    }
+    
+    .description-text {
+      color: #1e1e1e;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 0.4;
+      margin-top: 21px;
+    }
+    
+    @media (max-width: 991px) {
+      .description-text {
+        max-width: 100%;
+      }
+    }
+    
+    .sidebar-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 39%;
+      margin-left: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .sidebar-column {
+        width: 100%;
+      }
+    }
+    
+    .related-videos {
+      border-radius: 13px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      font-family: Montserrat, sans-serif;
+      padding: 30px 33px;
+      border: 2px solid #cac7c7;
+    }
+    
+    @media (max-width: 991px) {
+      .related-videos {
+        max-width: 100%;
+        margin-top: 31px;
+        padding: 0 20px;
+      }
+    }
+    
+    .related-videos-header {
+      align-self: start;
+      display: flex;
+      gap: 26px;
+      font-weight: 700;
+    }
+    
+    .related-videos-title {
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+      color: #000;
+      line-height: 0.2;
+    }
+    
+    @media (max-width: 991px) {
+      .related-videos-title {
+        margin-right: 9px;
+      }
+    }
+    
+    .related-videos-image {
+      aspect-ratio: 1.71;
+      object-fit: contain;
+      object-position: center;
+      width: 169px;
+      border-radius: 20px;
+      margin-top: 30px;
+    }
+    
+    .related-videos-subtitle {
+      color: #1e1e1e;
+      font-size: 16px;
+      line-height: 1;
+      flex-basis: auto;
+      margin: auto 0;
+    }
+    
+    .video-item {
+      display: flex;
+      margin-top: 25px;
+      gap: 28px;
+      color: #1e1e1e;
+      flex-wrap: wrap;
+    }
+    
+    .video-thumbnail {
+      aspect-ratio: 1.7;
+      object-fit: contain;
+      object-position: center;
+      width: 167px;
+      border-radius: 20px;
+      max-width: 100%;
+    }
+    
+    .video-info {
+      align-self: start;
+      display: flex;
+      margin-top: 11px;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-basis: 0;
+      width: fit-content;
+    }
+    
+    .video-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    
+    @media (max-width: 991px) {
+      .video-title {
+        margin-right: 9px;
+      }
+    }
+    
+    .video-description {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1;
+      margin-top: 6px;
+    }
+    
+    .view-all-button {
+      color: #f2554a;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1;
+      align-self: center;
+      margin-top: 59px;
+    }
+    
+    @media (max-width: 991px) {
+      .view-all-button {
+        margin-top: 40px;
+      }
+    }
+    
+    .footer {
+      background: #e8e8e8;
+      display: flex;
+      margin-top: 44px;
+      width: 100%;
+      gap: 20px;
+      color: #000;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 35px 80px;
+      font: 700 16px Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .footer {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+    
+    .copyright {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    @media (max-width: 991px) {
+      .copyright {
+        max-width: 100%;
+      }
+    }
+    </style>
+    
+    <section class="e-library-video-preview">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <aside class="sidebar">
+            <div class="sidebar-content">
+              <div class="logo-container">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Logo" class="logo" />
+                <span class="brand-name">IKNOW</span>
+              </div>
+              <nav class="menu-container">
+                <div class="menu-group">
+                  <div class="menu-item">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/54ddb38055df0b433e87cab007b20dc1494b496451a30895e03026b19a93fbc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Dashboard icon" class="menu-icon" />
+                    <span class="menu-text">Dashboard</span>
+                  </div>
+                  <div class="submenu-group">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e065952ce841e56e1271a3d03d2e8ae07923c1e6b4d42f8cf72e54b52279f42?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Basic Knowledge icon" class="submenu-icon" />
+                    <span class="submenu-text">Basic Knowledge</span>
+                  </div>
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/735026a19b60ad51c3eb2e82ebf52d288df0a68dfcc3cb681a35311df2e48214?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Training Event icon" class="submenu-icon" />
+                  <span class="submenu-text">Training Event</span>
+                </div>
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/5e772d165aa68781a0f3eb38158c0a7a7b6359cdfb51177ebcaf68f43f8f71bd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Company Event icon" class="submenu-icon" />
+                <span class="submenu-text">Company Event</span>
+              </nav>
+              <div class="active-menu">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f7423930d7e9f20a33431f790c4b3a087752f4fba496fd33842c146f20032647?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="E-Library icon" class="active-menu-icon" />
+                <span class="active-menu-text">E-Library</span>
+              </div>
+              <div class="submenu-active">
+                <div class="submenu-active-indicator"></div>
+                <div class="submenu-active-item">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Video icon" class="submenu-active-icon" />
+                  <span class="submenu-active-text">Video</span>
+                </div>
+              </div>
+              <div class="submenu-item">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Article icon" class="submenu-item-icon" />
+                <span class="submenu-item-text">Article</span>
+              </div>
+              <div class="submenu-item">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Bulletin icon" class="submenu-item-icon" />
+                <span class="submenu-item-text">Bulletin</span>
+              </div>
+              <div class="submenu-item-multi">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Video Internal icon" class="submenu-item-icon" />
+                <span class="submenu-item-multi-text">Video Internal</span>
+              </div>
+              <div class="bottom-menu-item">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/246ed86c32c6b8957e7243c8b77114ebf95fdf606042e8c220cd8f8a61735e79?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Team icon" class="bottom-menu-icon" />
+                <span class="bottom-menu-text">My Team</span>
+              </div>
+              <div class="bottom-menu-item">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/10c3ab749fa717bcae414b8a51ad30a389ab9178d6b9c1c6488c92981ce3d8dd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Data icon" class="bottom-menu-icon" />
+                <span class="bottom-menu-text">My Data</span>
+              </div>
+            </div>
+          </aside>
+          <main class="main-section">
+            <header class="header">
+              <div class="header-content">
+                <div class="search-bar">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Search icon" class="search-icon" />
+                  <span class="search-text">Search</span>
+                </div>
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc9fe485dfabcd7f0bd220092e173c32ffe14d07481510386a822c418e9ef3a7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="User profile" class="user-profile" />
+                <div class="user-info">
+                  <span class="user-name">Aula Wijaya</span>
+                  <span class="user-id">00359</span>
+                </div>
+              </div>
+              <div class="page-title">
+                <h1 class="title-text">PT Inti Ganda Perdana dan PT Gemala Kempa Daya (ASTRA Otoparts)</h1>
+                <div class="breadcrumb">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/02c82341b9c8dc21699bcd0905e6a58d6c0b419afad03d1e9453112dd8a4a32d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Breadcrumb icon" class="breadcrumb-icon" />
+                  <span class="breadcrumb-text">Home &gt; Video &gt; PT Inti Ganda Perdana dan PT Gemala Kempa Daya (ASTRA Otoparts)</span>
+                </div>
+              </div>
+            </header>
+            <div class="content-area">
+              <div class="content-columns">
+                <div class="main-content-column">
+                  <div class="main-content-wrapper">
+                    <div class="video-container">
+                      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ae7826feede9c49230b23cf9bbb66aa2e906e4618b232f7390caecb72b03378b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Video content" class="video-content" />
+                    </div>
+                    <div class="video-description">
+                      <h2 class="description-title">Description</h2>
+                      <p class="description-text">PT Inti Ganda Perdana dan PT Gemala Kempa Daya (ASTRA Otoparts) company profile untuk proses rekrutmen</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="sidebar-column">
+                  <div class="related-videos">
+                    <div class="related-videos-header">
+                      <div class="related-videos-title">
+                        <h3>Related Videos</h3>
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b7eb854e9d406c6a917209d401571c685bc49e1ca2edfc51d3a22bda9423399e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Related videos icon" class="related-videos-image" />
+                      </div>
+                      <span class="related-videos-subtitle">in Company Trainer</span>
+                    </div>
+                    <div class="video-item">
+                      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c7a485391f7049c049b26baa8c70d5745e9bd1756527d88e35cbce26889ee464?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Video thumbnail" class="video-thumbnail" />
+                      <div class="video-info">
+                        <h4 class="video-title">Industry 4.0 illustrated - Resource Efficienced through Digitalization</h4>
+                        <p class="video-description">Digital and fully automated processes...</p>
+                      </div>
+                    </div>
+                    <div class="video-item">
+                      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/40ef906e01af336dc58dafb1f65f6206fffb0966b62667c01ee83ae2808716d0?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Video thumbnail" class="video-thumbnail" />
+                      <div class="video-info">
+                        <h4 class="video-title">Leadership Style (by Handry Satriago)</h4>
+                        <p class="video-description">Leadership Style for Managing Organi...</p>
+                      </div>
+                    </div>
+                    <div class="video-item">
+                      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/18e4e42c72ec0ad5e6a099b8442dba6e6a857e49ac7a7130ff1fd409552b118c?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Video thumbnail" class="video-thumbnail" />
+                      <div class="video-info">
+                        <h4 class="video-title">Creative Thinking : How to Increase The Dots to Connect</h4>
+                        <p class="video-description">Creativity is our ability to look at a pr...</p>
+                      </div>
+                    </div>
+                    <button class="view-all-button">VIEW ALL VIDEO</button>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+      <footer class="footer">
+        <p class="copyright">Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" class="copyright" target="_blank">igp-astra.co.id</a>. All rights reserved.</p>
+        <p>Version 1.0.0</p>
+      </footer>
+    </section>

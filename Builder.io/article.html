@@ -1,0 +1,604 @@
+<style>
+    .e-library-article-user {
+      background-color: #fff;
+      display: flex;
+      padding-top: 27px;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .content-wrapper {
+      align-self: center;
+      width: 100%;
+      max-width: 1380px;
+    }
+    
+    .main-content {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .sidebar {
+      border-radius: 20px;
+      background-color: #000;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      color: #fff;
+      margin: 0 auto;
+      padding: 31px 27px 336px;
+      font: 700 20px/1 Montserrat, sans-serif;
+    }
+    
+    .logo-container {
+      align-self: flex-start;
+      display: flex;
+      margin-left: 12px;
+      gap: 25px;
+      font-size: 32px;
+      white-space: nowrap;
+      line-height: 0.4;
+    }
+    
+    .logo {
+      aspect-ratio: 0.99;
+      object-fit: contain;
+      width: 87px;
+    }
+    
+    .logo-text {
+      margin: auto 0;
+    }
+    
+    .nav-menu {
+      align-self: flex-end;
+      display: flex;
+      margin-top: 50px;
+      align-items: flex-end;
+      gap: 29px 9px;
+      line-height: 6px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    
+    .nav-item {
+      display: flex;
+      min-width: 240px;
+      width: 250px;
+      align-items: flex-end;
+      gap: 29px 9px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      flex-grow: 1;
+    }
+    
+    .nav-link {
+      display: flex;
+      gap: 10px;
+      white-space: nowrap;
+      line-height: 1;
+      flex-grow: 1;
+      width: 172px;
+    }
+    
+    .nav-icon {
+      aspect-ratio: 0.96;
+      object-fit: contain;
+      width: 50px;
+    }
+    
+    .nav-text {
+      margin: auto 0;
+    }
+    
+    .active-nav-item {
+      border-radius: 30px;
+      background-color: #ef2e1f;
+      display: flex;
+      margin-top: 30px;
+      gap: 10px;
+      white-space: nowrap;
+      padding: 10px 25px;
+    }
+    
+    .main-section {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 75%;
+      margin-left: 20px;
+    }
+    
+    .header {
+      display: flex;
+      width: 100%;
+      gap: 40px 50px;
+      flex-wrap: wrap;
+      font: 20px/1 Montserrat, sans-serif;
+    }
+    
+    .search-bar {
+      border-radius: 20px;
+      align-self: flex-start;
+      display: flex;
+      gap: 18px;
+      color: #d9d9d9;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      flex-basis: auto;
+      padding: 8px 18px;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 40px;
+    }
+    
+    .search-text {
+      align-self: flex-start;
+      margin-top: 18px;
+      flex-basis: auto;
+      flex-grow: 1;
+    }
+    
+    .user-profile {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .user-avatar {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 72px;
+    }
+    
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    .user-name {
+      color: #000;
+      font-weight: 700;
+    }
+    
+    .user-id {
+      color: #000;
+      font-weight: 500;
+      align-self: flex-start;
+      margin-top: 5px;
+    }
+    
+    .page-title {
+      display: flex;
+      margin-top: 33px;
+      width: 100%;
+      gap: 20px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .title-text {
+      color: #000;
+      font-size: 32px;
+      line-height: 0.4;
+    }
+    
+    .breadcrumb {
+      align-self: flex-start;
+      display: flex;
+      gap: 11px;
+      font-size: 14px;
+      color: #1e1e1e;
+      line-height: 0.2;
+    }
+    
+    .home-icon {
+      aspect-ratio: 1.08;
+      object-fit: contain;
+      width: 27px;
+    }
+    
+    .article-card {
+      border-radius: 13px;
+      background-color: #000;
+      display: flex;
+      margin-top: 24px;
+      width: 100%;
+      align-items: flex-start;
+      gap: 40px 100px;
+      flex-wrap: wrap;
+      padding: 34px 39px;
+    }
+    
+    .article-content {
+      margin-top: 10px;
+      flex-grow: 1;
+      flex-basis: auto;
+    }
+    
+    .article-layout {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .article-image {
+      aspect-ratio: 1.38;
+      object-fit: contain;
+      width: 100%;
+      border-radius: 20px;
+      flex-grow: 1;
+    }
+    
+    .article-details {
+      display: flex;
+      margin-top: 10px;
+      width: 100%;
+      flex-direction: column;
+      font-family: Montserrat, sans-serif;
+      color: #fff;
+      font-weight: 700;
+      line-height: 0.2;
+    }
+    
+    .article-title {
+      font-size: 24px;
+    }
+    
+    .author-info {
+      align-self: flex-start;
+      display: flex;
+      margin-top: 129px;
+      gap: 15px;
+    }
+    
+    .author-avatar {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 49px;
+    }
+    
+    .author-details {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    .author-name {
+      font-size: 16px;
+      align-self: flex-start;
+    }
+    
+    .publish-date {
+      font-size: 14px;
+      margin-top: 14px;
+    }
+    
+    .view-count {
+      display: flex;
+      gap: 8px;
+      color: #fff;
+      white-space: nowrap;
+      font: 700 14px/0.2 Montserrat, sans-serif;
+    }
+    
+    .view-icon {
+      aspect-ratio: 1.1;
+      object-fit: contain;
+      width: 22px;
+    }
+    
+    .pagination {
+      align-self: flex-end;
+      display: flex;
+      margin-top: 20px;
+      width: 359px;
+      max-width: 100%;
+      gap: 10px;
+      color: #000;
+      white-space: nowrap;
+      font: 700 14px/0.2 Montserrat, sans-serif;
+    }
+    
+    .pagination-button {
+      border-radius: 13px;
+      border: 1px solid #ef2e1f;
+      box-shadow: 2px 4px 4px 0px rgba(140, 141, 155, 0.05) inset, 0px 23px 7px 0px rgba(140, 141, 155, 0), 0px 15px 6px 0px rgba(140, 141, 155, 0.01), 0px 8px 5px 0px rgba(140, 141, 155, 0.05), 0px 4px 4px 0px rgba(140, 141, 155, 0.09), 0px 1px 2px 0px rgba(140, 141, 155, 0.1);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 4px 11px;
+    }
+    
+    .pagination-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 20px;
+      align-self: flex-start;
+    }
+    
+    .pagination-text {
+      margin: auto 0;
+    }
+    
+    .active-page {
+      border-radius: 13px;
+      box-shadow: 2px 4px 4px 0px rgba(140, 141, 155, 0.05) inset, 0px 23px 7px 0px rgba(140, 141, 155, 0), 0px 15px 6px 0px rgba(140, 141, 155, 0.01), 0px 8px 5px 0px rgba(140, 141, 155, 0.05), 0px 4px 4px 0px rgba(140, 141, 155, 0.09), 0px 1px 2px 0px rgba(140, 141, 155, 0.1);
+      background-color: #ef2e1f;
+      color: #fff;
+      width: 28px;
+      height: 28px;
+      padding: 0 12px;
+    }
+    
+    .footer {
+      background-color: #e8e8e8;
+      display: flex;
+      margin-top: 397px;
+      width: 100%;
+      gap: 20px;
+      color: #000;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 36px 80px;
+      font: 700 16px Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .content-wrapper {
+        max-width: 100%;
+      }
+    
+      .main-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    
+      .sidebar {
+        margin-top: 40px;
+        padding: 0 0 100px 20px;
+      }
+    
+      .logo-container {
+        margin-left: 10px;
+        white-space: initial;
+      }
+    
+      .nav-menu {
+        margin-top: 40px;
+      }
+    
+      .nav-link {
+        white-space: initial;
+      }
+    
+      .active-nav-item {
+        margin-right: 4px;
+        white-space: initial;
+        padding: 0 20px;
+      }
+    
+      .main-section {
+        width: 100%;
+      }
+    
+      .header {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    
+      .search-bar {
+        white-space: initial;
+      }
+    
+      .search-text {
+        max-width: 100%;
+      }
+    
+      .page-title {
+        max-width: 100%;
+        margin-right: 3px;
+      }
+    
+      .article-card {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    
+      .article-content {
+        max-width: 100%;
+      }
+    
+      .article-layout {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    
+      .article-image {
+        margin-top: 39px;
+      }
+    
+      .article-details {
+        margin-top: 40px;
+      }
+    
+      .author-info {
+        margin-top: 40px;
+      }
+    
+      .pagination {
+        white-space: initial;
+      }
+    
+      .pagination-button {
+        white-space: initial;
+      }
+    
+      .footer {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+    </style>
+    
+    <section class="e-library-article-user">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <nav class="sidebar">
+            <div class="logo-container">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="logo" alt="IKNOW logo" />
+              <span class="logo-text">IKNOW</span>
+            </div>
+            <div class="nav-menu">
+              <div class="nav-item">
+                <a href="#" class="nav-link">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/54ddb38055df0b433e87cab007b20dc1494b496451a30895e03026b19a93fbc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="nav-icon" alt="Dashboard icon" />
+                  <span class="nav-text">Dashboard</span>
+                </a>
+              </div>
+              <div class="nav-item">
+                <a href="#" class="nav-link">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e065952ce841e56e1271a3d03d2e8ae07923c1e6b4d42f8cf72e54b52279f42?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="nav-icon" alt="Basic Knowledge icon" />
+                  <span class="nav-text">Basic Knowledge</span>
+                </a>
+              </div>
+              <div class="nav-item">
+                <a href="#" class="nav-link">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9269437ef8448d44434c32815bbaa790c2e79f067e6a30cddced5b96fdb0ebdf?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="nav-icon" alt="Training Event icon" />
+                  <span class="nav-text">Training Event</span>
+                </a>
+              </div>
+              <div class="nav-item">
+                <a href="#" class="nav-link">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/5e772d165aa68781a0f3eb38158c0a7a7b6359cdfb51177ebcaf68f43f8f71bd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="nav-icon" alt="Company Event icon" />
+                  <span class="nav-text">Company Event</span>
+                </a>
+              </div>
+            </div>
+            <div class="active-nav-item">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f7423930d7e9f20a33431f790c4b3a087752f4fba496fd33842c146f20032647?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="nav-icon" alt="E-Library icon" />
+              <span class="nav-text">E-Library</span>
+            </div>
+            <a href="#" class="nav-link">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="nav-icon" alt="Video icon" />
+              <span class="nav-text">Video</span>
+            </a>
+            <a href="#" class="nav-link">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="nav-icon" alt="Article icon" />
+              <span class="nav-text">Article</span>
+            </a>
+            <a href="#" class="nav-link">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="nav-icon" alt="Bulletin icon" />
+              <span class="nav-text">Bulletin</span>
+            </a>
+            <a href="#" class="nav-link">
+              <a href="#" class="nav-link">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="nav-icon" alt="Video Internal icon" />
+      <span class="nav-text">Video Internal</span>
+    </a>
+    <a href="#" class="nav-link">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/246ed86c32c6b8957e7243c8b77114ebf95fdf606042e8c220cd8f8a61735e79?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="nav-icon" alt="My Team icon" />
+      <span class="nav-text">My Team</span>
+    </a>
+    <a href="#" class="nav-link">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/10c3ab749fa717bcae414b8a51ad30a389ab9178d6b9c1c6488c92981ce3d8dd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="nav-icon" alt="My Data icon" />
+      <span class="nav-text">My Data</span>
+    </a>
+    </nav>
+    <main class="main-section">
+    <header class="header">
+      <form class="search-bar" role="search">
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="search-icon" alt="Search icon" />
+        <label for="search-input" class="visually-hidden">Search</label>
+        <input type="search" id="search-input" class="search-text" placeholder="Search" aria-label="Search" />
+      </form>
+      <div class="user-profile">
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc9fe485dfabcd7f0bd220092e173c32ffe14d07481510386a822c418e9ef3a7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="user-avatar" alt="User avatar" />
+        <div class="user-info">
+          <span class="user-name">Aula Wijaya</span>
+          <span class="user-id">00359</span>
+        </div>
+      </div>
+    </header>
+    <div class="page-title">
+      <h1 class="title-text">Article</h1>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/80b5b09c4a360a23edcb912fd030ab7e3c7d8d385d720fbcd2ca997239eb6e05?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="home-icon" alt="Home icon" />
+        <span>Home &gt; Article</span>
+      </nav>
+    </div>
+    <article class="article-card">
+      <div class="article-content">
+        <div class="article-layout">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/15c44da643212c20016737a89b712a062fe4ca04f3f3de4080108f7b271a469a?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="article-image" alt="Schedule Out House" />
+          <div class="article-details">
+            <h2 class="article-title">SCHEDULE OUT HOUSE</h2>
+            <div class="author-info">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ac929279381e32586ae4c24692e45d95383c264616b68660135fab7976fb00e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="author-avatar" alt="Author avatar" />
+              <div class="author-details">
+                <span class="author-name">Aula Wijaya</span>
+                <time class="publish-date" datetime="2024-06-07T13:37">07 Juni 2024 13:37</time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="view-count">
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b68c25bc8053b1bc03925ba8eb7736f5438ff084bf7544be58a3d74e78efaf37?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="view-icon" alt="View count icon" />
+        <span>275</span>
+      </div>
+    </article>
+    <article class="article-card">
+      <div class="article-content">
+        <div class="article-layout">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6c1025c1c8241cc0e05bf3c3b0c0956b6b1ffff1868c94b1bc060bf990718b7e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="article-image" alt="Factors of Success" />
+          <div class="article-details">
+            <div class="view-count">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/24afd9a9d48a0b8c17d33cc84dc25b3d2ea9c2104ecbd5c452cb1f6b0d02f63e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="view-icon" alt="View count icon" />
+              <span>22</span>
+            </div>
+            <h2 class="article-title">FAKTOR-FAKTOR KESUKSESAN</h2>
+            <p>Faktor-Faktor Kesuksesan Thomas J. Stanley, Ph.D, penulis buku Millionaire Mind. Pernah melakukan riset tentang 100 faktor yang menentukan kesuksesan seseorang. Riset dilakukan di Amerika dengan total 1001 responden, dimana 733 responden adalah miliuner. Dan ternyata memiliki IQ yang tinggi</p>
+            <div class="author-info">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ac929279381e32586ae4c24692e45d95383c264616b68660135fab7976fb00e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="author-avatar" alt="Author avatar" />
+              <div class="author-details">
+                <span class="author-name">Aula Wijaya</span>
+                <time class="publish-date" datetime="2024-06-06T16:04">06 Juni 2024 16:04</time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <nav class="pagination" aria-label="Pagination">
+      <a href="#" class="pagination-button" aria-label="Previous page">
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/20a8c794594f9ff0916a6e2ecc819e84179d366014f72b67019abf4f2d75f17b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="pagination-icon" alt="Previous page icon" />
+        <span class="pagination-text">Previous</span>
+      </a>
+      <span class="active-page" aria-current="page">1</span>
+      <a href="#" class="pagination-button">2</a>
+      <a href="#" class="pagination-button">3</a>
+      <a href="#" class="pagination-button">4</a>
+      <a href="#" class="pagination-button" aria-label="Next page">
+        <span class="pagination-text">Next</span>
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/af4adb3bbdf57dc24050fac6eda2f2c1fe51603220ec519fdec8ce8d8e11034d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="pagination-icon" alt="Next page icon" />
+      </a>
+    </nav>
+    </main>
+    </div>
+    </div>
+    <footer class="footer">
+    <p>Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" target="_blank">igp-astra.co.id</a>. All rights reserved.</p>
+    <p>Version 1.0.0</p>
+    </footer>
+    </section>

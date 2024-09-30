@@ -1,0 +1,94 @@
+<style>
+    .profile-menu {
+      border-radius: 20px;
+      background-color: #000;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      margin-left: auto;
+      padding: 13px 0 30px;
+    }
+    
+    .close-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 20px;
+      align-self: flex-end;
+    }
+    
+    .menu-options {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 22px;
+    }
+    
+    .menu-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    
+    .menu-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 35px;
+    }
+    
+    .menu-text {
+      margin-top: 13px;
+    }
+    
+    .change-password {
+      align-self: stretch;
+      margin-top: 17px;
+    }
+    
+    .change-password-text {
+      margin-top: 17px;
+      flex-grow: 1;
+      width: 179px;
+    }
+    
+    .logout-option {
+      margin-top: 23px;
+      white-space: nowrap;
+    }
+    
+    .logout-text {
+      margin-top: 14px;
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    </style>
+    
+    <nav class="profile-menu" aria-label="Profile menu">
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8d5cc4d362b85ca007796e8534d92a129f7a31a47763599fd1fbaa074aa25fa5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="close-icon" />
+      <ul class="menu-options">
+        <li class="menu-item">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/af1a90cba97ed1c16d9780a1ccfae0e2adb2dbc86622093b1201ffa47357c070?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon" />
+          <a href="#profile" class="menu-text">My Profile</a>
+        </li>
+        <li class="menu-item change-password">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/95d62d7c5fb627c1ef9b5653289e0ee4ba515ffce1453bdd5a20e274d31288bb?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon" />
+          <a href="#change-password" class="change-password-text">Change Password</a>
+        </li>
+        <li class="menu-item logout-option">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/aa1eeb8497c2f4fdbee3e2351d7a54be5c77d070e92b49474fda6e0efcb59140?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="menu-icon" />
+          <button class="logout-text">Logout</button>
+        </li>
+      </ul>
+    </nav>

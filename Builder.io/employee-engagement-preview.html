@@ -1,0 +1,814 @@
+<style>
+    .company-event-preview {
+      background-color: #fff;
+      display: flex;
+      padding-top: 27px;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .content-wrapper {
+      align-self: center;
+      width: 100%;
+      max-width: 1344px;
+    }
+    
+    .main-content {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 25%;
+      margin-left: 0;
+    }
+    
+    .sidebar-menu {
+      border-radius: 20px;
+      background-color: #000;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      color: #fff;
+      margin: 0 auto;
+      padding: 31px 26px 333px;
+      font: 700 20px/6px Montserrat, sans-serif;
+    }
+    
+    .logo-container {
+      align-self: flex-start;
+      display: flex;
+      margin-left: 13px;
+      gap: 25px;
+      font-size: 32px;
+      white-space: nowrap;
+      line-height: 0.4;
+    }
+    
+    .logo {
+      aspect-ratio: 0.99;
+      object-fit: contain;
+      object-position: center;
+      width: 87px;
+    }
+    
+    .logo-text {
+      flex-basis: auto;
+      margin: auto 0;
+    }
+    
+    .dashboard-link {
+      align-self: flex-start;
+      display: flex;
+      gap: 13px;
+      white-space: nowrap;
+      line-height: 0;
+      margin: 50px 0 0 26px;
+    }
+    
+    .dashboard-icon {
+      aspect-ratio: 0.96;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .dashboard-text {
+      flex-basis: auto;
+      margin: auto 0;
+    }
+    
+    .basic-knowledge-link {
+      align-self: flex-end;
+      display: flex;
+      margin-top: 29px;
+      align-items: flex-end;
+      gap: 13px 9px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    
+    .basic-knowledge-icon {
+      aspect-ratio: 0.94;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .basic-knowledge-text {
+      width: 140px;
+    }
+    
+    .training-event-link {
+      align-self: flex-start;
+      display: flex;
+      gap: 9px;
+      margin: 26px 0 0 26px;
+    }
+    
+    .training-event-icon {
+      aspect-ratio: 0.96;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .training-event-text {
+      align-self: flex-start;
+      margin-top: 12px;
+    }
+    
+    .company-event-link {
+      border-radius: 30px;
+      background-color: #ef2e1f;
+      display: flex;
+      margin-top: 30px;
+      gap: 9px;
+      padding: 10px 25px;
+    }
+    
+    .company-event-icon {
+      aspect-ratio: 0.93;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .company-event-text {
+      margin-top: 12px;
+    }
+    
+    .employee-engagement-container {
+      align-self: flex-end;
+      display: flex;
+      margin-top: 17px;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    
+    .indicator {
+      background-color: #fff;
+      border-radius: 50%;
+      display: flex;
+      width: 10px;
+      height: 11px;
+      margin: auto 0;
+    }
+    
+    .employee-engagement-link {
+      border-radius: 30px;
+      background-color: #8e8a8a;
+      display: flex;
+      gap: 9px;
+      padding: 10px 17px;
+    }
+    
+    .employee-engagement-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .employee-engagement-text {
+      margin-top: 13px;
+    }
+    
+    .recognition-appreciation-link {
+      align-self: flex-end;
+      display: flex;
+      margin-top: 27px;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    
+    .recognition-appreciation-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .recognition-appreciation-text {
+      margin-top: 13px;
+    }
+    
+    .ceremony-meeting-link {
+      align-self: flex-end;
+      display: flex;
+      gap: 9px;
+      margin: 22px 23px 0 0;
+    }
+    
+    .ceremony-meeting-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .ceremony-meeting-text {
+      margin-top: 13px;
+    }
+    
+    .campaign-link {
+      align-self: center;
+      display: flex;
+      width: 165px;
+      max-width: 100%;
+      gap: 9px;
+      white-space: nowrap;
+      line-height: 0;
+      margin: 35px 0 0 22px;
+    }
+    
+    .campaign-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .campaign-text {
+      align-self: flex-end;
+      margin-top: 21px;
+      flex-grow: 1;
+      width: 96px;
+    }
+    
+    .e-library-link {
+      align-self: flex-start;
+      display: flex;
+      gap: 9px;
+      white-space: nowrap;
+      line-height: 0;
+      margin: 52px 0 0 26px;
+    }
+    
+    .e-library-icon {
+      aspect-ratio: 0.94;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .e-library-text {
+      align-self: flex-end;
+      margin-top: 23px;
+    }
+    
+    .my-team-link {
+      align-self: flex-start;
+      display: flex;
+      gap: 9px;
+      line-height: 0;
+      margin: 29px 0 0 26px;
+    }
+    
+    .my-team-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .my-team-text {
+      margin: auto 0;
+    }
+    
+    .my-data-link {
+      align-self: flex-start;
+      display: flex;
+      gap: 9px;
+      line-height: 0;
+      margin: 29px 0 0 26px;
+    }
+    
+    .my-data-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .my-data-text {
+      margin: auto 0;
+    }
+    
+    .main-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 75%;
+      margin-left: 20px;
+    }
+    
+    .header {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      font-family: Montserrat, sans-serif;
+    }
+    
+    .header-content {
+      display: flex;
+      width: 100%;
+      gap: 40px 54px;
+      font-size: 20px;
+      line-height: 0;
+      flex-wrap: wrap;
+    }
+    
+    .search-container {
+      border-radius: 20px;
+      align-self: flex-start;
+      display: flex;
+      gap: 18px;
+      color: #d9d9d9;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      flex-basis: auto;
+      padding: 8px 18px;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 40px;
+    }
+    
+    .search-text {
+      align-self: flex-start;
+      margin-top: 18px;
+      flex-basis: auto;
+      flex-grow: 1;
+    }
+    
+    .user-info {
+      display: flex;
+      gap: 23px;
+    }
+    
+    .user-avatar {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 72px;
+    }
+    
+    .user-details {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    .user-name {
+      color: #000;
+      font-weight: 700;
+    }
+    
+    .user-id {
+      color: #000;
+      font-weight: 500;
+      align-self: flex-start;
+      margin-top: 5px;
+    }
+    
+    .event-title-container {
+      display: flex;
+      margin-top: 35px;
+      width: 100%;
+      gap: 40px 100px;
+      font-weight: 700;
+      flex-wrap: wrap;
+    }
+    
+    .event-title {
+      color: #000;
+      font-size: 32px;
+      line-height: 13px;
+      flex-grow: 1;
+      width: 405px;
+    }
+    
+    .breadcrumb {
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #1e1e1e;
+      line-height: 3px;
+      justify-content: flex-start;
+    }
+    
+    .home-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 25px;
+      align-self: stretch;
+      margin: auto 0;
+    }
+    
+    .breadcrumb-text {
+      align-self: stretch;
+      width: 349px;
+      margin: auto 0;
+    }
+    
+    .event-details {
+      border-radius: 13px;
+      background-color: #000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      margin-top: 18px;
+      width: 100%;
+      flex-direction: column;
+      color: #fff;
+      font-weight: 700;
+      line-height: 0.2;
+      padding: 26px 38px 62px;
+    }
+    
+    .event-header {
+      display: flex;
+      margin-right: 24px;
+      gap: 40px 100px;
+      flex-wrap: wrap;
+    }
+    
+    .event-name {
+      font-size: 24px;
+      align-self: flex-start;
+      flex-grow: 1;
+      width: 703px;
+    }
+    
+    .event-count {
+      display: flex;
+      gap: 9px;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+    
+    .count-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 25px;
+    }
+    
+    .count-number {
+      margin: auto 0;
+    }
+    
+    .author-info {
+      align-self: flex-start;
+      display: flex;
+      margin-top: 13px;
+      gap: 18px;
+    }
+    
+    .author-avatar {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 60px;
+    }
+    
+    .author-details {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    .author-name {
+      font-size: 16px;
+      align-self: flex-start;
+    }
+    
+    .publish-date {
+      font-size: 14px;
+      margin-top: 13px;
+    }
+    
+    .event-image {
+      aspect-ratio: 2.88;
+      object-fit: contain;
+      object-position: center;
+      width: 100%;
+      margin-top: 20px;
+    }
+    
+    .event-description {
+      font-size: 16px;
+      line-height: 3px;
+      margin-top: 38px;
+    }
+    
+    .event-image-2 {
+      aspect-ratio: 2.87;
+      object-fit: contain;
+      object-position: center;
+      width: 100%;
+      margin: 28px 17px 0 0;
+    }
+    
+    .event-description-2 {
+      font-size: 16px;
+      line-height: 3px;
+      margin: 43px 22px 0 0;
+    }
+    
+    .footer {
+      background: #e8e8e8;
+      display: flex;
+      margin-top: 154px;
+      width: 100%;
+      gap: 20px;
+      color: #000;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 35px 80px;
+      font: 700 16px Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .content-wrapper {
+        max-width: 100%;
+      }
+    
+      .main-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    
+      .sidebar {
+        width: 100%;
+      }
+    
+      .sidebar-menu {
+        margin-top: 40px;
+        padding: 0 0 100px 20px;
+      }
+    
+      .logo-container {
+        margin-left: 10px;
+        white-space: initial;
+      }
+    
+      .dashboard-link {
+        white-space: initial;
+        margin: 40px 0 0 10px;
+      }
+    
+      .basic-knowledge-link {
+        margin-right: 3px;
+      }
+    
+      .training-event-link {
+        margin-left: 10px;
+      }
+    
+      .company-event-link {
+        margin-right: 8px;
+        padding: 0 20px;
+      }
+    
+      .employee-engagement-container {
+        white-space: initial;
+      }
+    
+      .ceremony-meeting-link {
+        margin-right: 10px;
+      }
+    
+      .campaign-link {
+        white-space: initial;
+      }
+    
+      .e-library-link {
+        white-space: initial;
+        margin: 40px 0 0 10px;
+      }
+    
+      .my-team-link {
+        margin-left: 10px;
+      }
+    
+      .my-data-link {
+        margin-left: 10px;
+      }
+    
+      .main-column {
+        width: 100%;
+      }
+    
+      .header {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    
+      .header-content {
+        max-width: 100%;
+        margin-right: 3px;
+      }
+    
+      .search-container {
+        white-space: initial;
+      }
+    
+      .search-text {
+        max-width: 100%;
+      }
+    
+      .event-title-container {
+        max-width: 100%;
+      }
+    
+      .event-title {
+        max-width: 100%;
+      }
+    
+      .event-details {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    
+      .event-header {
+        max-width: 100%;
+        margin-right: 10px;
+      }
+    
+      .event-name {
+        max-width: 100%;
+      }
+    
+      .event-count {
+        white-space: initial;
+      }
+    
+      .event-image {
+        max-width: 100%;
+        margin-right: 10px;
+      }
+    
+      .event-description {
+        max-width: 100%;
+      }
+    
+      .event-image-2 {
+        max-width: 100%;
+        margin-right: 10px;
+      }
+    
+      .event-description-2 {
+        max-width: 100%;
+        margin: 40px 10px 0 0;
+      }
+    
+      .footer {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+    </style>
+    
+    <section class="company-event-preview">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <aside class="sidebar">
+            <nav class="sidebar-menu">
+              <div class="logo-container">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="logo" alt="Company logo" />
+                <span class="logo-text">IKNOW</span>
+              </div>
+              <a href="#" class="dashboard-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/54ddb38055df0b433e87cab007b20dc1494b496451a30895e03026b19a93fbc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="dashboard-icon" alt="Dashboard icon" />
+                <span class="dashboard-text">Dashboard</span>
+              </a>
+              <a href="#" class="basic-knowledge-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e065952ce841e56e1271a3d03d2e8ae07923c1e6b4d42f8cf72e54b52279f42?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="basic-knowledge-icon" alt="Basic Knowledge icon" />
+                <span class="basic-knowledge-text">Basic Knowledge</span>
+              </a>
+              <a href="#" class="training-event-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/05a43e8908b0c6f0789c4abae94a94670f480070fe5ad4fac07264d92898f431?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="training-event-icon" alt="Training Event icon" />
+                <span class="training-event-text">Training Event</span>
+              </a>
+              <a href="#" class="company-event-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e0248ae6c0fcac0b9bf7bc2bd23ad05444d86cac8c496edab2bdeb8e7a67c9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="company-event-icon" alt="Company Event icon" />
+                <span class="company-event-text">Company Event</span>
+              </a>
+              <div class="employee-engagement-container">
+                <div class="indicator"></div>
+                <a href="#" class="employee-engagement-link">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="employee-engagement-icon" alt="Employee Engagement icon" />
+                  <span class="employee-engagement-text">Employee Engagement</span>
+                </a>
+              </div>
+              <a href="#" class="recognition-appreciation-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="recognition-appreciation-icon" alt="Recognition & Appreciation icon" />
+                <span class="recognition-appreciation-text">Recognition & Appreciation</span>
+              </a>
+              <a href="#" class="ceremony-meeting-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="ceremony-meeting-icon" alt="Ceremony & Meeting icon" />
+                <span class="ceremony-meeting-text">Ceremony & Meeting</span>
+              </a>
+              <a href="#" class="campaign-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e51e9fe8c1048d900281e798803253786cea4de96ad522301495986d43f0452?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="campaign-icon" alt="Campaign icon" />
+                <span class="campaign-text">Campaign</span>
+              </a>
+              <a href="#" class="e-library-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e9982dc910b1b7e69f5322eba8e7cc0a3f338ee5bab8eccf5017de1a4c5721d5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="e-library-icon" alt="E-Library icon" />
+                <span class="e-library-text">E-Library</span>
+              </a>
+              <a href="#" class="my-team-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9cdd511e873baf6da77b8493b6ca82ea2387e0e427a46182345cfac2bc851a2f?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="my-team-icon" alt="My Team icon" />
+                <span class="my-team-text">My Team</span>
+              </a>
+              <a href="#" class="my-data-link">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/547010f45ea5466b2a546267db2a8d0de16dc93d5d6739f3e0f3745eff7fd13f?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="my-data-icon" alt="My Data icon" />
+                <span class="my-data-text">My Data</span>
+              </a>
+            </nav>
+          </aside>
+          <main class="main-column">
+            <header class="header">
+              <div class="header-content">
+                <form class="search-container" role="search">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="search-icon" alt="Search icon" />
+                  <label for="search-input" class="visually-hidden">Search</label>
+                  <input type="search" id="search-input" class="search-text" placeholder="Search" aria-label="Search" />
+                </form>
+                <div class="user-info">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc9fe485dfabcd7f0bd220092e173c32ffe14d07481510386a822c418e9ef3a7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="user-avatar" alt="User avatar" />
+                  <div class="user-details">
+                    <span class="user-name">Aula Wijaya</span>
+                    <span class="user-id">00359</span>
+                  </div>
+                </div>
+              </div>
+              <div class="event-title-container">
+                <h1 class="event-title">ADVENTURE OFF-ROAD GOL IV UP PT IGP & PT GKD 2019</h1>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/02c82341b9c8dc21699bcd0905e6a58d6c0b419afad03d1e9453112dd8a4a32d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="home-icon" alt="Home icon" />
+                  <span class="breadcrumb-text">Home > Employee Engagement > ADVENTURE OFF-ROAD GOL IV UP PT IGP & PT GKD 2019</span>
+                </nav>
+              </div>
+            </header>
+            <article class="event-details">
+              <div class="event-header">
+                <h2 class="event-name">ADVENTURE OFF-ROAD GOL IV UP PT IGP & PT GKD 2019</h2>
+                <div class="event-count">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed5f7bb3b864ea3ed416876ae37b3fd2b4aa2c2334b87de2e392eb9993461286?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="count-icon" alt="Participant count icon" />
+                  <span class="count-number">59</span>
+                </div>
+              </div>
+              <div class="author-info">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/5566776b0139400ba718faeabcdb488add488a25f9052c19a9d9d84e1250c15d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="author-avatar" alt="Author avatar" />
+                <div class="author-details">
+                  <span class="author-name">Aula Wijaya</span>
+                  <time class="publish-date" datetime="2021-12-29T16:59">29 Desember 2021 16:59</time>
+                </div>
+              </div>
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9c00db3ef31dd97e22b380d9ca5350be4bd357a31c2d968aafb3fc5ec3b34d35?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="event-image" alt="Event image 1" />
+              <p class="event-description">
+                Pada hari Jum'at - Sabtu, 06 - 07 Desember 2019 bertempat di Cikole Jayagiri Resort, Lembang, Bandung
+                diadakan agenda outing Adventur Offroad untuk Karyawan PT IGP dan PT GKD Golongan IV-up. Sebanyak
+                170 peserta mengikuti acara yang bertajuk Fun Offroad tersebut.
+                Keseruan mulai terasa pada saat setelah makan malam yang mana acara terdapat agenda apresiasi yang
+                mana masing-masing bagian memberikan perform untuk menghibur seluruh peserta beserta BOD yang
+                hadir pada malam itu yaitu Bp. Kusharijono, Bp Aristoni Ardhi, dan Bp. Abun Gunawan. Diselingi dengan
+                pembagian doorprize dan hiburan band dangdut, acara malam tersebut berakhir pukul 23.00 WIB
+                berbarengan dengan habisnya kambing guling dan menu-menu barbeque yang disediakan.
+              </p>
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8734977b84f3b5061886f1d79db09b7da2ae05f894dd979eb9798a4df1462ae9?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="event-image-2" alt="Event image 2" />
+              <p class="event-description-2">
+                Pada pagi hari ketika bangun tidur sudah terlihat sebanyak 30 mobil offroad Land Rover siap mengan-
+                tarkan peserta menjelajah gunung di cikole lembang tersebut. Diawali dengan sarapan, lalu senam
+                peregangan akhirnya satu persatu mobil Offroad yang berisi peserta Adventur Offroad tersebut masuk
+                menyusuri hutan. Keseruan-keseruan terpancar dari para peserta yang excited akan offroad tersebut
+                pada saat mulai masuk sampai rest area ditengah hutan, sambil menikmati snack dan wedang
+                bandrek para peserta beristirahat dan berfoto bersama. Setelah sekitar 30 menit maka mobil offroad
+                melanjutkan perjalanan. Diakhiri dengan makan siang bersama, para peserta kembali ke Jakarta
+                dan Karawang pukul 13.00 WIB
+              </p>
+            </article>
+          </main>
+        </div>
+      </div>
+      <footer class="footer">
+        <div>Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" target="_blank">igp-astra.co.id</a>. All rights reserved.</div>
+        <div>Version 1.0.0</div>
+      </footer>
+    </section>

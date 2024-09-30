@@ -1,0 +1,523 @@
+<style>
+    .core-value-section {
+      background-color: #fff;
+      display: flex;
+      padding-top: 27px;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .content-wrapper {
+      align-self: center;
+      width: 100%;
+      max-width: 1380px;
+    }
+    
+    .main-content {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+    }
+    
+    .sidebar-content {
+      border-radius: 20px;
+      background-color: #000;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: start;
+      margin: 7px auto 0;
+      padding: 23px 28px 512px;
+    }
+    
+    .logo-container {
+      display: flex;
+      gap: 25px;
+      color: #fff;
+      font: 700 32px/0.4 Montserrat, sans-serif;
+    }
+    
+    .logo {
+      aspect-ratio: 0.99;
+      object-fit: contain;
+      width: 87px;
+    }
+    
+    .logo-text {
+      margin: auto 0;
+    }
+    
+    .menu-item {
+      display: flex;
+      gap: 9px;
+      color: #fff;
+      margin: 50px 0 0 23px;
+      font: 700 20px/1 Montserrat, sans-serif;
+    }
+    
+    .menu-icon {
+      aspect-ratio: 0.96;
+      object-fit: contain;
+      width: 50px;
+    }
+    
+    .active-menu-item {
+      border-radius: 30px;
+      background-color: #ef2e1f;
+      align-self: stretch;
+      display: flex;
+      margin-top: 29px;
+      align-items: center;
+      gap: 9px;
+      color: #fff;
+      padding: 9px 25px;
+      font: 700 20px/1.5 Montserrat, sans-serif;
+    }
+    
+    .submenu-container {
+      align-self: end;
+      display: flex;
+      margin-top: 18px;
+      width: 238px;
+      max-width: 100%;
+      gap: 3px;
+    }
+    
+    .submenu-indicator {
+      display: flex;
+      padding-bottom: 32px;
+      flex-direction: column;
+    }
+    
+    .indicator-line {
+      aspect-ratio: 0.03;
+      object-fit: contain;
+      width: 5px;
+    }
+    
+    .indicator-dot {
+      background-color: #fff;
+      border-radius: 50%;
+      height: 11px;
+      width: 11px;
+    }
+    
+    .submenu-items {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      color: #fff;
+      margin: auto 0;
+      font: 700 20px Montserrat, sans-serif;
+    }
+    
+    .submenu-item {
+      align-self: center;
+      display: flex;
+      width: 192px;
+      max-width: 100%;
+      gap: 9px;
+      line-height: 1.5;
+    }
+    
+    .active-submenu-item {
+      border-radius: 30px;
+      background-color: #8e8a8a;
+      display: flex;
+      margin-top: 21px;
+      gap: 9px;
+      padding: 10px 13px;
+    }
+    
+    .main-content-area {
+      display: flex;
+      flex-direction: column;
+      width: 75%;
+    }
+    
+    .header {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+    }
+    
+    .top-bar {
+      display: flex;
+      width: 100%;
+      gap: 40px 49px;
+      flex-wrap: wrap;
+    }
+    
+    .search-bar {
+      border-radius: 20px;
+      align-self: start;
+      display: flex;
+      gap: 18px;
+      color: #d9d9d9;
+      flex-grow: 1;
+      padding: 8px 18px;
+      font: 700 20px/1 Montserrat, sans-serif;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 40px;
+    }
+    
+    .user-profile {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .profile-picture {
+      background-color: #1e1e1e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      padding: 0 5px;
+    }
+    
+    .profile-image {
+      aspect-ratio: 1.03;
+      object-fit: contain;
+      width: 62px;
+    }
+    
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+      font: 20px/1 Montserrat, sans-serif;
+    }
+    
+    .user-name {
+      color: #000;
+      font-weight: 700;
+    }
+    
+    .user-id {
+      color: #000;
+      font-weight: 500;
+      margin-top: 5px;
+    }
+    
+    .page-title-container {
+      display: flex;
+      margin-top: 35px;
+      width: 100%;
+      gap: 20px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .page-title {
+      color: #000;
+      font-size: 32px;
+    }
+    
+    .breadcrumb {
+      align-self: start;
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      color: #1e1e1e;
+    }
+    
+    .home-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 25px;
+    }
+    
+    .main-content-box {
+      border-radius: 13px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      margin-top: 30px;
+      flex-direction: column;
+      padding: 36px 55px 16px 27px;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .content-title {
+      color: #000;
+      align-self: start;
+      margin-left: 11px;
+      font: 700 24px/1.2 Montserrat, sans-serif;
+    }
+    
+    .content-list {
+      color: #000;
+      align-self: start;
+      margin: 34px 0 0 46px;
+      font: 700 20px/1.5 Montserrat, sans-serif;
+    }
+    
+    .content-image {
+      aspect-ratio: 1.78;
+      object-fit: contain;
+      width: 856px;
+      align-self: center;
+      margin-top: 57px;
+      max-width: 100%;
+    }
+    
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      min-height: 464px;
+      margin-top: 112px;
+      width: 872px;
+      max-width: 100%;
+      align-items: start;
+      justify-content: center;
+      padding: 217px 2px;
+    }
+    
+    .background-image {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .overlay-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 30px;
+      margin-bottom: -36px;
+    }
+    
+    .footer {
+      background-color: #e8e8e8;
+      display: flex;
+      margin-top: 32px;
+      width: 100%;
+      gap: 20px;
+      color: #000;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 36px 80px;
+      font: 700 16px Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .content-wrapper {
+        max-width: 100%;
+      }
+    
+      .main-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+      }
+    
+      .sidebar {
+        width: 100%;
+      }
+    
+      .sidebar-content {
+        margin-top: 40px;
+        padding: 0 0 100px 20px;
+      }
+    
+      .logo-container {
+        margin-left: 6px;
+      }
+    
+      .menu-item {
+        margin: 40px 0 0 10px;
+      }
+    
+      .active-menu-item {
+        margin-right: 5px;
+        padding: 0 20px;
+      }
+    
+      .main-content-area {
+        width: 100%;
+      }
+    
+      .header {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    
+      .top-bar {
+        max-width: 100%;
+        margin-right: 6px;
+      }
+    
+      .search-bar {
+        max-width: 100%;
+      }
+    
+      .page-title-container {
+        max-width: 100%;
+        margin-right: 3px;
+      }
+    
+      .main-content-box {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    
+      .content-title {
+        margin-left: 10px;
+      }
+    
+      .content-list {
+        max-width: 100%;
+      }
+    
+      .content-image {
+        margin-top: 40px;
+      }
+    
+      .image-container {
+        margin-top: 40px;
+        padding: 100px 20px 100px 0;
+      }
+    
+      .overlay-icon {
+        margin-bottom: 10px;
+      }
+    
+      .footer {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    </style>
+    
+    <section class="core-value-section">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <aside class="sidebar">
+            <nav class="sidebar-content">
+              <div class="logo-container">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="IKNOW Logo" class="logo">
+                <span class="logo-text">IKNOW</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/54ddb38055df0b433e87cab007b20dc1494b496451a30895e03026b19a93fbc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Dashboard Icon" class="menu-icon">
+                <span>Dashboard</span>
+              </div>
+              <div class="active-menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/901186b27f4033e1f7e201da229e5708e9b37739c13726afc213c6fd566ed447?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Basic Knowledge Icon" class="menu-icon">
+                <span>Basic Knowledge</span>
+              </div>
+              <div class="submenu-container">
+                <div class="submenu-indicator">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e7fb737b401adecb00ee9eecb8abd5aec3309b4d4c1c8c647992fdc0a24d2146?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="indicator-line">
+                  <div class="indicator-dot"></div>
+                </div>
+                <div class="submenu-items">
+                  <div class="submenu-item">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f89f0385710b5be9d3b6bf890efd0972531c07b832b60f5454e6208dffd4960b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Catur Darma Astra Icon" class="menu-icon">
+                    <span>Catur Darma Astra</span>
+                  </div>
+                  <div class="active-submenu-item">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f89f0385710b5be9d3b6bf890efd0972531c07b832b60f5454e6208dffd4960b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Core Value Icon" class="menu-icon">
+                    <span>Core Value</span>
+                  </div>
+                </div>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/a4fff676a0e7a87e2900281f2b62edde2b030592fd6db3d6f60f422523a9c9dd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Training Event Icon" class="menu-icon">
+                <span>Training Event</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9269437ef8448d44434c32815bbaa790c2e79f067e6a30cddced5b96fdb0ebdf?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Company Event Icon" class="menu-icon">
+                <span>Company Event</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/cb8c8256ac85f9e83d505bca016d665a35fcad1503a48390952d9705cd1d43ab?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="E-Library Icon" class="menu-icon">
+                <span>E-Library</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b8cb7f4de5462e58fc175e422a08de6cb1d444e5dd16424e1759733e12cd099d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Team Icon" class="menu-icon">
+                <span>My Team</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/15f2ef5b194945a5ab4a78087929a5de46b57f54cc4fa94c37c9a254e7a6212a?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Data Icon" class="menu-icon">
+                <span>My Data</span>
+              </div>
+            </nav>
+          </aside>
+          <main class="main-content-area">
+            <header class="header">
+              <div class="top-bar">
+                <form class="search-bar" role="search">
+                  <label for="search-input" class="visually-hidden">Search</label>
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="search-icon">
+                  <input type="search" id="search-input" placeholder="Search" aria-label="Search">
+                </form>
+                <div class="user-profile">
+                  <div class="profile-picture">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/89dee585b2c9490464055fff7ca9a4f9a5d4f8551166d9090131d688725a4b62?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="User profile picture" class="profile-image">
+                  </div>
+                  <div class="user-info">
+                    <span class="user-name">Aula Wijaya</span>
+                    <span class="user-id">00359</span>
+                  </div>
+                </div>
+              </div>
+              <div class="page-title-container">
+                <h1 class="page-title">Core Value</h1>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/02c82341b9c8dc21699bcd0905e6a58d6c0b419afad03d1e9453112dd8a4a32d?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="" class="home-icon">
+                  <span>Home &gt; Article &gt; Core Value</span>
+                </nav>
+              </div>
+            </header>
+            <article class="main-content-box">
+              <h2 class="content-title">Tata Nilai Kita (Core Value)</h2>
+              <ul class="content-list">
+                <li>Terpercaya & Handal (Trustworthy and Reliable)</li>
+                <li>Fokus pada Customer (Customer Focus)</li>
+                <li>Semangat Keprimaan (Passion for Excellence)</li>
+                <li>Kerjasama (Team Work)</li>
+              </ul>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9a7d02d29a0bb85f1062c9d3631d0c6724a8444d759a5d096286d7526a8cb9b2?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Core Value Illustration 1" class="content-image">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/47886077be74349549fc3e8ce2aa6b746386006a67e2d30a6f1dc2efa264cd52?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Core Value Illustration 2" class="content-image">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/794743d7c2913d5f40411495f699fec71272e615cd1faa6c3ef65ee4db004341?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Core Value Illustration 3" class="content-image">
+              <div class="image-container">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/937d70065cdc76b921a14645b5ee9e346f52a112e9c2b6c4fc71e7a07b406fbd?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Background image" class="background-image">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9f3307a9ad1b3fe686efb1bf891ab6e4d0da3ede3cc2527a9a89f00cb9c177b1?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Overlay icon" class="overlay-icon">
+              </div>
+            </article>
+          </main>
+        </div>
+      </div>
+      <footer class="footer">
+        <p>Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" target="_blank">igp-astra.co.id</a>. All rights reserved.</p>
+        <p>Version 1.0.0</p>
+      </footer>
+    </section>

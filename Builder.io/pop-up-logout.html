@@ -1,0 +1,23 @@
+<style>
+    .image-container {
+      width: 100%;
+    }
+    
+    .responsive-image {
+      aspect-ratio: 2.44;
+      object-fit: contain;
+      object-position: center;
+      width: 100%;
+      border-radius: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .responsive-image {
+        max-width: 100%;
+      }
+    }
+    </style>
+    
+    <section class="image-container">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0f8dac930035436e5bbd3ae37e057d438e8f0df3744729722a8ab912b40cd7a8?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="responsive-image" alt="Description of the image" />
+    </section>

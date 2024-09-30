@@ -1,0 +1,341 @@
+<style>
+    .login-container {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: visible; /* Allow the logo to overflow */
+    padding: 100px 10px 110px 80px;
+    margin: 0 auto;
+    max-width: 1000px;
+    position: relative; /* Ensure relative positioning for absolute elements */    
+    }
+    
+    @media (max-width: 991px) {
+      .login-container {
+        padding: 50px 20px 80px 20px;
+      }
+    }
+    
+    .logo {
+    aspect-ratio: 1.76;
+    object-fit: contain;
+    object-position: center;
+    width: 130px;
+    max-width: 100%;
+    position: absolute; /* Position absolutely */
+    top: 20px; /* Adjust the top position */
+    right: 15%; /* Adjust the right position */
+    margin: 0;
+    }
+    
+    @media (max-width: 640px) {
+        .logo {
+        width: 100px;
+        top: 5px; /* Adjust top for smaller screens */
+        right: 5%; /* Adjust right for smaller screens */
+    }
+    }
+    
+    .welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns items to the left */
+    justify-content: center; /* Center vertically within the container */
+    padding-left: 20px; /* Adjust padding to move it slightly to the left */
+    width: 100%;
+    max-width: 90%;
+    align-self: center;
+    font-family: Montserrat, sans-serif;
+    color: #ef2e1f;
+    line-height: 0.4;
+    flex-wrap: wrap;
+    }
+
+    .welcome-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    justify-content: center;
+    margin-top: -70; /* Adjust to make it more centered vertically */
+    margin-left: 20px; /* Slightly move text to the left */
+    text-align: left; /* Keep text aligned to the left */
+    }
+
+    
+    @media (max-width: 991px) {
+      .welcome-section {
+        max-width: 100%;
+      }
+    }
+    
+    @media (max-width: 991px) {
+      .welcome-text {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    }
+    
+    .welcome-heading {
+    font-size: 38px;
+    font-weight: 700;
+    margin left: 50px;
+    margin-bottom: 10px; /* Reduce the space below the heading */
+    }
+
+    .welcome-subheading {
+    font-size: 20px;
+    font-weight: 400;
+    align-self: center;
+    margin-top: 5px; /* Reduce the space above the subheading */
+    white-space: nowrap; /* Ensure text stays on one line */
+    }
+    
+    @media (max-width: 991px) {
+      .welcome-heading {
+        max-width: 100%;
+        font-size: 40px;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .welcome-heading {
+        padding-top: 39px;
+        margin: 0 5px 0 4px;
+      }
+    }
+    
+    .welcome-subheading {
+      font-size: 23px;
+      font-weight: 400;
+      align-self: center;
+      margin left: 50px;
+      margin-top: 20px;
+    }
+    
+    .login-form-container {
+      align-self: flex-end;
+      width: 100%;
+      max-width: 1307px;
+    }
+    
+    @media (max-width: 991px) {
+      .login-form-container {
+        max-width: 100%;
+      }
+    }
+    
+    .login-form-wrapper {
+    gap: 40px; /* Increase the gap between form and image */
+    display: flex;
+    }
+
+    
+    @media (max-width: 991px) {
+    .login-form-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 200px; /* Significantly increase the gap between form and image */
+        width: 100%;
+        }
+    }
+    
+    .login-form-column {
+    width: 40%; /* Reduce form column width */
+    }
+
+    .image-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 45%;
+    margin-left: auto; /* Align the image column to the right */
+    position: relative; /* Keep relative positioning */   
+    }
+
+    @media (max-width: 991px) {
+    .image-column {
+        width: 100%;
+        margin-left: 50px; /* Adjust for smaller screens */
+    }
+    }
+
+    .login-form {
+    margin-top: 20px; /* Reduce the space between subheading and form */
+    border-radius: 20px;
+    background-color: #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    color: #ef2e1f;
+    width: 100%;
+    padding: 20px 30px;
+    font: 700 16px/0.4 Montserrat, sans-serif;
+    }
+
+
+    /* Remove borders from input fields */
+    .input-field, .password-field {
+    border: none; /* Remove border from input fields */
+    box-shadow: none; /* Remove any shadow that may resemble a border */
+    }
+
+    /* Remove borders from the button */
+    .login-button {
+    border: none; /* Remove button border */
+    box-shadow: none; /* Remove button shadow */
+    }
+
+    
+    @media (max-width: 991px) {
+      .login-form {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+    
+    .input-label {
+      align-self: flex-start;
+      margin-top: 15px;
+      text-align: center;
+    }
+    
+    .input-field {
+      border-radius: 40px;
+      background-color: #fff;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #a1a1a1;
+      font-weight: 600;
+      white-space: nowrap;
+      line-height: 2.4;
+      padding: 8px 10px;
+    }
+    
+    @media (max-width: 991px) {
+      .input-field {
+        max-width: 100%;
+        white-space: initial;
+        padding: 0 20px;
+      }
+    }
+    
+    .password-label {
+      align-self: flex-start;
+      margin-top: 30px;
+    }
+    
+    @media (max-width: 991px) {
+      .password-label {
+        margin-top: 40px;
+      }
+    }
+    
+    .password-field {
+      border-radius: 40px;
+      background-color: #fff;
+      margin-top: 19px;
+      font-size: 14px;
+      color: #a1a1a1;
+      font-weight: 600;
+      line-height: 2.4;
+      padding: 8px 10px;
+    }
+    
+    @media (max-width: 991px) {
+      .password-field {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    }
+    
+    .login-button {
+      border-radius: 20px;
+      background-color: #ef2e1f;
+      align-self: center;
+      width: 120px;
+      max-width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin: 25px 0 10px;
+      padding: 10px 20px;
+    }
+    
+    @media (max-width: 640px) {
+      .login-button {
+        padding-left: 28px;
+      }
+    }
+    
+    @media (max-width: 991px) {
+      .login-button {
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+    
+    .image-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 50%;
+    padding-left: 40px; /* Add padding to push the image to the right */
+    }
+
+    @media (max-width: 991px) {
+    .image-column {
+        width: 100%;
+        padding-left: 20px; /* Adjust for smaller screens */
+    }
+    }
+    
+    .login-image {
+    aspect-ratio: 0.89;
+    object-fit: contain;
+    object-position: center;
+    width: 75%;
+    flex-grow: 1;
+    margin-left: 70px;
+    margin-top: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .login-image {
+        max-width: 100%;
+        margin-top: 33px;
+      }
+      
+    }
+    </style>
+    
+    <section class="login-container">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/3a7df394902b7c427ba9175164512c0dea8b1c6be588c5513a0711e8083571d4?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="logo" alt="Company logo" />
+      <div class="welcome-section">
+        <div class="welcome-text">
+          <h1 class="welcome-heading">Welcome back!</h1>
+          <p class="welcome-subheading">
+            Please enter your details
+          </p>          
+        </div>
+      </div>
+      <div class="login-form-container">
+        <div class="login-form-wrapper">
+          <div class="login-form-column">
+            <form class="login-form">
+                <label for="username" class="input-label" style="display: block; text-align: center;">Username</label>
+                <input type="text" id="username" class="input-field" placeholder="Username" />
+                <label for="password" class="password-label" style="display: block; text-align: center;">Password</label>
+                <input type="password" id="password" class="password-field" placeholder="Your password must be at least 6 characters" />
+                <button type="submit" class="login-button">Log In</button>
+              </form>
+          </div>
+          <div class="image-column">
+            <div>
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/2bb6cb8742a9486d9b637373b2933641aaaef65516f356ab709e0c5371591e69?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" class="login-image" alt="Login illustration" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

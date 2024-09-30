@@ -1,0 +1,442 @@
+<style>
+    .user-profile {
+      background-color: #fff;
+      display: flex;
+      padding-top: 27px;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .content-wrapper {
+      align-self: center;
+      width: 100%;
+      max-width: 1383px;
+    }
+    
+    .main-content {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .sidebar {
+      border-radius: 20px;
+      background-color: #000;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: start;
+      color: #fff;
+      margin: 6px auto 0;
+      padding: 31px 18px 700px 39px;
+      font: 700 20px/1 Montserrat, sans-serif;
+    }
+    
+    .logo-container {
+      display: flex;
+      gap: 25px;
+      font-size: 32px;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    
+    .logo {
+      aspect-ratio: 0.99;
+      object-fit: contain;
+      object-position: center;
+      width: 87px;
+    }
+    
+    .logo-text {
+      margin: auto 0;
+    }
+    
+    .nav-item {
+      display: flex;
+      gap: 16px;
+      white-space: nowrap;
+      margin: 50px 0 0 10px;
+    }
+    
+    .nav-icon {
+      aspect-ratio: 0.96;
+      object-fit: contain;
+      object-position: center;
+      width: 50px;
+    }
+    
+    .nav-text {
+      margin: auto 0;
+    }
+    
+    .main-area {
+      display: flex;
+      flex-direction: column;
+      width: 75%;
+    }
+    
+    .header {
+      display: flex;
+      width: 100%;
+      gap: 40px 68px;
+      font-size: 20px;
+      line-height: 1;
+      flex-wrap: wrap;
+    }
+    
+    .search-bar {
+      border-radius: 20px;
+      align-self: start;
+      display: flex;
+      gap: 18px;
+      color: #d9d9d9;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      flex-basis: auto;
+      padding: 8px 18px;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 40px;
+    }
+    
+    .search-text {
+      align-self: start;
+      margin-top: 18px;
+      flex-basis: auto;
+      flex-grow: 1;
+    }
+    
+    .user-info {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .user-avatar {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 72px;
+    }
+    
+    .user-details {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    .user-name {
+      color: #000;
+      font-weight: 700;
+    }
+    
+    .user-id {
+      color: #000;
+      font-weight: 500;
+      align-self: start;
+      margin-top: 5px;
+    }
+    
+    .profile-header {
+      display: flex;
+      margin-top: 33px;
+      width: 100%;
+      align-items: start;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .profile-title {
+      display: flex;
+      margin-top: 6px;
+      gap: 16px;
+    }
+    
+    .profile-heading {
+      color: #000;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+      flex-grow: 1;
+    }
+    
+    .profile-subheading {
+      color: #000;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1;
+    }
+    
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 14px;
+      color: #1e1e1e;
+      font-weight: 700;
+      line-height: 1;
+      justify-content: start;
+    }
+    
+    .breadcrumb-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 25px;
+    }
+    
+    .profile-form {
+      border-radius: 13px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      margin-top: 23px;
+      width: 100%;
+      flex-direction: column;
+      font-weight: 700;
+      padding: 27px 42px;
+      border: 2px solid #d9d9d9;
+    }
+    
+    .form-content {
+      display: flex;
+      width: 100%;
+      gap: 20px;
+      line-height: 1;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .form-fields {
+      display: flex;
+      margin-top: 5px;
+      flex-direction: column;
+      align-items: start;
+      font-size: 20px;
+      color: #000;
+    }
+    
+    .form-field {
+      font-weight: 500;
+      line-height: 1;
+      margin-top: 31px;
+    }
+    
+    .avatar-section {
+      align-self: start;
+      display: flex;
+      gap: 8px;
+      font-size: 14px;
+      color: #fff;
+      white-space: nowrap;
+    }
+    
+    .avatar-icon {
+      aspect-ratio: 1.1;
+      object-fit: contain;
+      object-position: center;
+      width: 22px;
+    }
+    
+    .change-profile-btn {
+      border-radius: 30px;
+      background-color: #8e8a8a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      align-self: end;
+      display: flex;
+      margin-top: 32px;
+      gap: 9px;
+      font-size: 14px;
+      color: #fff;
+      line-height: 1;
+      padding: 5px 11px;
+    }
+    
+    .change-profile-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 20px;
+      align-self: start;
+    }
+    
+    .footer {
+      background-color: #e8e8e8;
+      display: flex;
+      margin-top: 391px;
+      width: 100%;
+      gap: 20px;
+      color: #000;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 36px 80px;
+      font: 700 16px Montserrat, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .content-wrapper {
+        max-width: 100%;
+      }
+    
+      .main-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    
+      .sidebar {
+        margin-top: 40px;
+        padding: 0 0 100px 20px;
+      }
+    
+      .logo-container,
+      .nav-item {
+        white-space: initial;
+      }
+    
+      .main-area {
+        width: 100%;
+        margin-top: 40px;
+      }
+    
+      .header {
+        max-width: 100%;
+        margin-right: 10px;
+      }
+    
+      .search-text {
+        max-width: 100%;
+      }
+    
+      .profile-header {
+        max-width: 100%;
+      }
+    
+      .profile-form {
+        max-width: 100%;
+        margin-right: 7px;
+        padding: 0 20px;
+      }
+    
+      .form-content {
+        max-width: 100%;
+      }
+    
+      .footer {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    </style>
+    
+    <section class="user-profile">
+      <div class="content-wrapper">
+        <div class="main-content">
+          <nav class="sidebar">
+            <div class="logo-container">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d74a45bbf7242d81bb551b26bfb6ec84087318599391347ac570e4fa6623f9b?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="IKNOW Logo" class="logo" />
+              <span class="logo-text">IKNOW</span>
+            </div>
+            <div class="nav-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/54ddb38055df0b433e87cab007b20dc1494b496451a30895e03026b19a93fbc5?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Dashboard Icon" class="nav-icon" />
+              <span class="nav-text">Dashboard</span>
+            </div>
+            <div class="nav-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/979c4517d7e753437a069ea7b98b10c736bf5532436a206475893ef5e168503e?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Basic Knowledge Icon" class="nav-icon" />
+              <span class="nav-text">Basic Knowledge</span>
+            </div>
+            <div class="nav-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1af76740561de625cb251ae099d9a63a6371e56b2f9dc59fbacce1ad635bdfa0?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Training Event Icon" class="nav-icon" />
+              <span class="nav-text">Training Event</span>
+            </div>
+            <div class="nav-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/98db792af54e8ed7388abda5afe6be45eaa36cf19a05ecf5e35fcc489e03671c?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Company Event Icon" class="nav-icon" />
+              <span class="nav-text">Company Event</span>
+            </div>
+            <div class="nav-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/debe6c23d82af9d6eef425b42fcfaa2783c1dc1f5952c1554cd75e00c7bb09ba?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="E-Library Icon" class="nav-icon" />
+              <span class="nav-text">E-Library</span>
+            </div>
+            <div class="nav-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2f5c60f68e45956e3ab10d851e2947a8ca6f1b6367d14454151f8d6242c352c9?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Team Icon" class="nav-icon" />
+              <span class="nav-text">My Team</span>
+            </div>
+            <div class="nav-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/79eceb3806e35eb61036660e43e0974b3fe99bdec738f7cd3090d8fb0dd846a1?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="My Data Icon" class="nav-icon" />
+              <span class="nav-text">My Data</span>
+            </div>
+          </nav>
+          <main class="main-area">
+            <header class="header">
+              <form class="search-bar" role="search">
+                <label for="search-input" class="visually-hidden">Search</label>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/95359ca329e3e9242591377827b8d97a3b675f79d0ace77975a98cb568acf484?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Search Icon" class="search-icon" />
+                <input type="search" id="search-input" class="search-text" placeholder="Search" />
+              </form>
+              <div class="user-info">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc9fe485dfabcd7f0bd220092e173c32ffe14d07481510386a822c418e9ef3a7?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="User Avatar" class="user-avatar" />
+                <div class="user-details">
+                  <span class="user-name">Aula Wijaya</span>
+                  <span class="user-id">00359</span>
+                </div>
+              </div>
+            </header>
+            <div class="profile-header">
+              <div class="profile-title">
+                <h1 class="profile-heading">Profile</h1>
+                <h2 class="profile-subheading">My Profile</h2>
+              </div>
+              <nav class="breadcrumb" aria-label="Breadcrumb">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5942379ba05e342f511434e1629c9da11ea9f9b3bf79a0c68a2fb921551638da?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Breadcrumb Icon" class="breadcrumb-icon" />
+                <span>Profile &gt; My Profile</span>
+              </nav>
+            </div>
+            <form class="profile-form">
+              <div class="form-content">
+                <div class="form-fields">
+                  <label for="username">Username</label>
+                  <input type="text" id="username" class="form-field" value="aula" />
+                  <label for="firstname">First Name</label>
+                  <input type="text" id="firstname" class="form-field" value="Aula" />
+                  <label for="lastname">Last Name</label>
+                  <input type="text" id="lastname" class="form-field" value="Wijaya" />
+                  <label for="email">Email</label>
+                  <input type="email" id="email" class="form-field" value="aula@localhost.com" />
+                  <label for="avatar">Avatar</label>
+                </div>
+                <div class="avatar-section">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b68c25bc8053b1bc03925ba8eb7736f5438ff084bf7544be58a3d74e78efaf37?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Current Avatar" class="avatar-icon" />
+                  <span>138</span>
+                </div>
+              </div>
+              <button type="submit" class="change-profile-btn">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/0466888c98315f149a3f0c36ca8a5a071f9d34f9b3d093fc29cf06214b405ce8?placeholderIfAbsent=true&apiKey=93701b3c0271468187f199c27bcd67ed" alt="Change Profile Icon" class="change-profile-icon" />
+                <span>CHANGE PROFILE</span>
+              </button>
+            </form>
+          </main>
+        </div>
+      </div>
+      <footer class="footer">
+        <p>Copyright © 2019 <a href="http://iknow.igp-astra.co.id/" target="_blank">igp-astra.co.id</a>. All rights reserved.</p>
+        <p>Version 1.0.0</p>
+      </footer>
+    </section>
